@@ -138,7 +138,7 @@ public class menuGeneral extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAcceder)
-                .addGap(38, 38, 38))
+                .addGap(40, 40, 40))
         );
 
         mAcercaDe.setText("Acerca de...");
