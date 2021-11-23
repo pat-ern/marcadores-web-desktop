@@ -103,7 +103,7 @@ public class menuGeneral extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setText("Inicio de Sesion");
+        jLabel1.setText("Inicio Sesion");
 
         jLabel2.setText("Ingresa tus credenciales");
 
