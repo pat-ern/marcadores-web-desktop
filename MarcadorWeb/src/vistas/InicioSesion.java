@@ -36,16 +36,19 @@ public class InicioSesion extends javax.swing.JFrame {
 
         jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblCorreo = new javax.swing.JLabel();
+        txtCorreo = new javax.swing.JTextField();
+        lblPass = new javax.swing.JLabel();
+        jpPass = new javax.swing.JPasswordField();
+        lblInicioSesion = new javax.swing.JLabel();
+        blbCredenciales = new javax.swing.JLabel();
         btnAcceder = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         mAcercaDe = new javax.swing.JMenu();
-        mSalir = new javax.swing.JMenu();
+        miAcercaDe = new javax.swing.JMenuItem();
+        mOpcion = new javax.swing.JMenu();
+        miCrearUsuario = new javax.swing.JMenuItem();
+        miSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
@@ -58,11 +61,9 @@ public class InicioSesion extends javax.swing.JFrame {
         jPanel2.setAlignmentX(0.0F);
         jPanel2.setAlignmentY(0.0F);
 
-        jLabel3.setText("CORREO ELECTRONICO:");
+        lblCorreo.setText("CORREO ELECTRONICO:");
 
-        jLabel4.setText("CONTRASEÑA: ");
-
-        jPasswordField1.setText("jPasswordField1");
+        lblPass.setText("CONTRASEÑA: ");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -71,32 +72,33 @@ public class InicioSesion extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPasswordField1)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jpPass)
+                    .addComponent(lblCorreo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblCorreo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(lblPass)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpPass, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setText("Inicio de Sesion");
+        lblInicioSesion.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblInicioSesion.setText("Inicio de Sesion");
 
-        jLabel2.setText("Ingresa tus credenciales");
+        blbCredenciales.setText("Ingresa tus credenciales");
 
         btnAcceder.setText("ACCEDER");
+        btnAcceder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAcceder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAccederActionPerformed(evt);
@@ -116,14 +118,14 @@ public class InicioSesion extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(73, 73, 73)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(blbCredenciales, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 33, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(94, 94, 94)
                 .addComponent(btnAcceder)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -131,9 +133,9 @@ public class InicioSesion extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblInicioSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(blbCredenciales)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -142,21 +144,37 @@ public class InicioSesion extends javax.swing.JFrame {
         );
 
         mAcercaDe.setText("Acerca de...");
-        mAcercaDe.addActionListener(new java.awt.event.ActionListener() {
+
+        miAcercaDe.setText("Acerca de la aplicacion");
+        miAcercaDe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mAcercaDeActionPerformed(evt);
+                miAcercaDeActionPerformed(evt);
             }
         });
+        mAcercaDe.add(miAcercaDe);
+
         jMenuBar1.add(mAcercaDe);
 
-        mSalir.setText("Salir");
-        mSalir.setToolTipText("Salir");
-        mSalir.addActionListener(new java.awt.event.ActionListener() {
+        mOpcion.setText("Opciones");
+        mOpcion.setToolTipText("");
+
+        miCrearUsuario.setText("Crear Nuevo Usuario");
+        miCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mSalirActionPerformed(evt);
+                miCrearUsuarioActionPerformed(evt);
             }
         });
-        jMenuBar1.add(mSalir);
+        mOpcion.add(miCrearUsuario);
+
+        miSalir.setText("Salir");
+        miSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSalirActionPerformed(evt);
+            }
+        });
+        mOpcion.add(miSalir);
+
+        jMenuBar1.add(mOpcion);
 
         setJMenuBar(jMenuBar1);
 
@@ -180,16 +198,29 @@ public class InicioSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccederActionPerformed
-        // TODO add your handling code here:
+        String correo="";
+        
+        //COMPROBAR QUE LOS DATOS DEL USUARIO SON CORRECTOS
+        
+        //Seleccionar Nombre de Usuario (sugerencia)
+        correo = txtCorreo.getText();
+        new VistaUsuario().setVisible(true);
+        
     }//GEN-LAST:event_btnAccederActionPerformed
 
-    private void mSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mSalirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_mSalirActionPerformed
+    private void miCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCrearUsuarioActionPerformed
+        dispose();
+        //IR A CREAR UN USUARIO
+        new CreacionUsuario().setVisible(true);
+    }//GEN-LAST:event_miCrearUsuarioActionPerformed
 
-    private void mAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mAcercaDeActionPerformed
-        JOptionPane.showMessageDialog(this, "Trabajando en ello...", "Acerca de", HEIGHT);
-    }//GEN-LAST:event_mAcercaDeActionPerformed
+    private void miAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAcercaDeActionPerformed
+        JOptionPane.showMessageDialog(this, "MENSAJE", "Acerca de...", HEIGHT);
+    }//GEN-LAST:event_miAcercaDeActionPerformed
+
+    private void miSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_miSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,17 +259,20 @@ public class InicioSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel blbCredenciales;
     private javax.swing.JButton btnAcceder;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jpPass;
+    private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblInicioSesion;
+    private javax.swing.JLabel lblPass;
     private javax.swing.JMenu mAcercaDe;
-    private javax.swing.JMenu mSalir;
+    private javax.swing.JMenu mOpcion;
+    private javax.swing.JMenuItem miAcercaDe;
+    private javax.swing.JMenuItem miCrearUsuario;
+    private javax.swing.JMenuItem miSalir;
+    private javax.swing.JTextField txtCorreo;
     // End of variables declaration//GEN-END:variables
 }
