@@ -5,6 +5,8 @@
  */
 package vistas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 56930
@@ -71,6 +73,11 @@ public class CreacionUsuario extends javax.swing.JFrame {
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("REGISTRARME");
         btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -184,6 +191,12 @@ public class CreacionUsuario extends javax.swing.JFrame {
         dispose();
         new InicioSesion().setVisible(true);
     }//GEN-LAST:event_btnIniciarSesion1ActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        JOptionPane.showMessageDialog(this, "Se creo al usuario correctamente", "Usuario guardado", JOptionPane.INFORMATION_MESSAGE);
+        dispose();
+        new InicioSesion().setVisible(true);
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
