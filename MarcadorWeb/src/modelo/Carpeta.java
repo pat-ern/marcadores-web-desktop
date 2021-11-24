@@ -14,16 +14,18 @@ import java.util.List;
  */
 public class Carpeta {
     
-    // declarar coleccion
+    // coleccion
     private List<Marcador> carpetaMarcadores;
     private String nombreCarpeta;
     private int idCarpeta; 
+    private String descCarpeta;
 
-    // declarar constructor
-    public Carpeta(String nombre, int idCarpeta) {
+    // constructor
+    public Carpeta(String nombreCarpeta, int idCarpeta, String descCarpeta) {
         carpetaMarcadores = new ArrayList<>();
         this.nombreCarpeta=nombreCarpeta;
         this.idCarpeta=idCarpeta;
+        this.descCarpeta=descCarpeta;
     }
     
     // metodos

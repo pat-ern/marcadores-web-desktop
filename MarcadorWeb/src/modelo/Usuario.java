@@ -15,15 +15,17 @@ public class Usuario {
     private String nombreUsuario;
     private String clave;
     private String correo;
+    private String descUsuario;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombreUsuario, String clave, String correo) {
+    public Usuario(int idUsuario, String nombreUsuario, String clave, String correo, String descUsuario) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.clave = clave;
         this.correo = correo;
+        this.descUsuario = descUsuario;
     }
 
     public int getIdUsuario() {
@@ -58,11 +60,18 @@ public class Usuario {
         this.correo = correo;
     }
 
+    public String getDescUsuario() {
+        return descUsuario;
+    }
+
+    public void setDescUsuario(String descUsuario) {
+        this.descUsuario = descUsuario;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", clave=" + clave + ", correo=" + correo + '}';
+        return "Usuario{" + "idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", clave=" + clave + ", correo=" + correo + ", descUsuario=" + descUsuario + '}';
     }
-    
     
     
 }
