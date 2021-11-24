@@ -5,6 +5,7 @@
  */
 package vistas;
 
+import java.awt.Color;
 import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.JOptionPane;
 
@@ -66,7 +67,23 @@ public class InicioSesion extends javax.swing.JFrame {
 
         lblCorreo.setText("CORREO ELECTRONICO:");
 
+        txtCorreo.setForeground(new java.awt.Color(153, 153, 153));
+        txtCorreo.setText("correo@gmail.com");
+        txtCorreo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCorreoFocusGained(evt);
+            }
+        });
+
         lblPass.setText("CONTRASEÑA: ");
+
+        jpPass.setForeground(new java.awt.Color(153, 153, 153));
+        jpPass.setText("pordefecto");
+        jpPass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jpPassFocusGained(evt);
+            }
+        });
 
         btnAcceder.setText("ACCEDER");
         btnAcceder.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -79,6 +96,12 @@ public class InicioSesion extends javax.swing.JFrame {
         jLabel1.setText("¿No tienes cuenta?");
 
         tbtRegistrate.setText("Registrate");
+        tbtRegistrate.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tbtRegistrate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbtRegistrateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -225,11 +248,14 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void btnAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccederActionPerformed
 
+        
         if (validarVacio(txtCorreo.getText())) {
             lblAlerta.setText("El correo está vacío.");
+            txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
         } else {
             if (validarLargoPass(jpPass.getPassword()) < 6) {
                 lblAlerta.setText("La contraseña debe tener mínimo 6 caracteres.");
+                jpPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
             } else {
                 lblAlerta.setText(" ");
                 dispose();
@@ -255,6 +281,21 @@ public class InicioSesion extends javax.swing.JFrame {
     private void miSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_miSalirActionPerformed
+
+    //Al ganar el foco
+    private void txtCorreoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoFocusGained
+        txtCorreo.setText("");
+        txtCorreo.setForeground(Color.black);
+    }//GEN-LAST:event_txtCorreoFocusGained
+
+    private void jpPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPassFocusGained
+        jpPass.setText("");
+        jpPass.setForeground(Color.black);
+    }//GEN-LAST:event_jpPassFocusGained
+
+    private void tbtRegistrateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbtRegistrateActionPerformed
+        new CreacionUsuario().setVisible(true);
+    }//GEN-LAST:event_tbtRegistrateActionPerformed
 
     /**
      * @param args the command line arguments
