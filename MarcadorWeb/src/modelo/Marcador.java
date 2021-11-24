@@ -13,22 +13,33 @@ import java.util.Date;
  */
 public class Marcador {
     
+    private int idMarcador;
     private String nombreMarcador;
     private String url;
-    private int idMarcador;
     private Date fechaCreacion;
     private Date fechaUltimoUso;
-    //private iconoMarcador
+    private String descMarcador;
+    private Usuario usuario;
 
     public Marcador() {
     }
 
-    public Marcador(String nombreMarcador, String url, int idMarcador, Date fechaCreacion, Date fechaUltimoUso) {
+    public Marcador(int idMarcador, String nombreMarcador, String url, Date fechaCreacion, Date fechaUltimoUso, String descMarcador, Usuario usuario) {
+        this.idMarcador = idMarcador;
         this.nombreMarcador = nombreMarcador;
         this.url = url;
-        this.idMarcador = idMarcador;
         this.fechaCreacion = fechaCreacion;
         this.fechaUltimoUso = fechaUltimoUso;
+        this.descMarcador = descMarcador;
+        this.usuario = usuario;
+    }
+
+    public int getIdMarcador() {
+        return idMarcador;
+    }
+
+    public void setIdMarcador(int idMarcador) {
+        this.idMarcador = idMarcador;
     }
 
     public String getNombreMarcador() {
@@ -47,14 +58,6 @@ public class Marcador {
         this.url = url;
     }
 
-    public int getIdMarcador() {
-        return idMarcador;
-    }
-
-    public void setIdMarcador(int idMarcador) {
-        this.idMarcador = idMarcador;
-    }
-
     public Date getFechaCreacion() {
         return fechaCreacion;
     }
@@ -71,11 +74,25 @@ public class Marcador {
         this.fechaUltimoUso = fechaUltimoUso;
     }
 
+    public String getDescMarcador() {
+        return descMarcador;
+    }
+
+    public void setDescMarcador(String descMarcador) {
+        this.descMarcador = descMarcador;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
     public String toString() {
-        return "Marcador{" + "nombreMarcador=" + nombreMarcador + ", url=" + url + ", idMarcador=" + idMarcador + ", fechaCreacion=" + fechaCreacion + ", fechaUltimoUso=" + fechaUltimoUso + '}';
+        return "Marcador{" + "idMarcador=" + idMarcador + ", nombreMarcador=" + nombreMarcador + ", url=" + url + ", fechaCreacion=" + fechaCreacion + ", fechaUltimoUso=" + fechaUltimoUso + ", descMarcador=" + descMarcador + ", usuario=" + usuario + '}';
     }
-    
-    
     
 }
