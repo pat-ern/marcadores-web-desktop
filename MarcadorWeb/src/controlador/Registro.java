@@ -291,4 +291,47 @@ public class Registro {
             return false;
         }
     }
+    
+    public boolean editarMarcador(Marcador marcador) {
+
+        List<Marcador> lista = new ArrayList<>();
+
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "UPDATE marcador SET nombreMarcador = '"+marcador.getNombreMarcador()+"', url = '"+marcador.getUrl()+"', fechaUltimoUso = '"+new Date()+"', descMarcador = '"+marcador.getDescMarcador()+"', WHERE idMarcador = '" + marcador.getIdMarcador();
+            PreparedStatement stmt = cnx.prepareStatement(query);
+
+            ResultSet rs = stmt.executeQuery(); //select
+
+            if (rs.next()) {
+                Marcador marc = new Marcador();
+                marc.setIdMarcador(rs.getInt("idMarcador"));
+                marc.setNombreMarcador(rs.getString("nombreMarcador"));
+                marc.setUrl(rs.getString("url"));
+                marc.setFechaCreacion(rs.getDate("fechaCreacion"));
+                marc.setFechaUltimoUso(rs.getDate("fechaUltimoUso"));
+                marc.setDescMarcador(rs.getString("descMarcador"));
+                lista.add(marc);
+            }
+
+            rs.close();
+            stmt.close();
+            cnx.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error SQL al validar si marcador existe" + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error al validar si marcador existe" + e.getMessage());
+        }
+
+        if (lista.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    
 }
