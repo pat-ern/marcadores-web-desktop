@@ -335,7 +335,7 @@ public class InicioSesion extends javax.swing.JFrame {
     
     //Pierde el foco
     private void txtCorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoFocusLost
-        var correo = txtCorreo.getText();
+        correo = txtCorreo.getText();
         if(correo.length()>0){
             txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         }
