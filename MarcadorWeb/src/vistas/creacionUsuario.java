@@ -5,6 +5,7 @@
  */
 package vistas;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,9 +14,10 @@ import javax.swing.JOptionPane;
  */
 public class CreacionUsuario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form creacionUsuario
-     */
+    String nombre;
+    String correo;
+    String pass, pass2;
+
     public CreacionUsuario() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -41,9 +43,10 @@ public class CreacionUsuario extends javax.swing.JFrame {
         lblPass = new javax.swing.JLabel();
         jpPass = new javax.swing.JPasswordField();
         btnRegistrar = new javax.swing.JButton();
+        lblAlerta = new javax.swing.JLabel();
         lblTituloCrear = new javax.swing.JLabel();
         lblCuentaLista = new javax.swing.JLabel();
-        btnIniciarSesion1 = new javax.swing.JButton();
+        lblIniciar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Creacion Usuario");
@@ -62,11 +65,23 @@ public class CreacionUsuario extends javax.swing.JFrame {
 
         lblPass2.setText("REPITA LA CONTRASEÑA:");
 
+        jpPass2.setForeground(new java.awt.Color(153, 153, 153));
         jpPass2.setText("jPasswordField1");
+        jpPass2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jpPass2FocusGained(evt);
+            }
+        });
 
         lblPass.setText("CONTRASEÑA:");
 
+        jpPass.setForeground(new java.awt.Color(153, 153, 153));
         jpPass.setText("jPasswordField1");
+        jpPass.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jpPassFocusGained(evt);
+            }
+        });
 
         btnRegistrar.setBackground(new java.awt.Color(0, 0, 0));
         btnRegistrar.setFont(new java.awt.Font("Segoe UI Black", 0, 10)); // NOI18N
@@ -79,6 +94,8 @@ public class CreacionUsuario extends javax.swing.JFrame {
             }
         });
 
+        lblAlerta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -87,21 +104,20 @@ public class CreacionUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(66, 66, 66)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jpPass, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtNombre)
-                                .addComponent(lblCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtCorreo)
-                                .addComponent(lblPass2, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
-                                .addComponent(jpPass2))))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblPass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jpPass, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                            .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCorreo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPass2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                            .addComponent(jpPass2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblAlerta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addComponent(btnRegistrar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +138,9 @@ public class CreacionUsuario extends javax.swing.JFrame {
                 .addComponent(lblPass2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpPass2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnRegistrar)
                 .addGap(27, 27, 27))
         );
@@ -135,11 +153,13 @@ public class CreacionUsuario extends javax.swing.JFrame {
         lblCuentaLista.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblCuentaLista.setText("¿Ya tienes una?");
 
-        btnIniciarSesion1.setText("Iniciar Sesion");
-        btnIniciarSesion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnIniciarSesion1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarSesion1ActionPerformed(evt);
+        lblIniciar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblIniciar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIniciar.setText("Iniciar Sesion");
+        lblIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblIniciar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblIniciarMouseClicked(evt);
             }
         });
 
@@ -156,7 +176,7 @@ public class CreacionUsuario extends javax.swing.JFrame {
                         .addGap(74, 74, 74)
                         .addComponent(lblCuentaLista)
                         .addGap(18, 18, 18)
-                        .addComponent(btnIniciarSesion1)))
+                        .addComponent(lblIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -167,8 +187,8 @@ public class CreacionUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCuentaLista)
-                    .addComponent(btnIniciarSesion1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(lblIniciar))
+                .addGap(19, 19, 19)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -187,16 +207,44 @@ public class CreacionUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnIniciarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion1ActionPerformed
-        dispose();
-        new InicioSesion().setVisible(true);
-    }//GEN-LAST:event_btnIniciarSesion1ActionPerformed
-
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        JOptionPane.showMessageDialog(this, "Se creo al usuario correctamente", "Usuario guardado", JOptionPane.INFORMATION_MESSAGE);
+        nombre = txtNombre.getText();
+        correo = txtCorreo.getText();
+        pass = new String(jpPass.getPassword());
+        pass2 = new String(jpPass2.getPassword());
+        if (nombre.length() == 0 || correo.length() == 0 || pass.length() == 0 || pass2.length() == 0 || pass.equals("jPasswordField1") || pass2.equals("jPasswordField1")) {
+            lblAlerta.setText("Debe completar todos los campos");
+        } else if (pass.length() < 6 || pass2.length() < 6) {
+            lblAlerta.setText("Las contraseñas deben ser mas largas");
+        } else if (correo.contains("@")==false) {
+            lblAlerta.setText("Correo debe contener un @!");
+        } else {
+            lblAlerta.setText("");
+            if (pass.equals(pass2)) {
+                //Caso correcto GUARDAR EN LA BD
+                JOptionPane.showMessageDialog(this, "Se creo al usuario " + nombre, "Usuario guardado", JOptionPane.INFORMATION_MESSAGE);
+                dispose();
+                new InicioSesion().setVisible(true);
+            } else {
+                lblAlerta.setText("Las contraseñas no coinciden");
+            }
+        }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void lblIniciarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIniciarMouseClicked
         dispose();
         new InicioSesion().setVisible(true);
-    }//GEN-LAST:event_btnRegistrarActionPerformed
+    }//GEN-LAST:event_lblIniciarMouseClicked
+
+    private void jpPassFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPassFocusGained
+        jpPass.setText("");
+        jpPass.setForeground(Color.black);
+    }//GEN-LAST:event_jpPassFocusGained
+
+    private void jpPass2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPass2FocusGained
+        jpPass2.setText("");
+        jpPass2.setForeground(Color.black);
+    }//GEN-LAST:event_jpPass2FocusGained
 
     /**
      * @param args the command line arguments
@@ -235,14 +283,15 @@ public class CreacionUsuario extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnIniciarSesion1;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField jpPass;
     private javax.swing.JPasswordField jpPass2;
+    private javax.swing.JLabel lblAlerta;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblCuentaLista;
+    private javax.swing.JLabel lblIniciar;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblPass2;

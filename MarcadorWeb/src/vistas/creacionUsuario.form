@@ -55,7 +55,7 @@
                           <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                           <Component id="lblCuentaLista" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnIniciarSesion1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblIniciar" min="-2" pref="95" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="40" max="32767" attributes="0"/>
@@ -70,9 +70,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblCuentaLista" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnIniciarSesion1" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="lblIniciar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -96,19 +96,16 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lblPass" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jpPass" alignment="0" min="-2" pref="295" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="lblNombre" max="32767" attributes="0"/>
-                                      <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblCorreo" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCorreo" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="lblPass2" alignment="0" pref="295" max="32767" attributes="0"/>
-                                      <Component id="jpPass2" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lblPass" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jpPass" alignment="0" pref="295" max="32767" attributes="0"/>
+                                  <Component id="lblNombre" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblCorreo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtCorreo" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblPass2" alignment="0" pref="295" max="32767" attributes="0"/>
+                                  <Component id="jpPass2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblAlerta" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -116,7 +113,7 @@
                               <Component id="btnRegistrar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -139,7 +136,9 @@
                       <Component id="lblPass2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jpPass2" min="-2" pref="32" max="-2" attributes="0"/>
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="lblAlerta" min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnRegistrar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
@@ -168,8 +167,14 @@
             </Component>
             <Component class="javax.swing.JPasswordField" name="jpPass2">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="99" red="99" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jPasswordField1"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jpPass2FocusGained"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblPass">
               <Properties>
@@ -178,8 +183,14 @@
             </Component>
             <Component class="javax.swing.JPasswordField" name="jpPass">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="99" red="99" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jPasswordField1"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jpPassFocusGained"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnRegistrar">
               <Properties>
@@ -200,6 +211,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAlerta">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="0"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -223,15 +239,19 @@
             <Property name="text" type="java.lang.String" value="&#xbf;Ya tienes una?"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnIniciarSesion1">
+        <Component class="javax.swing.JLabel" name="lblIniciar">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Iniciar Sesion"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIniciarSesion1ActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblIniciarMouseClicked"/>
           </Events>
         </Component>
       </SubComponents>
