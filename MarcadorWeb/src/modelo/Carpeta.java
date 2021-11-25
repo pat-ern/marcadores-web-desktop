@@ -23,9 +23,9 @@ public class Carpeta {
     // constructor
     public Carpeta(String nombreCarpeta, int idCarpeta, String descCarpeta) {
         carpetaMarcadores = new ArrayList<>();
-        this.nombreCarpeta=nombreCarpeta;
-        this.idCarpeta=idCarpeta;
-        this.descCarpeta=descCarpeta;
+        this.nombreCarpeta = nombreCarpeta;
+        this.idCarpeta = idCarpeta;
+        this.descCarpeta = descCarpeta;
     }
     
     // metodos
