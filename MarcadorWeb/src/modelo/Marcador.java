@@ -33,8 +33,6 @@ public class Marcador {
         this.descMarcador = descMarcador;
     }
 
-
-    
     // const sin ID
     public Marcador(String nombreMarcador, String url, Date fechaCreacion, Date fechaUltimoUso, String descMarcador, Usuario usuario) {
         this.nombreMarcador = nombreMarcador;
