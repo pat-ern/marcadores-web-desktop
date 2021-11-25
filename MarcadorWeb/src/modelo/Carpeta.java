@@ -21,6 +21,12 @@ public class Carpeta {
     private String nombreCarpeta;
     private String descCarpeta;
     private Usuario usuario;
+    private int idUsuario;
+    
+    
+    public Carpeta() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     // constructor con ID
 
@@ -32,6 +38,15 @@ public class Carpeta {
         this.usuario = usuario;
     }
     
+    // constructor con ID USUARIO sin LIST
+
+    public Carpeta(int idCarpeta, String nombreCarpeta, String descCarpeta, int idUsuario) {
+        this.idCarpeta = idCarpeta;
+        this.nombreCarpeta = nombreCarpeta;
+        this.descCarpeta = descCarpeta;
+        this.idUsuario = idUsuario;
+    }
+    
     // constructor sin ID
 
     public Carpeta(List<Marcador> carpetaMarcadores, String nombreCarpeta, String descCarpeta, Usuario usuario) {
@@ -40,6 +55,8 @@ public class Carpeta {
         this.descCarpeta = descCarpeta;
         this.usuario = usuario;
     }
+
+
     
     // getters y setters
 
@@ -74,6 +91,16 @@ public class Carpeta {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+    
+    
     
     
     // metodos genericos

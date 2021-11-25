@@ -392,5 +392,64 @@ public class Registro {
         }
     }
     
+    public boolean agregarCarpeta(Carpeta car) {
+
+        Usuario usuario = new Usuario();
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "INSERT INTO carpeta(nombreCarpeta, descCarpeta, usuario) VALUES (?,?,?)";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setString(1, car.getNombreCarpeta());
+            stmt.setString(2, car.getDescCarpeta());
+            stmt.setInt(3, car.getUsuario().getIdUsuario());
+
+            stmt.executeUpdate();//insert
+            stmt.close();
+
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Error SQL al agregar carpeta " + e.getMessage());
+            return false;
+        } catch (Exception e) {
+            System.out.println("Error al agregar carpeta " + e.getMessage());
+            return false;
+        }
+    }
+
+    public Carpeta consultarCarpeta(Carpeta car) {
+
+        List<Carpeta> lista = new ArrayList<>();
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "SELECT idCarpeta, nombreCarpeta, descCarpeta, usuario FROM carpeta WHERE idCarpeta = '" + car.getIdCarpeta() + "' order by idCarpeta";
+            PreparedStatement stmt2 = cnx.prepareStatement(query);
+
+            ResultSet rs = stmt2.executeQuery(); //select
+            if (rs.next()) {
+                Carpeta car1 = new Carpeta();
+                car1.setIdCarpeta(rs.getInt("idCarpeta"));
+                car1.setNombreCarpeta(rs.getString("nombreCarpeta"));
+                car1.setDescCarpeta(rs.getString("descCarpeta"));
+                car1.setIdUsuario(rs.getInt("usuario"));
+
+                lista.add(car1);
+            }
+            rs.close();
+            stmt2.close();
+            cnx.close();
+            return lista.get(0);
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar usuario" + e.getMessage());
+            return lista.get(0);
+        } catch (Exception e) {
+            System.out.println("Error al listar usuario" + e.getMessage());
+            return lista.get(0);
+        }
+    }
+    
     
 }
