@@ -365,6 +365,8 @@ public class Registro {
     }
     
     public boolean editarMarcador(Marcador marcador) {
+        
+        // constructor Marcador() tipo: new Marcador (idMarcador, nombreMarcador, url, descMarcador);
 
         List<Marcador> lista = new ArrayList<>();
 
