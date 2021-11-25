@@ -24,6 +24,18 @@ public class Marcador {
     public Marcador() {
     }
 
+    // const sin FECHAS NI USUARIO
+
+    public Marcador(int idMarcador, String nombreMarcador, String url, String descMarcador) {
+        this.idMarcador = idMarcador;
+        this.nombreMarcador = nombreMarcador;
+        this.url = url;
+        this.descMarcador = descMarcador;
+    }
+
+
+    
+    // const sin ID
     public Marcador(String nombreMarcador, String url, Date fechaCreacion, Date fechaUltimoUso, String descMarcador, Usuario usuario) {
         this.nombreMarcador = nombreMarcador;
         this.url = url;
@@ -32,6 +44,20 @@ public class Marcador {
         this.descMarcador = descMarcador;
         this.usuario = usuario;
     }
+    
+    // const con ID
+
+    public Marcador(int idMarcador, String nombreMarcador, String url, Date fechaCreacion, Date fechaUltimoUso, String descMarcador, Usuario usuario) {
+        this.idMarcador = idMarcador;
+        this.nombreMarcador = nombreMarcador;
+        this.url = url;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaUltimoUso = fechaUltimoUso;
+        this.descMarcador = descMarcador;
+        this.usuario = usuario;
+    }
+    
+   // setters getters
 
     public int getIdMarcador() {
         return idMarcador;

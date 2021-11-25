@@ -16,17 +16,70 @@ public class Carpeta {
     
     // coleccion
     private List<Marcador> carpetaMarcadores;
-    private String nombreCarpeta;
+    
     private int idCarpeta; 
+    private String nombreCarpeta;
     private String descCarpeta;
+    private Usuario usuario;
 
-    // constructor
-    public Carpeta(String nombreCarpeta, int idCarpeta, String descCarpeta) {
-        carpetaMarcadores = new ArrayList<>();
-        this.nombreCarpeta = nombreCarpeta;
+    // constructor con ID
+
+    public Carpeta(List<Marcador> carpetaMarcadores, int idCarpeta, String nombreCarpeta, String descCarpeta, Usuario usuario) {
+        this.carpetaMarcadores = carpetaMarcadores;
         this.idCarpeta = idCarpeta;
+        this.nombreCarpeta = nombreCarpeta;
+        this.descCarpeta = descCarpeta;
+        this.usuario = usuario;
+    }
+    
+    // constructor sin ID
+
+    public Carpeta(List<Marcador> carpetaMarcadores, String nombreCarpeta, String descCarpeta, Usuario usuario) {
+        this.carpetaMarcadores = carpetaMarcadores;
+        this.nombreCarpeta = nombreCarpeta;
+        this.descCarpeta = descCarpeta;
+        this.usuario = usuario;
+    }
+    
+    // getters y setters
+
+    public int getIdCarpeta() {
+        return idCarpeta;
+    }
+
+    public void setIdCarpeta(int idCarpeta) {
+        this.idCarpeta = idCarpeta;
+    }
+
+    public String getNombreCarpeta() {
+        return nombreCarpeta;
+    }
+
+    public void setNombreCarpeta(String nombreCarpeta) {
+        this.nombreCarpeta = nombreCarpeta;
+    }
+
+    public String getDescCarpeta() {
+        return descCarpeta;
+    }
+
+    public void setDescCarpeta(String descCarpeta) {
         this.descCarpeta = descCarpeta;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
+    
+    // metodos genericos
+    
+    
+    
     
     // metodos
 

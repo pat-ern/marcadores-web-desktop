@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.Carpeta;
 import modelo.Marcador;
 import modelo.Usuario;
 
@@ -216,7 +217,7 @@ public class Registro {
         }
     }
 
-    public List<Marcador> listarMarcadoresPorUsuario(Usuario usr) {
+    public List<Marcador> listarTodosLosMarcPorUsuario(Usuario usr) {
 
         List<Marcador> lista = new ArrayList<>();
 
@@ -251,6 +252,77 @@ public class Registro {
         return lista;
     }
 
+    public List<Marcador> listarMarcadoresDeCarpeta(Carpeta car) {
+
+        List<Marcador> lista = new ArrayList<>();
+
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, usuario, carpeta FROM marcador WHERE carpeta = '" + car.getIdCarpeta() + "' order by idMarcador";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+
+            ResultSet rs = stmt.executeQuery(); //select
+
+            while (rs.next()) {
+                Marcador marc = new Marcador();
+                marc.setIdMarcador(rs.getInt("idMarcador"));
+                marc.setNombreMarcador(rs.getString("nombreMarcador"));
+                marc.setUrl(rs.getString("url"));
+                marc.setFechaCreacion(rs.getDate("fechaCreacion"));
+                marc.setFechaUltimoUso(rs.getDate("fechaUltimoUso"));
+                marc.setDescMarcador(rs.getString("descMarcador"));
+
+                lista.add(marc);
+            }
+            rs.close();
+            stmt.close();
+            cnx.close();
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar marcadores pot carpeta" + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error al listar marcadores pot carpeta" + e.getMessage());
+        }
+        return lista;
+    }
+    
+    public List<Marcador> listarMarcadoresSinCarpeta(Usuario usr) {
+
+        List<Marcador> lista = new ArrayList<>();
+
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, usuario FROM marcador WHERE carpeta = NULL AND usuario = '"+usr.getIdUsuario()+"' order by idMarcador";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+
+            ResultSet rs = stmt.executeQuery(); //select
+
+            while (rs.next()) {
+                Marcador marc = new Marcador();
+                marc.setIdMarcador(rs.getInt("idMarcador"));
+                marc.setNombreMarcador(rs.getString("nombreMarcador"));
+                marc.setUrl(rs.getString("url"));
+                marc.setFechaCreacion(rs.getDate("fechaCreacion"));
+                marc.setFechaUltimoUso(rs.getDate("fechaUltimoUso"));
+                marc.setDescMarcador(rs.getString("descMarcador"));
+
+                lista.add(marc);
+            }
+            rs.close();
+            stmt.close();
+            cnx.close();
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar marcadores pot carpeta" + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error al listar marcadores pot carpeta" + e.getMessage());
+        }
+        return lista;
+    }
+    
+    
     public boolean validarMarcadorExiste(Marcador marcador) {
 
         List<Marcador> lista = new ArrayList<>();
@@ -259,7 +331,7 @@ public class Registro {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, usuario FROM marcador WHERE url = '" + marcador.getUrl() + "' order by idMarcador";
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, usuario FROM marcador WHERE idMarcador = '" + marcador.getIdMarcador()+ "' order by idMarcador";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery(); //select
@@ -300,7 +372,7 @@ public class Registro {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "UPDATE marcador SET nombreMarcador = '"+marcador.getNombreMarcador()+"', url = '"+marcador.getUrl()+"', fechaUltimoUso = '"+new Date()+"', descMarcador = '"+marcador.getDescMarcador()+"' WHERE idMarcador = '" + marcador.getIdMarcador();
+            String query = "UPDATE marcador SET nombreMarcador = '"+marcador.getNombreMarcador()+"', url = '"+marcador.getUrl()+"', descMarcador = '"+marcador.getDescMarcador()+"' WHERE idMarcador = '"+marcador.getIdMarcador()+"'";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery(); //select
