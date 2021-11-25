@@ -300,7 +300,7 @@ public class Registro {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "UPDATE marcador SET nombreMarcador = '"+marcador.getNombreMarcador()+"', url = '"+marcador.getUrl()+"', fechaUltimoUso = '"+new Date()+"', descMarcador = '"+marcador.getDescMarcador()+"', WHERE idMarcador = '" + marcador.getIdMarcador();
+            String query = "UPDATE marcador SET nombreMarcador = '"+marcador.getNombreMarcador()+"', url = '"+marcador.getUrl()+"', fechaUltimoUso = '"+new Date()+"', descMarcador = '"+marcador.getDescMarcador()+"' WHERE idMarcador = '" + marcador.getIdMarcador();
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery(); //select
