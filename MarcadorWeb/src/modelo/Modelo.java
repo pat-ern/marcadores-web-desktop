@@ -38,12 +38,8 @@ public class Modelo {
 
         Marcador marc2 = new Marcador (27, "canciones verano", "youtube223dfas.com/dfjoven-comun2341asd12312dasd", "temas piolas pa estudiar");
         
-        if (rg.validarMarcadorExiste(marc2)){
-            System.out.println("El marcador no existe");
-        }else{
-            rg.editarMarcador(marc2);
-            System.out.println("Se ha modificado el marcador"); 
-        }
+        rg.editarMarcador(marc2);
+
 
         
     }

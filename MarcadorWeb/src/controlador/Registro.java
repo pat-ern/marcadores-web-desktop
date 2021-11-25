@@ -375,32 +375,17 @@ public class Registro {
             String query = "UPDATE marcador SET nombreMarcador = '"+marcador.getNombreMarcador()+"', url = '"+marcador.getUrl()+"', descMarcador = '"+marcador.getDescMarcador()+"' WHERE idMarcador = '"+marcador.getIdMarcador()+"'";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
-            ResultSet rs = stmt.executeQuery(); //select
-
-            if (rs.next()) {
-                Marcador marc = new Marcador();
-                marc.setIdMarcador(rs.getInt("idMarcador"));
-                marc.setNombreMarcador(rs.getString("nombreMarcador"));
-                marc.setUrl(rs.getString("url"));
-                marc.setFechaCreacion(rs.getDate("fechaCreacion"));
-                marc.setFechaUltimoUso(rs.getDate("fechaUltimoUso"));
-                marc.setDescMarcador(rs.getString("descMarcador"));
-                lista.add(marc);
-            }
-
-            rs.close();
+            stmt.execute(); //update
             stmt.close();
             cnx.close();
+            
+            return true;
 
         } catch (SQLException e) {
-            System.out.println("Error SQL al validar si marcador existe" + e.getMessage());
+            System.out.println("Error SQL al editar marcador " + e.getMessage());
+            return false;
         } catch (Exception e) {
-            System.out.println("Error al validar si marcador existe" + e.getMessage());
-        }
-
-        if (lista.isEmpty()) {
-            return true;
-        } else {
+            System.out.println("Error al editar marcador " + e.getMessage());
             return false;
         }
     }
