@@ -392,6 +392,27 @@ public class Registro {
         }
     }
     
+    public boolean borrarMarcador(Marcador marcador) {
+
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "DELETE FROM marcador WHERE idMarcador = '"+marcador.getIdMarcador()+"'";            
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.execute(); //update
+            stmt.close();
+            cnx.close();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Error SQL al editar marcador " + e.getMessage());
+            return false;
+        } catch (Exception e) {
+            System.out.println("Error al editar marcador " + e.getMessage());
+            return false;
+        }
+    }
+    
     public boolean agregarCarpeta(Carpeta car) {
 
         Usuario usuario = new Usuario();
@@ -425,7 +446,7 @@ public class Registro {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "SELECT idCarpeta, nombreCarpeta, descCarpeta, usuario FROM carpeta WHERE idCarpeta = '" + car.getIdCarpeta() + "' order by idCarpeta";
+            String query = "SELECT idCarpeta, nombreCarpeta, descCarpeta, usuario FROM carpeta WHERE idCarpeta = '" + car.getIdCarpeta() + "'";
             PreparedStatement stmt2 = cnx.prepareStatement(query);
 
             ResultSet rs = stmt2.executeQuery(); //select
@@ -448,6 +469,30 @@ public class Registro {
         } catch (Exception e) {
             System.out.println("Error al listar usuario" + e.getMessage());
             return lista.get(0);
+        }
+    }
+    
+    
+        public boolean borrarCarpeta(Carpeta car) {
+
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "DELETE FROM carpeta WHERE idCarpeta = '" + car.getIdCarpeta() + "'";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+
+            stmt.executeUpdate();//insert
+            stmt.close();
+            cnx.close();
+            
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Error SQL al borrar carpeta " + e.getMessage());
+            return false;
+        } catch (Exception e) {
+            System.out.println("Error al borrar carpeta " + e.getMessage());
+            return false;
         }
     }
     

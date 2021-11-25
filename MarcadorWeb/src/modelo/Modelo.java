@@ -28,19 +28,23 @@ public class Modelo {
 
         Marcador marc1 = new Marcador("paginas para estudiar", "google.com", new Date(), new Date(), "prueba final", rg.consultarUsuario(usr1));
 
-        if (rg.validarMarcadorExiste(marc1)){
-            rg.agregarMarcador(marc1);
-            System.out.println("Se ha agregado el marcador");
-        }else{
-            System.out.println("Este marcador ya existe"); 
-        }
-        }
+//        if (rg.validarMarcadorExiste(marc1)){
+//            rg.agregarMarcador(marc1);
+//            System.out.println("Se ha agregado el marcador");
+//        }else{
+//            System.out.println("Este marcador ya existe"); 
+//        }
 
-        Marcador marc2 = new Marcador (27, "canciones verano", "youtube223dfas.com/dfjoven-comun2341asd12312dasd", "temas piolas pa estudiar");
+
+//        Marcador marc2 = new Marcador (2,"cancasdiones verano", "youtubadse223dfas.com/dfjoven-comun2341asd12312dasd", "temas piolas pa sdaestudiar");
+//        
+//        rg.borrarMarcador(marc2);
+
+        Carpeta car1 = new Carpeta(2, "paginas peliculas", "", rg.consultarUsuario(usr1));
         
-        rg.editarMarcador(marc2);
-
-
+        rg.borrarCarpeta(car1);
+        
+        }
         
     }
 }
