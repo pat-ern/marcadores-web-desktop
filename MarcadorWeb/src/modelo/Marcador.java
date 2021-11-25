@@ -24,8 +24,7 @@ public class Marcador {
     public Marcador() {
     }
 
-    public Marcador(int idMarcador, String nombreMarcador, String url, Date fechaCreacion, Date fechaUltimoUso, String descMarcador, Usuario usuario) {
-        this.idMarcador = idMarcador;
+    public Marcador(String nombreMarcador, String url, Date fechaCreacion, Date fechaUltimoUso, String descMarcador, Usuario usuario) {
         this.nombreMarcador = nombreMarcador;
         this.url = url;
         this.fechaCreacion = fechaCreacion;

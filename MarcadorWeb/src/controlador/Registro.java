@@ -21,25 +21,50 @@ import modelo.Usuario;
  */
 public class Registro {
 
-    // metodos registro usuarios
-    
-    //agregar usuarios
-    public boolean agregarUsuario(Usuario usr) {
+    // METODOS DE USUARIO
+    public Usuario agregarConsultarUsuario(Usuario usr) {
+
+        Usuario usuario = new Usuario();
         try {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "INSERT INTO usuario(idUsuario, nombreUsuario, clave, correo, descUsuario) VALUES (?,?,?,?,?)";
+            String query = "INSERT INTO usuario(nombreUsuario, clave, correo) VALUES (?,?,?)";
             PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setInt(1, usr.getIdUsuario());
-            stmt.setString(2, usr.getNombreUsuario());
-            stmt.setString(3, usr.getClave());
-            stmt.setString(4, usr.getCorreo());
-            stmt.setString(5, usr.getDescUsuario());
+            stmt.setString(1, usr.getNombreUsuario());
+            stmt.setString(2, usr.getClave());
+            stmt.setString(3, usr.getCorreo());
 
             stmt.executeUpdate();//insert
             stmt.close();
-            cnx.close();
+
+            usuario = this.consultarUsuario(usr);
+            return usuario;
+        } catch (SQLException e) {
+            System.out.println("Error SQL al agregar usuario" + e.getMessage());
+            return usuario;
+        } catch (Exception e) {
+            System.out.println("Error al agregar usuario" + e.getMessage());
+            return usuario;
+        }
+    }
+
+    public boolean agregarUsuario(Usuario usr) {
+
+        Usuario usuario = new Usuario();
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "INSERT INTO usuario(nombreUsuario, clave, correo) VALUES (?,?,?)";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            stmt.setString(1, usr.getNombreUsuario());
+            stmt.setString(2, usr.getClave());
+            stmt.setString(3, usr.getCorreo());
+
+            stmt.executeUpdate();//insert
+            stmt.close();
+
             return true;
         } catch (SQLException e) {
             System.out.println("Error SQL al agregar usuario" + e.getMessage());
@@ -50,8 +75,73 @@ public class Registro {
         }
     }
 
-    //validar que el usuario no exista
-    public List<Usuario> buscarUsuariosPorId(String idUsuario) {
+    public Usuario consultarUsuario(Usuario usr) {
+
+        List<Usuario> lista = new ArrayList<>();
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "SELECT idUsuario, nombreUsuario, clave, correo FROM usuario WHERE correo = '" + usr.getCorreo() + "' order by idUsuario";
+            PreparedStatement stmt2 = cnx.prepareStatement(query);
+
+            ResultSet rs = stmt2.executeQuery(); //select
+            if (rs.next()) {
+                Usuario usr1 = new Usuario();
+                usr1.setIdUsuario(rs.getInt("idUsuario"));
+                usr1.setNombreUsuario(rs.getString("nombreUsuario"));
+                usr1.setClave(rs.getString("clave"));
+                usr1.setCorreo(rs.getString("correo"));
+
+                lista.add(usr1);
+            }
+            rs.close();
+            stmt2.close();
+            cnx.close();
+            return lista.get(0);
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar usuario" + e.getMessage());
+            return lista.get(0);
+        } catch (Exception e) {
+            System.out.println("Error al listar usuario" + e.getMessage());
+            return lista.get(0);
+        }
+    }
+
+    public Usuario activarSesionUsuario(String correo) {
+
+        List<Usuario> lista = new ArrayList<>();
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "SELECT idUsuario, nombreUsuario, clave, correo FROM usuario WHERE correo = '" + correo + "' order by idUsuario";
+            PreparedStatement stmt2 = cnx.prepareStatement(query);
+
+            ResultSet rs = stmt2.executeQuery(); //select
+            if (rs.next()) {
+                Usuario usr1 = new Usuario();
+                usr1.setIdUsuario(rs.getInt("idUsuario"));
+                usr1.setNombreUsuario(rs.getString("nombreUsuario"));
+                usr1.setClave(rs.getString("clave"));
+                usr1.setCorreo(rs.getString("correo"));
+
+                lista.add(usr1);
+            }
+            rs.close();
+            stmt2.close();
+            cnx.close();
+            return lista.get(0);
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar usuario" + e.getMessage());
+            return lista.get(0);
+        } catch (Exception e) {
+            System.out.println("Error al listar usuario" + e.getMessage());
+            return lista.get(0);
+        }
+    }
+
+    public boolean validarUsuarioExiste(String correo) {
 
         List<Usuario> lista = new ArrayList<>();
 
@@ -59,9 +149,8 @@ public class Registro {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "SELECT idUsuario, nombreUsuario, clave, correo, descUsuario FROM usuario WHERE idUsuario = ? order by idUsuario";
+            String query = "SELECT idUsuario, nombreUsuario, clave, correo FROM usuario WHERE correo = '" + correo + "' order by idUsuario";
             PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setString(1, idUsuario);
 
             ResultSet rs = stmt.executeQuery(); //select
 
@@ -71,7 +160,6 @@ public class Registro {
                 usr.setNombreUsuario(rs.getString("nombreUsuario"));
                 usr.setClave(rs.getString("clave"));
                 usr.setCorreo(rs.getString("correo"));
-                usr.setDescUsuario("descUsuario");
 
                 lista.add(usr);
             }
@@ -79,48 +167,56 @@ public class Registro {
             stmt.close();
             cnx.close();
         } catch (SQLException e) {
-            System.out.println("Error SQL al obtener usuario por idUsuario" + e.getMessage());
+            System.out.println("Error SQL al obtener usuario por correo" + e.getMessage());
         } catch (Exception e) {
-            System.out.println("Error al obtener usuario por idUsuario" + e.getMessage());
+            System.out.println("Error al obtener usuario por correo" + e.getMessage());
         }
-        return lista;
+
+        if (lista.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    
-    // metodos registro marcadores
-    
-    //agregar
+
+    // METODOS MARCADORES
     public boolean agregarMarcador(Marcador marc) {
         Date fecha1, fecha2;
+
         try {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "INSERT INTO marcador(idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador) VALUES (?,?,?,?,?,?)";
+            String query = "INSERT INTO marcador(nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, usuario) VALUES (?,?,?,?,?,?)";
             PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setInt(1, marc.getIdMarcador());
-            stmt.setString(2, marc.getNombreMarcador());
-            stmt.setString(3, marc.getUrl());
+
+            stmt.setString(1, marc.getNombreMarcador());
+            stmt.setString(2, marc.getUrl());
+
             fecha1 = marc.getFechaCreacion();
-            stmt.setDate(4, new java.sql.Date(fecha1.getTime()));
+            stmt.setDate(3, new java.sql.Date(fecha1.getTime()));
             fecha2 = marc.getFechaUltimoUso();
-            stmt.setDate(5, new java.sql.Date(fecha2.getTime()));
-            stmt.setString(6, marc.getDescMarcador());
+            stmt.setDate(4, new java.sql.Date(fecha2.getTime()));
+
+            stmt.setString(5, marc.getDescMarcador());
+
+            stmt.setInt(6, marc.getUsuario().getIdUsuario());
 
             stmt.executeUpdate();//insert
             stmt.close();
             cnx.close();
             return true;
+
         } catch (SQLException e) {
-            System.out.println("Error SQL al agregar vehículo" + e.getMessage());
+            System.out.println("Error SQL al agregar marcador" + e.getMessage());
             return false;
         } catch (Exception e) {
-            System.out.println("Error al agregar vehículo" + e.getMessage());
+            System.out.println("Error al agregar marcador" + e.getMessage());
             return false;
         }
     }
 
-    //listar todos los marcadores
-    public List<Marcador> listarTotalMarcadores() {
+    public List<Marcador> listarMarcadoresPorUsuario(Usuario usr) {
 
         List<Marcador> lista = new ArrayList<>();
 
@@ -128,7 +224,7 @@ public class Registro {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador FROM marcador order by idMarcador";
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, usuario FROM marcador WHERE usuario = '" + usr.getIdUsuario() + "' order by idMarcador";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery(); //select
@@ -155,8 +251,7 @@ public class Registro {
         return lista;
     }
 
-    //listar con filtro
-    public List<Marcador> listarMarcPorUsuario(int idUsuario) {
+    public boolean validarMarcadorExiste(Marcador marcador) {
 
         List<Marcador> lista = new ArrayList<>();
 
@@ -164,12 +259,12 @@ public class Registro {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, usuario FROM marcador WHERE usuario = "+idUsuario+" order by patente";
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, usuario FROM marcador WHERE url = '" + marcador.getUrl() + "' order by idMarcador";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery(); //select
 
-            while (rs.next()) {
+            if (rs.next()) {
                 Marcador marc = new Marcador();
                 marc.setIdMarcador(rs.getInt("idMarcador"));
                 marc.setNombreMarcador(rs.getString("nombreMarcador"));
@@ -177,58 +272,23 @@ public class Registro {
                 marc.setFechaCreacion(rs.getDate("fechaCreacion"));
                 marc.setFechaUltimoUso(rs.getDate("fechaUltimoUso"));
                 marc.setDescMarcador(rs.getString("descMarcador"));
-
                 lista.add(marc);
             }
+
             rs.close();
             stmt.close();
             cnx.close();
+
         } catch (SQLException e) {
-            System.out.println("Error SQL al listar vehículos" + e.getMessage());
+            System.out.println("Error SQL al validar si marcador existe" + e.getMessage());
         } catch (Exception e) {
-            System.out.println("Error al listar vehículos" + e.getMessage());
+            System.out.println("Error al validar si marcador existe" + e.getMessage());
         }
-        return lista;
+
+        if (lista.isEmpty()) {
+            return true;
+        } else {
+            return false;
+        }
     }
-
-    //validar que el vehículo no exista
-//    public List<Vehiculo> buscarPatenteVehiculos(String patente) {
-//
-//        List<Vehiculo> lista = new ArrayList<>();
-//
-//        try {
-//            ConeccionBD conexion1 = new ConeccionBD();
-//            Connection cnx = conexion1.obtenerConexion();
-//
-//            String query = "SELECT patente, acno, km, marca, trasmision, revisionDia, fechaUltimaRev FROM vehiculo WHERE patente = ? order by patente";
-//            PreparedStatement stmt = cnx.prepareStatement(query);
-//            stmt.setString(1, patente);
-//
-//            ResultSet rs = stmt.executeQuery(); //select
-//
-//            if (rs.next()) {
-//                Vehiculo auto = new Vehiculo();
-//                auto.setPatente(rs.getString("patente"));
-//                auto.setAcno(rs.getInt("acno"));
-//                auto.setKm(rs.getInt("km"));
-//                auto.setMarca(rs.getString("marca"));
-//                auto.setTrasmision(rs.getString("trasmision"));
-//                auto.setRevisionDia(rs.getBoolean("revisionDia"));
-//                auto.setFechaUltimaRev(rs.getDate("fechaUltimaRev"));
-//
-//                lista.add(auto);
-//            }
-//            rs.close();
-//            stmt.close();
-//            cnx.close();
-//        } catch (SQLException e) {
-//            System.out.println("Error SQL al obtener vehículo por patente" + e.getMessage());
-//        } catch (Exception e) {
-//            System.out.println("Error al obtener vehículo por patente" + e.getMessage());
-//        }
-//        return lista;
-//    }
 }
-
-    
-
