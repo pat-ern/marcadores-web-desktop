@@ -19,19 +19,37 @@ public class Marcador {
     private Date fechaCreacion;
     private Date fechaUltimoUso;
     private String descMarcador;
+    private String colorMarcador;
     private Usuario usuario;
+    private Carpeta carpeta;
 
     public Marcador() {
     }
 
-    public Marcador(String nombreMarcador, String url, Date fechaCreacion, Date fechaUltimoUso, String descMarcador, Usuario usuario) {
+    // const sin ID / SIN CARPETA
+    public Marcador(String nombreMarcador, String url, Date fechaCreacion, Date fechaUltimoUso, String descMarcador, String colorMarcador, Usuario usuario) {
         this.nombreMarcador = nombreMarcador;
         this.url = url;
         this.fechaCreacion = fechaCreacion;
         this.fechaUltimoUso = fechaUltimoUso;
         this.descMarcador = descMarcador;
+        this.colorMarcador = colorMarcador;
         this.usuario = usuario;
     }
+    
+    // const sin ID / CON CARPETA
+    public Marcador(String nombreMarcador, String url, Date fechaCreacion, Date fechaUltimoUso, String descMarcador, String colorMarcador, Usuario usuario, Carpeta carpeta) {
+        this.nombreMarcador = nombreMarcador;
+        this.url = url;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaUltimoUso = fechaUltimoUso;
+        this.descMarcador = descMarcador;
+        this.colorMarcador = colorMarcador;
+        this.usuario = usuario;
+        this.carpeta = carpeta;
+    }
+
+   // setters getters
 
     public int getIdMarcador() {
         return idMarcador;
@@ -81,6 +99,14 @@ public class Marcador {
         this.descMarcador = descMarcador;
     }
 
+    public String getColorMarcador() {
+        return colorMarcador;
+    }
+
+    public void setColorMarcador(String colorMarcador) {
+        this.colorMarcador = colorMarcador;
+    }
+    
     public Usuario getUsuario() {
         return usuario;
     }
@@ -89,9 +115,16 @@ public class Marcador {
         this.usuario = usuario;
     }
 
-    @Override
-    public String toString() {
-        return "Marcador{" + "idMarcador=" + idMarcador + ", nombreMarcador=" + nombreMarcador + ", url=" + url + ", fechaCreacion=" + fechaCreacion + ", fechaUltimoUso=" + fechaUltimoUso + ", descMarcador=" + descMarcador + ", usuario=" + usuario + '}';
+    public Carpeta getCarpeta() {
+        return carpeta;
     }
+
+    public void setCarpeta(Carpeta carpeta) {
+        this.carpeta = carpeta;
+    }
+    
+    
+
+    
     
 }
