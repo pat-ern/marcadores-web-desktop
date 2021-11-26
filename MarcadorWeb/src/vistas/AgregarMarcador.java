@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import modelo.Marcador;
 import modelo.Usuario;
 
 /**
@@ -234,6 +235,9 @@ public class AgregarMarcador extends javax.swing.JFrame {
         url = txtUrl.getText();
         descripcion = txtDescripcion.getText();
         color = cboColor.getSelectedItem().toString();
+        
+        //Correo del usuario
+        String correoDelUsuario=InicioSesion.txtCorreo.getText();
 
         Date fecha = new Date();
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
@@ -254,11 +258,14 @@ public class AgregarMarcador extends javax.swing.JFrame {
             }
         } else {
 
-            //Buscar al usuario en la BD
             Registro rg = new Registro();
-
-            //consultar usuario
             Usuario usr1 = new Usuario();
+            
+            //Lo busco por el correo en la BD
+            usr1 = rg.activarSesionUsuario(correoDelUsuario);
+            
+            //Marcador marc1 = new Marcador("paginas para estudiar", "google.com", new Date(), new Date(), "prueba final", "Lila", rg.consultarUsuario(usr1), rg.consultarCarpeta(car1));
+
 
             //new VistaUsuario().setVisible(true);
             //VistaUsuario.lblUsuario.setText(usr1.getNombreUsuario());
