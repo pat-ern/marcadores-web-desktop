@@ -110,8 +110,6 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        lblPl1.getAccessibleContext().setAccessibleName("");
-
         pl2.setBackground(new java.awt.Color(255, 255, 204));
         pl2.setPreferredSize(new java.awt.Dimension(90, 90));
 
@@ -628,9 +626,13 @@ public class VistaUsuario extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         new AgregarMarcador().setVisible(true);
+        //AgregarMarcador.txtNombreMarcador.getText();
         AgregarMarcador marcador = new AgregarMarcador();//revisar
         String nombreMarcador = marcador.nombreMarcador;
         //lblNombreMarcador.setText(nombreMarcador);
+        
+        //new VistaUsuario().setVisible(true);
+        //VistaUsuario.lblUsuario.setText(usr1.getNombreUsuario());
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
@@ -700,7 +702,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblPl9;
     public static javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblUsuarioIcon;
-    private javax.swing.JPanel pl1;
+    public static javax.swing.JPanel pl1;
     private javax.swing.JPanel pl10;
     private javax.swing.JPanel pl11;
     private javax.swing.JPanel pl12;

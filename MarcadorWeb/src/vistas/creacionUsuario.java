@@ -290,7 +290,7 @@ public class CreacionUsuario extends javax.swing.JFrame {
                 //Buscar al usuario en la BD
                 Registro rg = new Registro();
 
-                Usuario usr1 = new Usuario(nombre, pass, correo);
+                Usuario usr1 = new Usuario(nombre, pass, correo,genero);
 
                 //consultar usuario
                 if (rg.validarUsuarioExiste(correo)) {
