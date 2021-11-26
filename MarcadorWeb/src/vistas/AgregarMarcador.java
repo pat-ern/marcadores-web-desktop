@@ -267,7 +267,9 @@ public class AgregarMarcador extends javax.swing.JFrame {
             Usuario usr1 = rg.activarSesionUsuario(correoDelUsuario);
             System.out.println(usr1.toString());
 
-            Carpeta car1 = new Carpeta(nombreMarcador, descripcion, usr1);
+            Carpeta car1 = new Carpeta("Default", "Carpeta por defecto del usuario", usr1); //anadir
+            
+            rg.agregarCarpeta(car1); // se agrega carpeta a base de datos con una ID
             
             Marcador marc1 = new Marcador(nombreMarcador, url, new Date(), new Date(), descripcion, color, usr1, rg.consultarCarpeta(car1));
             System.out.println(marc1.toString());
@@ -411,194 +413,259 @@ public class AgregarMarcador extends javax.swing.JFrame {
         switch (valor) {
             case 1:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl1.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl1.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl1.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl1.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        
+                        break;
                 }
                 break;
             case 2:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl2.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl2.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl2.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl2.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 3:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl3.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl3.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl3.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl3.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 4:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl4.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl4.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl4.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl4.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 5:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl5.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl5.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl5.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl5.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 6:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl6.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl6.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl6.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl6.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 7:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl7.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl7.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl7.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl7.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 8:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl8.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl8.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl8.setBackground(new Color(204, 255, 204));
-                    default ->
-                        VistaUsuario.pl8.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
+                    default:
+                        VistaUsuario.pl8.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo
+                        break;
                 }
                 break;
             case 9:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl9.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl9.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl9.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl9.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 10:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl10.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl10.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl10.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl10.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 11:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl11.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl11.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl11.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl11.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 12:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl12.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl12.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl12.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl12.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 13:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl13.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl13.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl13.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl13.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 14:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl14.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl14.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl14.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl14.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 15:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl15.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl15.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl15.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl15.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             case 16:
                 switch (color) {
-                    case "Lila" ->
+                    case "Lila":
                         VistaUsuario.pl16.setBackground(new Color(204, 204, 255));
-                    case "Rosa" ->
+                        break;
+                    case "Rosa":
                         VistaUsuario.pl16.setBackground(new Color(255, 153, 204));
-                    case "Verde" ->
+                        break;
+                    case "Verde":
                         VistaUsuario.pl16.setBackground(new Color(204, 255, 204));
-                    default ->
+                        break;
+                    default:
                         VistaUsuario.pl16.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
+                        break;
                 }
                 break;
             default:
