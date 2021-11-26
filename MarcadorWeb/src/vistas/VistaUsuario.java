@@ -20,7 +20,7 @@ import modelo.Usuario;
  * @author 56930
  */
 public class VistaUsuario extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form VistaUsuario
      */
@@ -45,13 +45,13 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl2 = new javax.swing.JPanel();
         lblPl2 = new javax.swing.JLabel();
         pl4 = new javax.swing.JPanel();
-        lblPl5 = new javax.swing.JLabel();
+        lblPl4 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         lblFriltros = new javax.swing.JTextField();
         pl8 = new javax.swing.JPanel();
         lblPl9 = new javax.swing.JLabel();
-        pl7 = new javax.swing.JPanel();
-        lblPl4 = new javax.swing.JLabel();
+        pl3 = new javax.swing.JPanel();
+        lblPl3 = new javax.swing.JLabel();
         pl6 = new javax.swing.JPanel();
         lblPl7 = new javax.swing.JLabel();
         pl5 = new javax.swing.JPanel();
@@ -72,7 +72,7 @@ public class VistaUsuario extends javax.swing.JFrame {
         lblPl15 = new javax.swing.JLabel();
         pl13 = new javax.swing.JPanel();
         lblPl14 = new javax.swing.JLabel();
-        pl17 = new javax.swing.JPanel();
+        pl7 = new javax.swing.JPanel();
         lblPl8 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnEliminar = new javax.swing.JButton();
@@ -88,7 +88,7 @@ public class VistaUsuario extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        pl1.setBackground(new java.awt.Color(204, 204, 255));
+        pl1.setBackground(new java.awt.Color(255, 255, 255));
         pl1.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -110,7 +110,7 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl2.setBackground(new java.awt.Color(255, 255, 204));
+        pl2.setBackground(new java.awt.Color(255, 255, 255));
         pl2.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -132,10 +132,10 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl4.setBackground(new java.awt.Color(204, 255, 204));
+        pl4.setBackground(new java.awt.Color(255, 255, 255));
         pl4.setPreferredSize(new java.awt.Dimension(90, 90));
 
-        lblPl5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout pl4Layout = new javax.swing.GroupLayout(pl4);
         pl4.setLayout(pl4Layout);
@@ -143,13 +143,13 @@ public class VistaUsuario extends javax.swing.JFrame {
             pl4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pl4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblPl5, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                .addComponent(lblPl4, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
         );
         pl4Layout.setVerticalGroup(
             pl4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pl4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblPl5, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                .addComponent(lblPl4, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -157,7 +157,7 @@ public class VistaUsuario extends javax.swing.JFrame {
 
         lblFriltros.setText("Filtros:");
 
-        pl8.setBackground(new java.awt.Color(204, 255, 204));
+        pl8.setBackground(new java.awt.Color(255, 255, 255));
         pl8.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -178,28 +178,28 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl7.setBackground(new java.awt.Color(255, 153, 204));
-        pl7.setPreferredSize(new java.awt.Dimension(90, 90));
+        pl3.setBackground(new java.awt.Color(255, 255, 255));
+        pl3.setPreferredSize(new java.awt.Dimension(90, 90));
 
-        lblPl4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout pl7Layout = new javax.swing.GroupLayout(pl7);
-        pl7.setLayout(pl7Layout);
-        pl7Layout.setHorizontalGroup(
-            pl7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pl7Layout.createSequentialGroup()
+        javax.swing.GroupLayout pl3Layout = new javax.swing.GroupLayout(pl3);
+        pl3.setLayout(pl3Layout);
+        pl3Layout.setHorizontalGroup(
+            pl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pl3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblPl4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblPl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        pl7Layout.setVerticalGroup(
-            pl7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pl7Layout.createSequentialGroup()
+        pl3Layout.setVerticalGroup(
+            pl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pl3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblPl4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        pl6.setBackground(new java.awt.Color(255, 255, 204));
+        pl6.setBackground(new java.awt.Color(255, 255, 255));
         pl6.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -220,7 +220,7 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl5.setBackground(new java.awt.Color(204, 204, 255));
+        pl5.setBackground(new java.awt.Color(255, 255, 255));
         pl5.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -241,7 +241,7 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl12.setBackground(new java.awt.Color(204, 255, 204));
+        pl12.setBackground(new java.awt.Color(255, 255, 255));
         pl12.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -262,7 +262,7 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl11.setBackground(new java.awt.Color(255, 153, 204));
+        pl11.setBackground(new java.awt.Color(255, 255, 255));
         pl11.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -283,7 +283,7 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl10.setBackground(new java.awt.Color(255, 255, 204));
+        pl10.setBackground(new java.awt.Color(255, 255, 255));
         pl10.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -304,7 +304,7 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl9.setBackground(new java.awt.Color(204, 204, 255));
+        pl9.setBackground(new java.awt.Color(255, 255, 255));
         pl9.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -325,7 +325,7 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl16.setBackground(new java.awt.Color(204, 255, 204));
+        pl16.setBackground(new java.awt.Color(255, 255, 255));
         pl16.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -346,7 +346,7 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl15.setBackground(new java.awt.Color(255, 153, 204));
+        pl15.setBackground(new java.awt.Color(255, 255, 255));
         pl15.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -367,7 +367,7 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl14.setBackground(new java.awt.Color(255, 255, 204));
+        pl14.setBackground(new java.awt.Color(255, 255, 255));
         pl14.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -388,7 +388,7 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl13.setBackground(new java.awt.Color(204, 204, 255));
+        pl13.setBackground(new java.awt.Color(255, 255, 255));
         pl13.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -409,22 +409,22 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pl17.setBackground(new java.awt.Color(255, 153, 204));
-        pl17.setPreferredSize(new java.awt.Dimension(90, 90));
+        pl7.setBackground(new java.awt.Color(255, 255, 255));
+        pl7.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        javax.swing.GroupLayout pl17Layout = new javax.swing.GroupLayout(pl17);
-        pl17.setLayout(pl17Layout);
-        pl17Layout.setHorizontalGroup(
-            pl17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pl17Layout.createSequentialGroup()
+        javax.swing.GroupLayout pl7Layout = new javax.swing.GroupLayout(pl7);
+        pl7.setLayout(pl7Layout);
+        pl7Layout.setHorizontalGroup(
+            pl7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pl7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblPl8, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
         );
-        pl17Layout.setVerticalGroup(
-            pl17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pl17Layout.createSequentialGroup()
+        pl7Layout.setVerticalGroup(
+            pl7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pl7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblPl8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -458,10 +458,10 @@ public class VistaUsuario extends javax.swing.JFrame {
                         .addGap(52, 52, 52))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(pl7, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(pl3, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                             .addComponent(pl11, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                             .addComponent(pl15, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                            .addComponent(pl17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
+                            .addComponent(pl7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
                         .addGap(89, 89, 89)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -483,13 +483,13 @@ public class VistaUsuario extends javax.swing.JFrame {
                     .addComponent(pl4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pl7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pl8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pl6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pl5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pl17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pl7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pl9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -642,37 +642,37 @@ public class VistaUsuario extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaUsuario().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(VistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(VistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(VistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(VistaUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new VistaUsuario().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
@@ -684,39 +684,39 @@ public class VistaUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JTextField lblFriltros;
-    private javax.swing.JLabel lblPl1;
-    private javax.swing.JLabel lblPl10;
-    private javax.swing.JLabel lblPl11;
-    private javax.swing.JLabel lblPl12;
-    private javax.swing.JLabel lblPl13;
-    private javax.swing.JLabel lblPl14;
-    private javax.swing.JLabel lblPl15;
-    private javax.swing.JLabel lblPl16;
-    private javax.swing.JLabel lblPl17;
-    private javax.swing.JLabel lblPl2;
-    private javax.swing.JLabel lblPl4;
-    private javax.swing.JLabel lblPl5;
-    private javax.swing.JLabel lblPl6;
-    private javax.swing.JLabel lblPl7;
-    private javax.swing.JLabel lblPl8;
-    private javax.swing.JLabel lblPl9;
+    public static javax.swing.JLabel lblPl1;
+    public static javax.swing.JLabel lblPl10;
+    public static javax.swing.JLabel lblPl11;
+    public static javax.swing.JLabel lblPl12;
+    public static javax.swing.JLabel lblPl13;
+    public static javax.swing.JLabel lblPl14;
+    public static javax.swing.JLabel lblPl15;
+    public static javax.swing.JLabel lblPl16;
+    public static javax.swing.JLabel lblPl17;
+    public static javax.swing.JLabel lblPl2;
+    public static javax.swing.JLabel lblPl3;
+    public static javax.swing.JLabel lblPl4;
+    public static javax.swing.JLabel lblPl6;
+    public static javax.swing.JLabel lblPl7;
+    public static javax.swing.JLabel lblPl8;
+    public static javax.swing.JLabel lblPl9;
     public static javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblUsuarioIcon;
     public static javax.swing.JPanel pl1;
-    private javax.swing.JPanel pl10;
-    private javax.swing.JPanel pl11;
-    private javax.swing.JPanel pl12;
-    private javax.swing.JPanel pl13;
-    private javax.swing.JPanel pl14;
-    private javax.swing.JPanel pl15;
-    private javax.swing.JPanel pl16;
-    private javax.swing.JPanel pl17;
-    private javax.swing.JPanel pl2;
-    private javax.swing.JPanel pl4;
-    private javax.swing.JPanel pl5;
-    private javax.swing.JPanel pl6;
-    private javax.swing.JPanel pl7;
-    private javax.swing.JPanel pl8;
-    private javax.swing.JPanel pl9;
+    public static javax.swing.JPanel pl10;
+    public static javax.swing.JPanel pl11;
+    public static javax.swing.JPanel pl12;
+    public static javax.swing.JPanel pl13;
+    public static javax.swing.JPanel pl14;
+    public static javax.swing.JPanel pl15;
+    public static javax.swing.JPanel pl16;
+    public static javax.swing.JPanel pl2;
+    public static javax.swing.JPanel pl3;
+    public static javax.swing.JPanel pl4;
+    public static javax.swing.JPanel pl5;
+    public static javax.swing.JPanel pl6;
+    public static javax.swing.JPanel pl7;
+    public static javax.swing.JPanel pl8;
+    public static javax.swing.JPanel pl9;
     // End of variables declaration//GEN-END:variables
 }

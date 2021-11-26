@@ -415,7 +415,7 @@ public class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JMenuItem miAcercaDe;
     private javax.swing.JMenuItem miCrearUsuario;
     private javax.swing.JMenuItem miSalir;
-    private javax.swing.JTextField txtCorreo;
+    public static javax.swing.JTextField txtCorreo;
     // End of variables declaration//GEN-END:variables
 
 }

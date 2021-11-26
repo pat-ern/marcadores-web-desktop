@@ -14,9 +14,9 @@ public class PruebaConexion {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        ConexionBD cbd = new ConexionBD();
-        cbd.obtenerConexion();
-    }
+//    public static void main(String[] args) {
+//        ConexionBD cbd = new ConexionBD();
+//        cbd.obtenerConexion();
+//    }
     
 }
