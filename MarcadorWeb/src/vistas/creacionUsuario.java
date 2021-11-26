@@ -5,8 +5,10 @@
  */
 package vistas;
 
+import controlador.Registro;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import modelo.Usuario;
 
 /**
  *
@@ -17,6 +19,7 @@ public class CreacionUsuario extends javax.swing.JFrame {
     String nombre;
     String correo;
     String pass, pass2;
+    boolean genero;
 
     public CreacionUsuario() {
         initComponents();
@@ -32,6 +35,7 @@ public class CreacionUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        optGenero = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
@@ -44,6 +48,9 @@ public class CreacionUsuario extends javax.swing.JFrame {
         jpPass = new javax.swing.JPasswordField();
         btnRegistrar = new javax.swing.JButton();
         lblAlerta = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        optFemenino = new javax.swing.JRadioButton();
+        optMasculino = new javax.swing.JRadioButton();
         lblTituloCrear = new javax.swing.JLabel();
         lblCuentaLista = new javax.swing.JLabel();
         lblIniciar = new javax.swing.JLabel();
@@ -96,12 +103,21 @@ public class CreacionUsuario extends javax.swing.JFrame {
 
         lblAlerta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        jLabel1.setText("GENERO:");
+
+        optFemenino.setText("Femenino");
+
+        optMasculino.setText("Masculino");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(btnRegistrar))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -113,20 +129,22 @@ public class CreacionUsuario extends javax.swing.JFrame {
                             .addComponent(txtCorreo, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPass2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
                             .addComponent(jpPass2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAlerta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(btnRegistrar)))
+                            .addComponent(lblAlerta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(optFemenino)
+                                .addGap(18, 18, 18)
+                                .addComponent(optMasculino)))))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(lblNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCorreo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -139,10 +157,15 @@ public class CreacionUsuario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpPass2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(optFemenino)
+                    .addComponent(optMasculino))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegistrar)
-                .addGap(27, 27, 27))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         lblTituloCrear.setBackground(new java.awt.Color(189, 252, 224));
@@ -208,23 +231,79 @@ public class CreacionUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        nombre = txtNombre.getText();
-        correo = txtCorreo.getText();
+
+        //Reasigno los valores
+        nombre = txtNombre.getText().toUpperCase();
+        correo = txtCorreo.getText().toLowerCase();
         pass = new String(jpPass.getPassword());
         pass2 = new String(jpPass2.getPassword());
-        if (nombre.length() == 0 || correo.length() == 0 || pass.length() == 0 || pass2.length() == 0 || pass.equals("jPasswordField1") || pass2.equals("jPasswordField1")) {
+
+        int selecciono = 1;
+
+        if (optFemenino.isSelected()) {
+            genero = false;
+            selecciono = 0;
+        } else if (optMasculino.isSelected()) {
+            genero = true;
+            selecciono = 0;
+        }
+
+        //valido que no esté vacío
+        if (nombre.length() == 0 || correo.length() == 0 || pass.length() == 0 || pass2.length() == 0 || pass.equals("jPasswordField1") || pass2.equals("jPasswordField1") || selecciono == 1) {
             lblAlerta.setText("Debe completar todos los campos");
-        } else if (pass.length() < 6 || pass2.length() < 6) {
-            lblAlerta.setText("Las contraseñas deben ser mas largas");
-        } else if (correo.contains("@")==false) {
+
+            if (nombre.length() == 0) {
+                txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));//rojo
+            } else {
+                txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));//gris 
+            }
+
+            if (correo.length() == 0) {
+                txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));//rojo
+            } else {
+                txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));//gris 
+            }
+
+            if (pass.length() == 0 || pass.equals("jPasswordField1")) {
+                jpPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));//rojo
+            } else {
+                jpPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));//gris 
+            }
+
+            if (pass2.length() == 0 || pass2.equals("jPasswordField1")) {
+                jpPass2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));//rojo
+            } else {
+                jpPass2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));//gris 
+            }
+
+        } else if (pass.length() < 6) {
+            lblAlerta.setText("La contraseña debe ser más larga");
+        } else if (correo.contains("@") == false) {
             lblAlerta.setText("Correo debe contener un @!");
         } else {
+
+            //CASO QUE TODO ESTE CORRECTO
             lblAlerta.setText("");
+
             if (pass.equals(pass2)) {
-                //Caso correcto GUARDAR EN LA BD
-                JOptionPane.showMessageDialog(this, "Se creo al usuario " + nombre, "Usuario guardado", JOptionPane.INFORMATION_MESSAGE);
-                dispose();
-                new InicioSesion().setVisible(true);
+
+                //Buscar al usuario en la BD
+                Registro rg = new Registro();
+
+                Usuario usr1 = new Usuario(nombre, pass, correo);
+
+                //consultar usuario
+                if (rg.validarUsuarioExiste(correo)) {
+                    //Si no se encuentra GUARDAR EN LA BD
+                    rg.agregarUsuario(usr1);
+                    JOptionPane.showMessageDialog(this, "Se creo al usuario " + nombre, "Usuario guardado", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
+                    new InicioSesion().setVisible(true);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "El usuario " + nombre + " ya se encuentra registrado", "Usuario ya está en BD", JOptionPane.ERROR_MESSAGE);
+                }
+
             } else {
                 lblAlerta.setText("Las contraseñas no coinciden");
             }
@@ -284,6 +363,7 @@ public class CreacionUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField jpPass;
@@ -296,6 +376,9 @@ public class CreacionUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblPass;
     private javax.swing.JLabel lblPass2;
     private javax.swing.JLabel lblTituloCrear;
+    private javax.swing.JRadioButton optFemenino;
+    private javax.swing.ButtonGroup optGenero;
+    private javax.swing.JRadioButton optMasculino;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class AgregarMarcador extends javax.swing.JFrame {
 
     //rescatar los datos
-    String nombreMarcador, url, descripcion;
+    String nombreMarcador, url, descripcion, color;
 
     /**
      * Creates new form AgregarMarcador
@@ -43,6 +43,8 @@ public class AgregarMarcador extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JTextArea();
         lblAlerta = new javax.swing.JLabel();
+        lblColor = new javax.swing.JLabel();
+        cboColor = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         btnLimpiar1 = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
@@ -56,10 +58,10 @@ public class AgregarMarcador extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(223, 246, 235));
 
         lblNombreMarcador.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        lblNombreMarcador.setText("Nombre del marcador:");
+        lblNombreMarcador.setText("NOMBRE DEL MARCADOR:");
 
         lblDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        lblDescripcion.setText("Descripcion: ");
+        lblDescripcion.setText("DESCRIPCION:");
 
         lblUrl.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lblUrl.setText("URL: ");
@@ -68,12 +70,17 @@ public class AgregarMarcador extends javax.swing.JFrame {
         txtDescripcion.setRows(5);
         jScrollPane1.setViewportView(txtDescripcion);
 
+        lblColor.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        lblColor.setText("COLOR:");
+
+        cboColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Amarillo", "Lila", "Rosa", "Verde" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblNombreMarcador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtNombreMarcador)
@@ -81,7 +88,13 @@ public class AgregarMarcador extends javax.swing.JFrame {
                     .addComponent(txtUrl)
                     .addComponent(lblUrl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                    .addComponent(lblAlerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblAlerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cboColor, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)))
                 .addGap(41, 41, 41))
         );
         jPanel1Layout.setVerticalGroup(
@@ -95,12 +108,18 @@ public class AgregarMarcador extends javax.swing.JFrame {
                 .addComponent(lblUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cboColor, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                            .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
 
         jPanel2.setBackground(new java.awt.Color(223, 246, 235));
@@ -138,7 +157,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                 .addComponent(btnLimpiar1)
                 .addGap(52, 52, 52)
                 .addComponent(btnGuardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addComponent(btnSalir)
                 .addGap(41, 41, 41))
         );
@@ -177,16 +196,16 @@ public class AgregarMarcador extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -198,6 +217,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
         txtNombreMarcador.setText("");
         txtUrl.setText("");
         txtDescripcion.setText("");
+        
     }//GEN-LAST:event_btnLimpiar1ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -209,14 +229,25 @@ public class AgregarMarcador extends javax.swing.JFrame {
         nombreMarcador = txtNombreMarcador.getText();
         url = txtUrl.getText();
         descripcion = txtDescripcion.getText();
+        color = cboColor.getSelectedItem().toString();
 
         //validar vacio
-        if (nombreMarcador.length()==0) {
-            lblAlerta.setText("No ingresó el nombre del marcador");
-        } else if (url.length()==0) {
-            lblAlerta.setText("No ingresó la url");
-        } else {
+        if (nombreMarcador.length()==0||url.length()==0) {
+            lblAlerta.setText("Debe llevar al menos el campo nombre y URL");
+            if (nombreMarcador.length() == 0) {
+                txtNombreMarcador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));//rojo
+            } else {
+                txtNombreMarcador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));//gris               
+            }
+            if (url.length() == 0) {
+                txtUrl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));//rojo
+            } else {
+                txtUrl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));//gris               
+            }
+        } else{
+            
             //crear post-it al usuario e ingresar a la BD
+            
             JOptionPane.showMessageDialog(this, "Se guardó correctamente.", "Marcador Guardado", JOptionPane.INFORMATION_MESSAGE);
             dispose();
         }
@@ -262,12 +293,14 @@ public class AgregarMarcador extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnLimpiar1;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JComboBox<String> cboColor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAlerta;
+    private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblNombreMarcador;
     private javax.swing.JLabel lblUrl;

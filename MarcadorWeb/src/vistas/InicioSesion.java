@@ -5,9 +5,11 @@
  */
 package vistas;
 
+import controlador.Registro;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import modelo.Usuario;
 
 /**
  *
@@ -15,8 +17,8 @@ import javax.swing.JOptionPane;
  */
 public class InicioSesion extends javax.swing.JFrame {
 
-    String correo;
-    String Pass;
+    String correoIngresado;
+    String PassIngresada;
 
     /**
      * Creates new form menuGeneral
@@ -89,21 +91,15 @@ public class InicioSesion extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtCorreoFocusGained(evt);
             }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtCorreoFocusLost(evt);
-            }
         });
 
         lblPass.setText("CONTRASEÑA: ");
 
         jpPass.setForeground(new java.awt.Color(153, 153, 153));
-        jpPass.setText("000000000");
+        jpPass.setText("JPasswordField");
         jpPass.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jpPassFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jpPassFocusLost(evt);
             }
         });
 
@@ -280,31 +276,52 @@ public class InicioSesion extends javax.swing.JFrame {
 
     private void btnAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccederActionPerformed
 
-        correo = txtCorreo.getText();
-        var pass = new String(jpPass.getPassword());
+        correoIngresado = txtCorreo.getText().toLowerCase();
+        var passIngresada = new String(jpPass.getPassword());
 
-        if (correo.length() == 0 || pass.length() == 0 || pass.equals("000000000")) {
+        if (correoIngresado.length() == 0 || passIngresada.length() == 0 || passIngresada.equals("JPasswordField")) {
             lblAlerta.setText("Debe completar todos los campos!");
 
-            if (correo.length() == 0) {
+            if (correoIngresado.length() == 0) {
                 txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));//rojo
-            } else{
-                txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));//gris               
+            } else {
+                txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));//gris               
             }
-                
-            if (pass.length() == 0 || pass.equals("000000000")){
+
+            if (passIngresada.length() == 0 || passIngresada.equals("JPasswordField")) {
                 jpPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
-            }else {
-                jpPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153,153,153)));
+            } else {
+                jpPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
             }
-            
-        }else{
+
+        } else {
             lblAlerta.setText("");
-            
-            //COMPROBAR QUE LOS DATOS DEL USUARIO SON CORRECTOS (BD)
-            
-            dispose();
-            new VistaUsuario().setVisible(true);
+
+            //Buscar al usuario en la BD
+            Registro rg = new Registro();
+
+            //consultar usuario
+            Usuario usr1 = new Usuario();
+
+            //
+            if (rg.validarUsuarioExiste(correoIngresado)) {
+                JOptionPane.showMessageDialog(this, "Usuario no existe", "Error al encontrar usuario", JOptionPane.ERROR_MESSAGE);
+            } else {
+                //inicia sesion
+                usr1 = rg.activarSesionUsuario(correoIngresado);//obtengo los datos de la BD
+
+                //compara que sean los de la BD
+                if (usr1.getCorreo().equals(correoIngresado) && usr1.getClave().equals(passIngresada)) {
+
+                    JOptionPane.showMessageDialog(this, "Los datos son correctos", "Inicio de Sesion", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
+                    new VistaUsuario().setVisible(true);
+                    VistaUsuario.lblUsuario.setText(usr1.getNombreUsuario());
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Correo o contraseña invalida", "Inicio de Sesion", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
     }//GEN-LAST:event_btnAccederActionPerformed
 
@@ -332,28 +349,12 @@ public class InicioSesion extends javax.swing.JFrame {
         jpPass.setText("");
         jpPass.setForeground(Color.black);
     }//GEN-LAST:event_jpPassFocusGained
-    
-    //Pierde el foco
-    private void txtCorreoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCorreoFocusLost
-        correo = txtCorreo.getText();
-        if(correo.length()>0){
-            txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        }
-    }//GEN-LAST:event_txtCorreoFocusLost
-
-    private void jpPassFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPassFocusLost
-        var pass = new String(jpPass.getPassword());
-        if(pass.length()>0){
-            jpPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        }
-    }//GEN-LAST:event_jpPassFocusLost
 
     private void lblRegistrateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrateMouseClicked
         new CreacionUsuario().setVisible(true);
         dispose();
     }//GEN-LAST:event_lblRegistrateMouseClicked
 
-    
     /**
      * @param args the command line arguments
      */
@@ -369,30 +370,20 @@ public class InicioSesion extends javax.swing.JFrame {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InicioSesion.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioSesion.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(InicioSesion.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(InicioSesion.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(InicioSesion.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
