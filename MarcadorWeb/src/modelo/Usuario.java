@@ -75,5 +75,10 @@ public class Usuario {
         this.genero = genero;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", clave=" + clave + ", correo=" + correo + ", genero=" + genero + '}';
+    }
 
+    
 }

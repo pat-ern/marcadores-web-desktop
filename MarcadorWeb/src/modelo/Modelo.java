@@ -5,30 +5,27 @@
  */
 package modelo;
 
-import controlador.Registro;
-import java.util.Date;
-
 /**
  *
  * @author patricio
  */
 public class Modelo {
 
-    public static void main(String args[]) {
+//   public static void main(String args[]) {
 
-        Registro rg = new Registro();
-
-        Usuario usr1 = new Usuario("Noemi Gonzalez", "12323asd98ad*@#$!dij", "snoemsi29s8@smx.com", false);
-        
-        rg.agregarUsuario(usr1);
-        
-        Carpeta car1 = new Carpeta("descargas", "juegos gratis", rg.consultarUsuario(usr1));
-
-        rg.agregarCarpeta(car1);
-
-        Marcador marc1 = new Marcador("paginas para estudiar", "google.com", new Date(), new Date(), "prueba final", "Lila", rg.consultarUsuario(usr1), rg.consultarCarpeta(car1));
-
-        rg.agregarMarcador(marc1);
+//        Registro rg = new Registro();
+//
+//        Usuario usr1 = new Usuario("Noemi Gonzalez", "12323asd98ad*@#$!dij", "snoemsi29s8@smx.com", false);
+//        
+//        rg.agregarUsuario(usr1);
+//        
+//        Carpeta car1 = new Carpeta("descargas", "juegos gratis", rg.consultarUsuario(usr1));
+//
+//        rg.agregarCarpeta(car1);
+//
+//        Marcador marc1 = new Marcador("paginas para estudiar", "google.com", new Date(), new Date(), "prueba final", "Lila", rg.consultarUsuario(usr1), rg.consultarCarpeta(car1));
+//
+//        rg.agregarMarcador(marc1);
         
 //        if (rg.validarMarcadorExiste(marc1)){
 //            rg.agregarMarcador(marc1);
@@ -46,7 +43,7 @@ public class Modelo {
         
        // rg.borrarCarpeta(car1);
         
-        }
+//        }
         
     }
 

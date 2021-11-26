@@ -122,9 +122,11 @@ public class Marcador {
     public void setCarpeta(Carpeta carpeta) {
         this.carpeta = carpeta;
     }
-    
-    
 
+    @Override
+    public String toString() {
+        return "Marcador{" + "idMarcador=" + idMarcador + ", nombreMarcador=" + nombreMarcador + ", url=" + url + ", fechaCreacion=" + fechaCreacion + ", fechaUltimoUso=" + fechaUltimoUso + ", descMarcador=" + descMarcador + ", colorMarcador=" + colorMarcador + ", usuario=" + usuario + ", carpeta=" + carpeta + '}';
+    }
     
     
 }

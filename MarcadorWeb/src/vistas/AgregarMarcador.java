@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import modelo.Carpeta;
 import modelo.Marcador;
 import modelo.Usuario;
 
@@ -235,9 +236,9 @@ public class AgregarMarcador extends javax.swing.JFrame {
         url = txtUrl.getText();
         descripcion = txtDescripcion.getText();
         color = cboColor.getSelectedItem().toString();
-        
+
         //Correo del usuario
-        String correoDelUsuario=InicioSesion.txtCorreo.getText();
+        String correoDelUsuario = InicioSesion.txtCorreo.getText();
 
         Date fecha = new Date();
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
@@ -258,85 +259,93 @@ public class AgregarMarcador extends javax.swing.JFrame {
             }
         } else {
 
+            System.out.println("LOS DATOS QUE SE NECESITAN SI SE LLENARON");
+            System.out.println(new Date());
             Registro rg = new Registro();
-            Usuario usr1 = new Usuario();
             
             //Lo busco por el correo en la BD
-            usr1 = rg.activarSesionUsuario(correoDelUsuario);
+            Usuario usr1 = rg.activarSesionUsuario(correoDelUsuario);
+            System.out.println(usr1.toString());
+
+            Carpeta car1 = new Carpeta(nombreMarcador, descripcion, usr1);
             
-            //Marcador marc1 = new Marcador("paginas para estudiar", "google.com", new Date(), new Date(), "prueba final", "Lila", rg.consultarUsuario(usr1), rg.consultarCarpeta(car1));
+            Marcador marc1 = new Marcador(nombreMarcador, url, new Date(), new Date(), descripcion, color, usr1, rg.consultarCarpeta(car1));
+            System.out.println(marc1.toString());
+            
+            if (rg.validarMarcadorExiste(marc1)) {
+                System.out.println("ENTRO AL IF ASI QUE MARCADOR NO EXISTE");
+                rg.agregarMarcador(marc1);
+                JOptionPane.showMessageDialog(this, "Se guardó correctamente.", "Marcador Guardado", JOptionPane.INFORMATION_MESSAGE);
 
+                if (VistaUsuario.lblPl1.getText().length() == 0) {
+                    valor = 1;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl1.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl2.getText().length() == 0) {
+                    valor = 2;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl2.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl3.getText().length() == 0) {
+                    valor = 3;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl3.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl4.getText().length() == 0) {
+                    valor = 4;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl4.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl6.getText().length() == 0) {
+                    valor = 5;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl6.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl7.getText().length() == 0) {
+                    valor = 6;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl7.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl8.getText().length() == 0) {
+                    valor = 7;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl8.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl9.getText().length() == 0) {
+                    valor = 8;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl9.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl10.getText().length() == 0) {
+                    valor = 9;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl10.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl11.getText().length() == 0) {
+                    valor = 10;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl11.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl12.getText().length() == 0) {
+                    valor = 11;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl12.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl13.getText().length() == 0) {
+                    valor = 12;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl13.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl14.getText().length() == 0) {
+                    valor = 13;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl14.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl15.getText().length() == 0) {
+                    valor = 14;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl15.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl16.getText().length() == 0) {
+                    valor = 15;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl16.setText(nombreMarcador);
+                } else if (VistaUsuario.lblPl17.getText().length() == 0) {
+                    valor = 16;
+                    colorearPanel(valor);
+                    VistaUsuario.lblPl17.setText(nombreMarcador);
+                }
 
-            //new VistaUsuario().setVisible(true);
-            //VistaUsuario.lblUsuario.setText(usr1.getNombreUsuario());
-            //crear post-it al usuario e ingresar a la BD
-            //nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador, usuario, carpeta
-            JOptionPane.showMessageDialog(this, "Se guardó correctamente.", "Marcador Guardado", JOptionPane.INFORMATION_MESSAGE);
-
-            if (VistaUsuario.lblPl1.getText().length() == 0) {
-                valor = 1;
-                colorearPanel(valor);
-                VistaUsuario.lblPl1.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl2.getText().length() == 0) {
-                valor = 2;
-                colorearPanel(valor);
-                VistaUsuario.lblPl2.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl3.getText().length() == 0) {
-                valor = 3;
-                colorearPanel(valor);
-                VistaUsuario.lblPl3.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl4.getText().length() == 0) {
-                valor = 4;
-                colorearPanel(valor);
-                VistaUsuario.lblPl4.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl6.getText().length() == 0) {
-                valor = 5;
-                colorearPanel(valor);
-                VistaUsuario.lblPl6.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl7.getText().length() == 0) {
-                valor = 6;
-                colorearPanel(valor);
-                VistaUsuario.lblPl7.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl8.getText().length() == 0) {
-                valor = 7;
-                colorearPanel(valor);
-                VistaUsuario.lblPl8.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl9.getText().length() == 0) {
-                valor = 8;
-                colorearPanel(valor);
-                VistaUsuario.lblPl9.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl10.getText().length() == 0) {
-                valor = 9;
-                colorearPanel(valor);
-                VistaUsuario.lblPl10.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl11.getText().length() == 0) {
-                valor = 10;
-                colorearPanel(valor);
-                VistaUsuario.lblPl11.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl12.getText().length() == 0) {
-                valor = 11;
-                colorearPanel(valor);
-                VistaUsuario.lblPl12.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl13.getText().length() == 0) {
-                valor = 12;
-                colorearPanel(valor);
-                VistaUsuario.lblPl13.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl14.getText().length() == 0) {
-                valor = 13;
-                colorearPanel(valor);
-                VistaUsuario.lblPl14.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl15.getText().length() == 0) {
-                valor = 14;
-                colorearPanel(valor);
-                VistaUsuario.lblPl15.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl16.getText().length() == 0) {
-                valor = 15;
-                colorearPanel(valor);
-                VistaUsuario.lblPl16.setText(nombreMarcador);
-            } else if (VistaUsuario.lblPl17.getText().length() == 0) {
-                valor = 16;
-                colorearPanel(valor);
-                VistaUsuario.lblPl17.setText(nombreMarcador);
+            } else {
+                System.out.println("ENTRO AL IF PERO EL MARCADOR EXISTE");
+                JOptionPane.showMessageDialog(this, "El marcador ya se encuentra creado", "Marcador ya registrado", JOptionPane.ERROR_MESSAGE);
             }
 
             dispose();
