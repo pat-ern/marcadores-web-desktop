@@ -496,10 +496,10 @@ public class Registro {
             cnx.close();
             return lista.get(0);
         } catch (SQLException e) {
-            System.out.println("Error SQL al listar usuario" + e.getMessage());
+            System.out.println("Error SQL al consultar carpeta " + e.getMessage());
             return lista.get(0);
         } catch (Exception e) {
-            System.out.println("Error al listar usuario" + e.getMessage());
+            System.out.println("Error al consultar carpeta " + e.getMessage());
             return lista.get(0);
         }
     }

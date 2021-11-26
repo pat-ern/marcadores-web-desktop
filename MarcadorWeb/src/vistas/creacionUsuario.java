@@ -8,6 +8,7 @@ package vistas;
 import controlador.Registro;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import modelo.Carpeta;
 import modelo.Usuario;
 
 /**
@@ -296,6 +297,12 @@ public class CreacionUsuario extends javax.swing.JFrame {
                 if (rg.validarUsuarioExiste(correo)) {
                     //Si no se encuentra GUARDAR EN LA BD
                     rg.agregarUsuario(usr1);
+                    
+                    //  se crea la carpeta por defecto
+                    usr1=rg.consultarUsuario(usr1);
+                    Carpeta car1 = new Carpeta("Default", "Carpeta por defecto del usuario", usr1); //anadir
+                    rg.agregarCarpeta(car1); // se agrega carpeta a base de datos con una ID
+                    
                     JOptionPane.showMessageDialog(this, "Se creo al usuario " + nombre, "Usuario guardado", JOptionPane.INFORMATION_MESSAGE);
                     dispose();
                     new InicioSesion().setVisible(true);

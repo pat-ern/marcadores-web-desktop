@@ -269,7 +269,6 @@ public class AgregarMarcador extends javax.swing.JFrame {
 
             Carpeta car1 = new Carpeta("Default", "Carpeta por defecto del usuario", usr1); //anadir
             
-            rg.agregarCarpeta(car1); // se agrega carpeta a base de datos con una ID
             
             Marcador marc1 = new Marcador(nombreMarcador, url, new Date(), new Date(), descripcion, color, usr1, rg.consultarCarpeta(car1));
             System.out.println(marc1.toString());
