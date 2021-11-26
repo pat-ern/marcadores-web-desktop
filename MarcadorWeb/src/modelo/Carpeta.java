@@ -25,7 +25,6 @@ public class Carpeta {
     
     
     public Carpeta() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public Carpeta(String nombreCarpeta, String descCarpeta, Usuario usuario) {
