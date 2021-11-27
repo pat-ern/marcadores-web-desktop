@@ -264,14 +264,12 @@ public class AgregarMarcador extends javax.swing.JFrame {
             //Lo busco por el correo en la BD
             Usuario usr1 = rg.activarSesionUsuario(correoDelUsuario);
 
-            Carpeta car1 = new Carpeta("Default", "Carpeta por defecto del usuario", usr1); //anadir
+            Carpeta car1 = new Carpeta(); //anadir
             
-            
-            Marcador marc1 = new Marcador(nombreMarcador, url, new Date(), new Date(), descripcion, color, usr1, rg.consultarCarpeta(car1));
+            Marcador marc1 = new Marcador(nombreMarcador, url, new Date(), new Date(), descripcion, color, usr1);
             
             if (rg.validarMarcadorExiste(marc1)) {
-                rg.agregarMarcador(marc1);
-                JOptionPane.showMessageDialog(this, "Se guardó correctamente.", "Marcador Guardado", JOptionPane.INFORMATION_MESSAGE);
+                rg.agregarMarcador(marc1,0);
 
                 if (VistaUsuario.lblPl1.getText().length() == 0) {
                     valor = 1;

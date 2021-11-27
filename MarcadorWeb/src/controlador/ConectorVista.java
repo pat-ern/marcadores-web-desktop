@@ -8,6 +8,7 @@ package controlador;
 import controlador.Registro;
 import controlador.Sesion;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 import modelo.Marcador;
 import modelo.Usuario;
@@ -450,5 +451,78 @@ public class ConectorVista {
         } else {
             VistaUsuario.lblMenos.setForeground(Color.WHITE);
         }
+    }
+    
+    public static List<String> traerLinkDePag(Usuario usr1, String pagina) {
+        int i = 0;
+        int dieciseis = 0;
+        Marcador marc = new Marcador();
+        Registro rg = new Registro();
+        List<String> urlPag = new ArrayList<>();
+
+        List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(usr1);
+        for (Marcador tmp : lista) {
+            i += 1;
+            dieciseis += 1;
+            String nombreMarcador = tmp.getNombreMarcador();
+            String color = tmp.getColorMarcador();
+
+            if (dieciseis == 17) {
+                dieciseis = 1;
+            }
+
+            switch (pagina) {
+                case "1":
+                    if (i <= 16) {
+                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        urlPag.add(tmp.getUrl());
+                    }
+                    break;
+                case "2":
+                    if (i > 16 && i <= 32) {
+                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        urlPag.add(tmp.getUrl());
+                    }
+                    break;
+                case "3":
+                    if (i > 32 && i <= 48) {
+                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        urlPag.add(tmp.getUrl());
+                    }
+                    break;
+                case "4":
+                    if (i > 48 && i <= 64) {
+                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        urlPag.add(tmp.getUrl());
+                    }
+                    break;
+                case "5":
+                    if (i > 64 && i <= 80) {
+                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        urlPag.add(tmp.getUrl());
+                    }
+                    break;
+                case "6":
+                    if (i > 80 && i <= 96) {
+                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        urlPag.add(tmp.getUrl());
+                    }
+                    break;
+                case "7":
+                    if (i > 96 && i <= 112) {
+                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        urlPag.add(tmp.getUrl());
+                    }
+                    break;
+                case "8":
+                    if (i > 112 && i <= 128) {
+                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        urlPag.add(tmp.getUrl());
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }return urlPag;
     }
 }

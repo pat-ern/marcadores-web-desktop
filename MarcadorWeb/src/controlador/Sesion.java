@@ -5,6 +5,8 @@
  */
 package controlador;
 
+import java.util.List;
+import modelo.Marcador;
 import modelo.Usuario;
 
 /**
@@ -13,6 +15,7 @@ import modelo.Usuario;
  */
 public class Sesion {
      public static Usuario usuarioActivo;
+     public static List<Marcador> marcadoresSeleccionados;
 }
 
 

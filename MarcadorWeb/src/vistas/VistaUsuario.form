@@ -131,7 +131,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagen/blue_download_alt_folder_12391.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Unir a carpeta"/>
+            <Property name="text" type="java.lang.String" value="Poner en carpeta"/>
             <Property name="toolTipText" type="java.lang.String" value="Eliminar"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>

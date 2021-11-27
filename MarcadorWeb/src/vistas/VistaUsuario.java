@@ -9,6 +9,7 @@ import controlador.ConectorVista;
 import controlador.Registro;
 import controlador.Sesion;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 import modelo.Carpeta;
 import modelo.Marcador;
@@ -27,6 +28,8 @@ import modelo.Usuario;
 public class VistaUsuario extends javax.swing.JFrame {
 
     int pagMas;
+    Registro rg = new Registro();
+
     /**
      * Creates new form VistaUsuario
      */
@@ -143,7 +146,7 @@ public class VistaUsuario extends javax.swing.JFrame {
         });
 
         btnAgregarCarpe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/blue_download_alt_folder_12391.png"))); // NOI18N
-        btnAgregarCarpe.setText("Unir a carpeta");
+        btnAgregarCarpe.setText("Poner en carpeta");
         btnAgregarCarpe.setToolTipText("Eliminar");
         btnAgregarCarpe.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAgregarCarpe.addActionListener(new java.awt.event.ActionListener() {
@@ -841,21 +844,128 @@ public class VistaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
-        if (chk1.isSelected()) {
-
+        List<String> marcadosParaEliminar = new ArrayList<>();
+        marcadosParaEliminar = ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText());
+        for (String tmp : marcadosParaEliminar) {
+            if (chk1.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(0)));
+            }
+            if (chk2.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(1)));
+            } 
+            if (chk3.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(2)));
+            } 
+            if (chk4.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(3)));
+            }
+            if (chk5.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(4)));
+            }
+            if (chk6.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(5)));
+            }
+            if (chk7.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(6)));
+            }
+            if (chk8.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(7)));
+            }
+            if (chk9.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(8)));
+            }
+            if (chk10.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(9)));
+            }
+            if (chk11.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(10)));
+            }
+            if (chk12.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(11)));
+            }
+            if (chk13.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(12)));
+            }
+            if (chk14.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(13)));
+            }
+            if (chk15.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(14)));
+            }
+            if (chk16.isSelected()) {
+                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(15)));
+           
+            }
+            limpiarPost();
+            ConectorVista.pagina(Sesion.usuarioActivo, Integer.parseInt(lblPagina.getText()));
         }
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnAgregarCarpeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCarpeActionPerformed
-        // TODO add your handling code here:
+        List<String> marcadosParaMover = new ArrayList<>();
+        List<Marcador> seleccionMarcadores = new ArrayList<>();
+        marcadosParaMover = ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText());
+        for (String tmp : marcadosParaMover) {
+            if (chk1.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(0)));
+            }
+            if (chk2.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(1)));
+            } 
+            if (chk3.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(2)));
+            } 
+            if (chk4.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(3)));
+            }
+            if (chk5.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(4)));
+            }
+            if (chk6.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(5)));
+            }
+            if (chk7.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(6)));
+            }
+            if (chk8.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(7)));
+            }
+            if (chk9.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(8)));
+            }
+            if (chk10.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(9)));
+            }
+            if (chk11.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(10)));
+            }
+            if (chk12.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(11)));
+            }
+            if (chk13.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(12)));
+            }
+            if (chk14.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(13)));
+            }
+            if (chk15.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(14)));
+            }
+            if (chk16.isSelected()) {
+                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(15)));
+            }
+            ConectorVista.pagina(Sesion.usuarioActivo, Integer.parseInt(lblPagina.getText()));
+        }
+        Sesion.marcadoresSeleccionados = seleccionMarcadores;
+        new VistaCarpetas().setVisible(true);
     }//GEN-LAST:event_btnAgregarCarpeActionPerformed
 
     private void lblMasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMasMouseClicked
         int contador = 0;
         int pagActual = Integer.parseInt(lblPagina.getText());
-        
-        LimpiarPost();
+
+        limpiarPost();
 
         Registro rg = new Registro();
         Usuario usr1 = new Usuario();
@@ -863,37 +973,37 @@ public class VistaUsuario extends javax.swing.JFrame {
 
         Marcador marc = new Marcador();
         List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(usr1);
-        
-        pagMas=(lista.size()/16)+1; //  Calculo cuantas páginas tiene el usuario
-        if (pagActual<pagMas){
-            pagActual+=1;
-            lblPagina.setText(""+pagActual);
+
+        pagMas = (lista.size() / 16) + 1; //  Calculo cuantas páginas tiene el usuario
+        if (pagActual < pagMas) {
+            pagActual += 1;
+            lblPagina.setText("" + pagActual);
         }
-        
-        ConectorVista.activarVisualMas(pagActual,pagMas);
+
+        ConectorVista.activarVisualMas(pagActual, pagMas);
         ConectorVista.activarVisualMenos(pagActual);
+
         ConectorVista.pagina(usr1, pagActual);
     }//GEN-LAST:event_lblMasMouseClicked
 
     private void lblMenosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenosMouseClicked
         int contador = 0;
         int pagActual = Integer.parseInt(lblPagina.getText());
-        
-        LimpiarPost();
+
+        limpiarPost();
 
         Registro rg = new Registro();
         Usuario usr1 = new Usuario();
         usr1 = Sesion.usuarioActivo;
-        
-        if (pagActual>1){
-            pagActual-=1;
-            lblPagina.setText(""+pagActual);
+
+        if (pagActual > 1) {
+            pagActual -= 1;
+            lblPagina.setText("" + pagActual);
         }
-        
+
         ConectorVista.activarVisualMenos(pagActual);
         ConectorVista.activarVisualMas(pagActual, pagMas);
 
-        
         ConectorVista.pagina(usr1, pagActual);
     }//GEN-LAST:event_lblMenosMouseClicked
 
@@ -997,7 +1107,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     public static javax.swing.JPanel pl9;
     // End of variables declaration//GEN-END:variables
 
-    public static void LimpiarPost() {
+    public static void limpiarPost() {
         chk1.setEnabled(false);
         chk2.setEnabled(false);
         chk3.setEnabled(false);
@@ -1014,22 +1124,39 @@ public class VistaUsuario extends javax.swing.JFrame {
         chk14.setEnabled(false);
         chk15.setEnabled(false);
         chk16.setEnabled(false);
-        pl1.setBackground(new Color(255,255,255));
-        pl2.setBackground(new Color(255,255,255));
-        pl3.setBackground(new Color(255,255,255));
-        pl4.setBackground(new Color(255,255,255));
-        pl5.setBackground(new Color(255,255,255));
-        pl6.setBackground(new Color(255,255,255));
-        pl7.setBackground(new Color(255,255,255));
-        pl8.setBackground(new Color(255,255,255));
-        pl9.setBackground(new Color(255,255,255));
-        pl10.setBackground(new Color(255,255,255));
-        pl11.setBackground(new Color(255,255,255));
-        pl12.setBackground(new Color(255,255,255));
-        pl13.setBackground(new Color(255,255,255));
-        pl14.setBackground(new Color(255,255,255));
-        pl15.setBackground(new Color(255,255,255));
-        pl16.setBackground(new Color(255,255,255));
+        chk1.setSelected(false);
+        chk2.setSelected(false);
+        chk3.setSelected(false);
+        chk4.setSelected(false);
+        chk5.setSelected(false);
+        chk6.setSelected(false);
+        chk7.setSelected(false);
+        chk8.setSelected(false);
+        chk9.setSelected(false);
+        chk10.setSelected(false);
+        chk11.setSelected(false);
+        chk12.setSelected(false);
+        chk13.setSelected(false);
+        chk14.setSelected(false);
+        chk15.setSelected(false);
+        chk16.setSelected(false);
+
+        pl1.setBackground(new Color(255, 255, 255));
+        pl2.setBackground(new Color(255, 255, 255));
+        pl3.setBackground(new Color(255, 255, 255));
+        pl4.setBackground(new Color(255, 255, 255));
+        pl5.setBackground(new Color(255, 255, 255));
+        pl6.setBackground(new Color(255, 255, 255));
+        pl7.setBackground(new Color(255, 255, 255));
+        pl8.setBackground(new Color(255, 255, 255));
+        pl9.setBackground(new Color(255, 255, 255));
+        pl10.setBackground(new Color(255, 255, 255));
+        pl11.setBackground(new Color(255, 255, 255));
+        pl12.setBackground(new Color(255, 255, 255));
+        pl13.setBackground(new Color(255, 255, 255));
+        pl14.setBackground(new Color(255, 255, 255));
+        pl15.setBackground(new Color(255, 255, 255));
+        pl16.setBackground(new Color(255, 255, 255));
         lblPl1.setText("");
         lblPl2.setText("");
         lblPl3.setText("");

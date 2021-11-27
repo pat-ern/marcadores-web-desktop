@@ -186,7 +186,7 @@ public class Registro {
     }
 
     // METODOS MARCADORES
-    public boolean agregarMarcador(Marcador mrc) {
+    public boolean agregarMarcador(Marcador mrc, int car) { // METODO CAMBIADO
         Date fecha1, fecha2;
 
         try {
@@ -208,7 +208,7 @@ public class Registro {
             stmt.setString(6, mrc.getColorMarcador());
 
             stmt.setInt(7, mrc.getUsuario().getIdUsuario());
-            stmt.setInt(8, mrc.getCarpeta().getIdCarpeta());
+            stmt.setInt(8, car);
 
             stmt.executeUpdate();//insert
             stmt.close();
@@ -332,6 +332,43 @@ public class Registro {
         return lista;
     }
     
+    public Marcador consultarMarcador(String url) {
+
+        List<Marcador> lista = new ArrayList<>();
+
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador FROM marcador WHERE url = '" +url+ "'";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery(); //select
+
+            if (rs.next()) {
+                Marcador marc = new Marcador();
+                marc.setIdMarcador(rs.getInt("idMarcador"));
+                marc.setNombreMarcador(rs.getString("nombreMarcador"));
+                marc.setUrl(rs.getString("url"));
+                marc.setFechaCreacion(rs.getDate("fechaCreacion"));
+                marc.setFechaUltimoUso(rs.getDate("fechaUltimoUso"));
+                marc.setDescMarcador(rs.getString("descMarcador"));
+                marc.setColorMarcador(rs.getString("colorMarcador"));
+                lista.add(marc);
+            }
+
+            rs.close();
+            stmt.close();
+            cnx.close();
+            return lista.get(0);
+
+        } catch (SQLException e) {
+            System.out.println("Error SQL al consultar" + e.getMessage());
+            return lista.get(0);
+        } catch (Exception e) {
+            System.out.println("Error al consultar" + e.getMessage());
+            return lista.get(0);
+        }
+    }
     
     public boolean validarMarcadorExiste(Marcador mrc) {
 
@@ -401,13 +438,13 @@ public class Registro {
         }
     }
     
-    public boolean moverMarcadorACarpeta(Marcador mrc, Carpeta car) {
+     public boolean moverMarcadorACarpeta(Marcador mrc, int carpeta) { // METODO CAMBIADO
 
         try {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "UPDATE marcador SET carpeta = '"+car.getIdCarpeta()+"' WHERE idMarcador = '"+mrc.getIdMarcador()+"'";
+            String query = "UPDATE marcador SET carpeta = '"+carpeta+"' WHERE idMarcador = '"+mrc.getIdMarcador()+"'";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             stmt.execute(); //update
@@ -424,7 +461,7 @@ public class Registro {
             return false;
         }
     }
-    
+     
     public boolean borrarMarcador(Marcador mrc) {
 
         try {
@@ -471,14 +508,14 @@ public class Registro {
         }
     }
 
-    public Carpeta consultarCarpeta(Carpeta car) {
+     public Carpeta consultarCarpeta(int car) { // METODO CAMBIADO
 
         List<Carpeta> lista = new ArrayList<>();
         try {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "SELECT idCarpeta, nombreCarpeta, descCarpeta, usuario FROM carpeta WHERE nombreCarpeta = '"+car.getNombreCarpeta()+"'";
+            String query = "SELECT idCarpeta, nombreCarpeta, descCarpeta, usuario FROM carpeta WHERE idCarpeta = '"+car+"'";
             PreparedStatement stmt2 = cnx.prepareStatement(query);
 
             ResultSet rs = stmt2.executeQuery(); //select
@@ -503,7 +540,6 @@ public class Registro {
             return lista.get(0);
         }
     }
-    
     
     public boolean borrarCarpeta(Carpeta car) {
 
