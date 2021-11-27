@@ -223,7 +223,7 @@ public class Registro {
             return false;
         }
     }
-
+    
     public List<Marcador> listarTodosLosMarcPorUsuario(Usuario usr) {
 
         List<Marcador> lista = new ArrayList<>();

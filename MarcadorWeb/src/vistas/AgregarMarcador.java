@@ -259,22 +259,17 @@ public class AgregarMarcador extends javax.swing.JFrame {
             }
         } else {
 
-            System.out.println("LOS DATOS QUE SE NECESITAN SI SE LLENARON");
-            System.out.println(new Date());
             Registro rg = new Registro();
             
             //Lo busco por el correo en la BD
             Usuario usr1 = rg.activarSesionUsuario(correoDelUsuario);
-            System.out.println(usr1.toString());
 
             Carpeta car1 = new Carpeta("Default", "Carpeta por defecto del usuario", usr1); //anadir
             
             
             Marcador marc1 = new Marcador(nombreMarcador, url, new Date(), new Date(), descripcion, color, usr1, rg.consultarCarpeta(car1));
-            System.out.println(marc1.toString());
             
             if (rg.validarMarcadorExiste(marc1)) {
-                System.out.println("ENTRO AL IF ASI QUE MARCADOR NO EXISTE");
                 rg.agregarMarcador(marc1);
                 JOptionPane.showMessageDialog(this, "Se guardó correctamente.", "Marcador Guardado", JOptionPane.INFORMATION_MESSAGE);
 
@@ -345,7 +340,6 @@ public class AgregarMarcador extends javax.swing.JFrame {
                 }
 
             } else {
-                System.out.println("ENTRO AL IF PERO EL MARCADOR EXISTE");
                 JOptionPane.showMessageDialog(this, "El marcador ya se encuentra creado", "Marcador ya registrado", JOptionPane.ERROR_MESSAGE);
             }
 
@@ -408,7 +402,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
     private javax.swing.JTextField txtUrl;
     // End of variables declaration//GEN-END:variables
 
-    private int colorearPanel(int valor) {
+    void colorearPanel(int valor) {
         switch (valor) {
             case 1:
                 switch (color) {
@@ -423,9 +417,9 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         break;
                     default:
                         VistaUsuario.pl1.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        
                         break;
                 }
+                VistaUsuario.chk1.setEnabled(true);
                 break;
             case 2:
                 switch (color) {
@@ -442,6 +436,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl2.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk2.setEnabled(true);
                 break;
             case 3:
                 switch (color) {
@@ -458,6 +453,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl3.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk3.setEnabled(true);
                 break;
             case 4:
                 switch (color) {
@@ -474,6 +470,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl4.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk4.setEnabled(true);
                 break;
             case 5:
                 switch (color) {
@@ -490,6 +487,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl5.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk5.setEnabled(true);
                 break;
             case 6:
                 switch (color) {
@@ -506,6 +504,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl6.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk6.setEnabled(true);
                 break;
             case 7:
                 switch (color) {
@@ -522,6 +521,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl7.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk7.setEnabled(true);
                 break;
             case 8:
                 switch (color) {
@@ -538,6 +538,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl8.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo
                         break;
                 }
+                VistaUsuario.chk8.setEnabled(true);
                 break;
             case 9:
                 switch (color) {
@@ -554,6 +555,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl9.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk9.setEnabled(true);
                 break;
             case 10:
                 switch (color) {
@@ -570,6 +572,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl10.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk10.setEnabled(true);
                 break;
             case 11:
                 switch (color) {
@@ -586,6 +589,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl11.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk11.setEnabled(true);
                 break;
             case 12:
                 switch (color) {
@@ -602,6 +606,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl12.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk12.setEnabled(true);
                 break;
             case 13:
                 switch (color) {
@@ -618,6 +623,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl13.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk13.setEnabled(true);
                 break;
             case 14:
                 switch (color) {
@@ -634,6 +640,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl14.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk14.setEnabled(true);
                 break;
             case 15:
                 switch (color) {
@@ -650,6 +657,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl15.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk15.setEnabled(true);
                 break;
             case 16:
                 switch (color) {
@@ -666,12 +674,11 @@ public class AgregarMarcador extends javax.swing.JFrame {
                         VistaUsuario.pl16.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
                         break;
                 }
+                VistaUsuario.chk16.setEnabled(true);
                 break;
             default:
                 System.out.println("Se terminó");
-                valor = 0;
         }
-        return valor;
     }
 
 }
