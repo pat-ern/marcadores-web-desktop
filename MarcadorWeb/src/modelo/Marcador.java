@@ -13,22 +13,50 @@ import java.util.Date;
  */
 public class Marcador {
     
+    private int idMarcador;
     private String nombreMarcador;
     private String url;
-    private int idMarcador;
     private Date fechaCreacion;
     private Date fechaUltimoUso;
-    //private iconoMarcador
+    private String descMarcador;
+    private String colorMarcador;
+    private Usuario usuario;
+    private Carpeta carpeta;
 
     public Marcador() {
     }
 
-    public Marcador(String nombreMarcador, String url, int idMarcador, Date fechaCreacion, Date fechaUltimoUso) {
+    // const sin ID / SIN CARPETA
+    public Marcador(String nombreMarcador, String url, Date fechaCreacion, Date fechaUltimoUso, String descMarcador, String colorMarcador, Usuario usuario) {
         this.nombreMarcador = nombreMarcador;
         this.url = url;
-        this.idMarcador = idMarcador;
         this.fechaCreacion = fechaCreacion;
         this.fechaUltimoUso = fechaUltimoUso;
+        this.descMarcador = descMarcador;
+        this.colorMarcador = colorMarcador;
+        this.usuario = usuario;
+    }
+    
+    // const sin ID / CON CARPETA
+    public Marcador(String nombreMarcador, String url, Date fechaCreacion, Date fechaUltimoUso, String descMarcador, String colorMarcador, Usuario usuario, Carpeta carpeta) {
+        this.nombreMarcador = nombreMarcador;
+        this.url = url;
+        this.fechaCreacion = fechaCreacion;
+        this.fechaUltimoUso = fechaUltimoUso;
+        this.descMarcador = descMarcador;
+        this.colorMarcador = colorMarcador;
+        this.usuario = usuario;
+        this.carpeta = carpeta;
+    }
+
+   // setters getters
+
+    public int getIdMarcador() {
+        return idMarcador;
+    }
+
+    public void setIdMarcador(int idMarcador) {
+        this.idMarcador = idMarcador;
     }
 
     public String getNombreMarcador() {
@@ -47,14 +75,6 @@ public class Marcador {
         this.url = url;
     }
 
-    public int getIdMarcador() {
-        return idMarcador;
-    }
-
-    public void setIdMarcador(int idMarcador) {
-        this.idMarcador = idMarcador;
-    }
-
     public Date getFechaCreacion() {
         return fechaCreacion;
     }
@@ -71,11 +91,42 @@ public class Marcador {
         this.fechaUltimoUso = fechaUltimoUso;
     }
 
-    @Override
-    public String toString() {
-        return "Marcador{" + "nombreMarcador=" + nombreMarcador + ", url=" + url + ", idMarcador=" + idMarcador + ", fechaCreacion=" + fechaCreacion + ", fechaUltimoUso=" + fechaUltimoUso + '}';
+    public String getDescMarcador() {
+        return descMarcador;
+    }
+
+    public void setDescMarcador(String descMarcador) {
+        this.descMarcador = descMarcador;
+    }
+
+    public String getColorMarcador() {
+        return colorMarcador;
+    }
+
+    public void setColorMarcador(String colorMarcador) {
+        this.colorMarcador = colorMarcador;
     }
     
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Carpeta getCarpeta() {
+        return carpeta;
+    }
+
+    public void setCarpeta(Carpeta carpeta) {
+        this.carpeta = carpeta;
+    }
+
+    @Override
+    public String toString() {
+        return "Marcador{" + "idMarcador=" + idMarcador + ", nombreMarcador=" + nombreMarcador + ", url=" + url + ", fechaCreacion=" + fechaCreacion + ", fechaUltimoUso=" + fechaUltimoUso + ", descMarcador=" + descMarcador + ", colorMarcador=" + colorMarcador + ", usuario=" + usuario + ", carpeta=" + carpeta + '}';
+    }
     
     
 }

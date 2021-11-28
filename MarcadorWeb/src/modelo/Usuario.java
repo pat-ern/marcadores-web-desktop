@@ -15,15 +15,24 @@ public class Usuario {
     private String nombreUsuario;
     private String clave;
     private String correo;
+    private boolean genero;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombreUsuario, String clave, String correo) {
+    public Usuario(int idUsuario, String nombreUsuario, String clave, String correo, boolean genero) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.clave = clave;
         this.correo = correo;
+        this.genero = genero;
+    }
+    
+    public Usuario(String nombreUsuario, String clave, String correo, boolean genero) {
+        this.nombreUsuario = nombreUsuario;
+        this.clave = clave;
+        this.correo = correo;
+        this.genero = genero;
     }
 
     public int getIdUsuario() {
@@ -58,11 +67,18 @@ public class Usuario {
         this.correo = correo;
     }
 
+    public boolean isGenero() {
+        return genero;
+    }
+
+    public void setGenero(boolean genero) {
+        this.genero = genero;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", clave=" + clave + ", correo=" + correo + '}';
+        return "Usuario{" + "idUsuario=" + idUsuario + ", nombreUsuario=" + nombreUsuario + ", clave=" + clave + ", correo=" + correo + ", genero=" + genero + '}';
     }
-    
-    
+
     
 }
