@@ -9,7 +9,6 @@ import controlador.Registro;
 import controlador.Sesion;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import modelo.Carpeta;
 import modelo.Marcador;
 import modelo.Usuario;
 
