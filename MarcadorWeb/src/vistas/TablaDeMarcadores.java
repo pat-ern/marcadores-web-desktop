@@ -22,7 +22,8 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
     String nombreDelMarcador;
     String url;
     String descripcion;
-    boolean perteneceCarpeta;
+    String carpeta;
+    String color;
     Registro rg = new Registro();
 
     /**
@@ -86,7 +87,7 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
                 .addComponent(lblImaUsua)
                 .addGap(18, 18, 18)
                 .addComponent(lblUsuarioVista, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +178,7 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,20 +215,20 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
 
         jtTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nombre del marcador", "Url", "Descripción"
+                "Nombre del marcador", "Url", "Descripción", "Carpeta", "Color"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -258,7 +259,7 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         jLabel1.setText("Mostrar:");
 
         cboOrdenar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cboOrdenar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Orden Alfabetico", "Item 3", "Item 4" }));
+        cboOrdenar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Orden Alfabetico", "Color" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -281,7 +282,7 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(cboOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -291,12 +292,16 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jtLista, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
-                        .addGap(18, 18, 18))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(28, 28, 28)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 45, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jtLista))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -305,7 +310,7 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtLista, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -343,31 +348,62 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
                     nombreDelMarcador = tmp.getNombreMarcador();
                     url = tmp.getUrl();
                     descripcion = tmp.getDescMarcador();
+                    carpeta = tmp.getCarpeta().getNombreCarpeta();
+                    color = tmp.getColorMarcador();
+                    
+                    if(carpeta.equals("Default")){
+                        carpeta="Sin carpeta";
+                    }
 
                     if (descripcion.isEmpty()) {
                         descripcion = "Sin descripción";
                     }
-                                    modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion});
+                    modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
 
                 }
-                    break;
+                break;
             case "Orden Alfabetico":
-                List<Marcador> listao = rg.listarLosMarcPorOrdenAlfabetico(usr1);
+                List<Marcador> listaOrdA = rg.listarLosMarcPorOrdenAlfabetico(usr1);
 
-                for (Marcador tmp : listao) {
+                for (Marcador tmp : listaOrdA) {
                     nombreDelMarcador = tmp.getNombreMarcador();
                     url = tmp.getUrl();
                     descripcion = tmp.getDescMarcador();
+                    carpeta = tmp.getCarpeta().getNombreCarpeta();
+                    color = tmp.getColorMarcador();
+                    
+                    if(carpeta.equals("Default")){
+                        carpeta="Sin carpeta";
+                    }
 
                     if (descripcion.isEmpty()) {
                         descripcion = "Sin descripción";
                     }
-                modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion});
-
+                    modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
                 }
-                
+                break;
+            case "Color":
+                List<Marcador> listaColor = rg.listarLosMarcPorColor(usr1);
 
+                for (Marcador tmp : listaColor) {
+                    nombreDelMarcador = tmp.getNombreMarcador();
+                    url = tmp.getUrl();
+                    descripcion = tmp.getDescMarcador();
+                    carpeta = tmp.getCarpeta().getNombreCarpeta();
+                    color = tmp.getColorMarcador();
+                    
+                    if(carpeta.equals("Default")){
+                        carpeta="Sin carpeta";
+                    }
 
+                    if (descripcion.isEmpty()) {
+                        descripcion = "Sin descripción";
+                    }
+                    modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
+                }
+                break;
+            default:
+                break;
         }
 
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -379,21 +415,25 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
     private void lblNoticiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNoticiasMouseClicked
         DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
         modelo.setRowCount(0);
-        
-        List<Marcador> lista = rg.listarMarcadoresDeCarpeta(1);
-        
-        for (Marcador tmp : lista) {
-            nombreDelMarcador = tmp.getNombreMarcador();
-            url = tmp.getUrl();
-            descripcion = tmp.getDescMarcador();
-            
-            if (descripcion.isEmpty()){
-                descripcion = "Sin descripción";
-            }
-            
-            modelo.addRow(new Object[]{nombreDelMarcador,url,descripcion});
 
-        }
+        List<Marcador> listaNoticia = rg.listarMarcadoresDeCarpeta(1);
+
+        for (Marcador tmp : listaNoticia) {
+                    nombreDelMarcador = tmp.getNombreMarcador();
+                    url = tmp.getUrl();
+                    descripcion = tmp.getDescMarcador();
+                    carpeta = tmp.getCarpeta().getNombreCarpeta();
+                    color = tmp.getColorMarcador();
+                    
+                    if(carpeta.equals("Default")){
+                        carpeta="Sin carpeta";
+                    }
+
+                    if (descripcion.isEmpty()) {
+                        descripcion = "Sin descripción";
+                    }
+                    modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
+                }
     }//GEN-LAST:event_lblNoticiasMouseClicked
 
     /**
