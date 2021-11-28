@@ -12,7 +12,6 @@ import java.util.List;
 import modelo.Marcador;
 import modelo.Usuario;
 import vistas.VistaUsuario;
-import static vistas.VistaUsuario.lblPl1;
 
 /**
  *
