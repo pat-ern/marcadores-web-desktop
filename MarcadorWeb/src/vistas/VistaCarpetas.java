@@ -58,45 +58,57 @@ public class VistaCarpetas extends javax.swing.JFrame {
         optNoticias = new javax.swing.JRadioButton();
         optEstudio = new javax.swing.JRadioButton();
         optCompras = new javax.swing.JRadioButton();
-        optCultura = new javax.swing.JRadioButton();
-        optSocial = new javax.swing.JRadioButton();
-        optOcio = new javax.swing.JRadioButton();
-        btConfirmar = new javax.swing.JButton();
+        lblIconoNoticias = new javax.swing.JLabel();
+        lblIconoCompras = new javax.swing.JLabel();
+        lblIconoEstudio = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         btVolver = new javax.swing.JButton();
+        btConfirmar = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        lblIconoSocial = new javax.swing.JLabel();
+        optSocial = new javax.swing.JRadioButton();
+        optCultura = new javax.swing.JRadioButton();
+        lblIconoCultura = new javax.swing.JLabel();
+        lblIconoOcio = new javax.swing.JLabel();
+        optOcio = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(211, 244, 239));
+        setTitle("Mover a carpeta");
+        setBackground(new java.awt.Color(255, 255, 255));
         setLocation(new java.awt.Point(15, 15));
+        setPreferredSize(new java.awt.Dimension(395, 457));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblTitulo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lblTitulo.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(51, 0, 153));
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitulo.setText("Mover a la carpeta...");
+        lblTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-add-folder-64.png"))); // NOI18N
+        lblTitulo.setText("MOVER A CARPETA");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         optNoticias.setBackground(new java.awt.Color(255, 255, 255));
         bgCarpeta.add(optNoticias);
-        optNoticias.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        optNoticias.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         optNoticias.setText("Noticias");
         optNoticias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -106,7 +118,7 @@ public class VistaCarpetas extends javax.swing.JFrame {
 
         optEstudio.setBackground(new java.awt.Color(255, 255, 255));
         bgCarpeta.add(optEstudio);
-        optEstudio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        optEstudio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         optEstudio.setText("Estudio");
         optEstudio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -116,7 +128,7 @@ public class VistaCarpetas extends javax.swing.JFrame {
 
         optCompras.setBackground(new java.awt.Color(255, 255, 255));
         bgCarpeta.add(optCompras);
-        optCompras.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        optCompras.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         optCompras.setText("Compras");
         optCompras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -124,38 +136,79 @@ public class VistaCarpetas extends javax.swing.JFrame {
             }
         });
 
-        optCultura.setBackground(new java.awt.Color(255, 255, 255));
-        bgCarpeta.add(optCultura);
-        optCultura.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        optCultura.setText("Cultura");
-        optCultura.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                optCulturaMouseClicked(evt);
-            }
-        });
+        lblIconoNoticias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-news-64.png"))); // NOI18N
+        lblIconoNoticias.setText("jLabel1");
 
-        optSocial.setBackground(new java.awt.Color(255, 255, 255));
-        bgCarpeta.add(optSocial);
-        optSocial.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        optSocial.setText("Social");
-        optSocial.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                optSocialMouseClicked(evt);
-            }
-        });
+        lblIconoCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-sale-price-tag-64.png"))); // NOI18N
 
-        optOcio.setBackground(new java.awt.Color(255, 255, 255));
-        bgCarpeta.add(optOcio);
-        optOcio.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        optOcio.setText("Ocio");
-        optOcio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                optOcioMouseClicked(evt);
+        lblIconoEstudio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-student-male-64.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(optNoticias, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(lblIconoNoticias, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(optEstudio, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblIconoEstudio)
+                        .addGap(37, 37, 37)))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIconoCompras)
+                    .addComponent(optCompras, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblIconoEstudio, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblIconoCompras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(lblIconoNoticias, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(optEstudio)
+                        .addComponent(optCompras))
+                    .addComponent(optNoticias))
+                .addGap(143, 143, 143))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        btVolver.setBackground(new java.awt.Color(255, 255, 255));
+        btVolver.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btVolver.setForeground(new java.awt.Color(51, 0, 153));
+        btVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-return-32.png"))); // NOI18N
+        btVolver.setText("Volver");
+        btVolver.setMinimumSize(new java.awt.Dimension(121, 27));
+        btVolver.setPreferredSize(new java.awt.Dimension(121, 27));
+        btVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVolverActionPerformed(evt);
             }
         });
 
         btConfirmar.setBackground(new java.awt.Color(255, 255, 255));
-        btConfirmar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        btConfirmar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btConfirmar.setForeground(new java.awt.Color(51, 0, 153));
+        btConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-approval-32.png"))); // NOI18N
         btConfirmar.setText("Confirmar");
         btConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,56 +216,100 @@ public class VistaCarpetas extends javax.swing.JFrame {
             }
         });
 
-        btVolver.setBackground(new java.awt.Color(255, 255, 255));
-        btVolver.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        btVolver.setText("Volver");
-        btVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btVolverActionPerformed(evt);
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(btVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32))
+        );
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblIconoSocial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-technical-support-64.png"))); // NOI18N
+
+        optSocial.setBackground(new java.awt.Color(255, 255, 255));
+        bgCarpeta.add(optSocial);
+        optSocial.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        optSocial.setText("Social");
+        optSocial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                optSocialMouseClicked(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(btVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(optOcio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(optSocial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(optCultura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(optCompras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(optEstudio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(optNoticias, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(115, 115, 115))
+        optCultura.setBackground(new java.awt.Color(255, 255, 255));
+        bgCarpeta.add(optCultura);
+        optCultura.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        optCultura.setText("Cultura");
+        optCultura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                optCulturaMouseClicked(evt);
+            }
+        });
+
+        lblIconoCultura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-library-64.png"))); // NOI18N
+
+        lblIconoOcio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-retro-tv-64.png"))); // NOI18N
+
+        optOcio.setBackground(new java.awt.Color(255, 255, 255));
+        bgCarpeta.add(optOcio);
+        optOcio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        optOcio.setText("Ocio");
+        optOcio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                optOcioMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(optSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(optCultura, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(lblIconoSocial)
+                        .addGap(53, 53, 53)
+                        .addComponent(lblIconoCultura)))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIconoOcio)
+                    .addComponent(optOcio, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(optNoticias)
-                .addGap(18, 18, 18)
-                .addComponent(optEstudio)
-                .addGap(18, 18, 18)
-                .addComponent(optCompras)
-                .addGap(18, 18, 18)
-                .addComponent(optCultura)
-                .addGap(18, 18, 18)
-                .addComponent(optSocial)
-                .addGap(18, 18, 18)
-                .addComponent(optOcio)
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblIconoOcio)
+                    .addComponent(lblIconoCultura)
+                    .addComponent(lblIconoSocial))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(optCultura)
+                    .addComponent(optOcio)
+                    .addComponent(optSocial))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,17 +318,28 @@ public class VistaCarpetas extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVolverActionPerformed
+        dispose();
+    }//GEN-LAST:event_btVolverActionPerformed
 
     private void btConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarActionPerformed
 
@@ -250,10 +358,10 @@ public class VistaCarpetas extends javax.swing.JFrame {
             idCarpeta = 6;
         }else{
             idCarpeta = 0;
-        } 
-        
+        }
+
         Registro rg = new Registro();
-  
+
         for (Marcador tmp : Sesion.marcadoresSeleccionados) { //carpetaActiva se llena con los marcadores en VistaUsuario
             rg.moverMarcadorACarpeta(tmp, idCarpeta);
         }
@@ -274,36 +382,32 @@ public class VistaCarpetas extends javax.swing.JFrame {
         chk15.setSelected(false);
         chk16.setSelected(false);
         dispose();
-            
+
     }//GEN-LAST:event_btConfirmarActionPerformed
 
-    private void btVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVolverActionPerformed
-        dispose();        
-    }//GEN-LAST:event_btVolverActionPerformed
-
-    private void optNoticiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_optNoticiasMouseClicked
-        btConfirmar.setEnabled(true);       
-    }//GEN-LAST:event_optNoticiasMouseClicked
-
-    private void optEstudioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_optEstudioMouseClicked
-        btConfirmar.setEnabled(true);  
-    }//GEN-LAST:event_optEstudioMouseClicked
-
-    private void optComprasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_optComprasMouseClicked
-        btConfirmar.setEnabled(true);  
-    }//GEN-LAST:event_optComprasMouseClicked
-
-    private void optCulturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_optCulturaMouseClicked
-        btConfirmar.setEnabled(true);  
-    }//GEN-LAST:event_optCulturaMouseClicked
+    private void optOcioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_optOcioMouseClicked
+        btConfirmar.setEnabled(true);
+    }//GEN-LAST:event_optOcioMouseClicked
 
     private void optSocialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_optSocialMouseClicked
-        btConfirmar.setEnabled(true);  
+        btConfirmar.setEnabled(true);
     }//GEN-LAST:event_optSocialMouseClicked
 
-    private void optOcioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_optOcioMouseClicked
-        btConfirmar.setEnabled(true);  
-    }//GEN-LAST:event_optOcioMouseClicked
+    private void optCulturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_optCulturaMouseClicked
+        btConfirmar.setEnabled(true);
+    }//GEN-LAST:event_optCulturaMouseClicked
+
+    private void optComprasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_optComprasMouseClicked
+        btConfirmar.setEnabled(true);
+    }//GEN-LAST:event_optComprasMouseClicked
+
+    private void optEstudioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_optEstudioMouseClicked
+        btConfirmar.setEnabled(true);
+    }//GEN-LAST:event_optEstudioMouseClicked
+
+    private void optNoticiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_optNoticiasMouseClicked
+        btConfirmar.setEnabled(true);
+    }//GEN-LAST:event_optNoticiasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -315,6 +419,14 @@ public class VistaCarpetas extends javax.swing.JFrame {
     private javax.swing.JButton btVolver;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lblIconoCompras;
+    private javax.swing.JLabel lblIconoCultura;
+    private javax.swing.JLabel lblIconoEstudio;
+    private javax.swing.JLabel lblIconoNoticias;
+    private javax.swing.JLabel lblIconoOcio;
+    private javax.swing.JLabel lblIconoSocial;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JRadioButton optCompras;
     private javax.swing.JRadioButton optCultura;
