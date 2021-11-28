@@ -7,11 +7,11 @@ package vistas;
 
 import controlador.ConectorVista;
 import controlador.Registro;
+import controlador.Sesion;
 import java.awt.Color;
-import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import modelo.Carpeta;
 import modelo.Marcador;
 import modelo.Usuario;
@@ -24,6 +24,8 @@ public class AgregarMarcador extends javax.swing.JFrame {
 
     String nombreMarcador, url, descripcion, color;
     int valor;
+    
+    Registro rg = new Registro();
 
     /**
      * Creates new form AgregarMarcador
@@ -139,10 +141,11 @@ public class AgregarMarcador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblAlerta, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboColor, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                    .addComponent(btnLimpiar1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnLimpiar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cboColor, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
 
@@ -259,10 +262,6 @@ public class AgregarMarcador extends javax.swing.JFrame {
         //Correo del usuario
         String correoDelUsuario = InicioSesion.txtCorreo.getText();
 
-        Date fecha = new Date();
-        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
-        formatoFecha.format(fecha);
-
         //validar vacio
         if (nombreMarcador.length() == 0 || url.length() == 0) {
             lblAlerta.setText("Debe agregar al menos el campo nombre y URL");
@@ -279,23 +278,18 @@ public class AgregarMarcador extends javax.swing.JFrame {
         }else if(url.contains("www.")==false){
             lblAlerta.setText("La URL tiene que iniciar con www.");
         }else {
-
-            Registro rg = new Registro();
-            
-            //Lo busco por el correo en la BD
-            Usuario usr1 = rg.activarSesionUsuario(correoDelUsuario);
-
-            Carpeta car1 = new Carpeta(); //anadir
-            
+            Usuario usr1 = Sesion.usuarioActivo;
             Marcador marc1 = new Marcador(nombreMarcador, url, new Date(), new Date(), descripcion, color, usr1);
             
-            if (rg.validarMarcadorExiste(marc1)) {
+            if (rg.validarMarcadorNoExiste(marc1)) {
                 rg.agregarMarcador(marc1,0);
+                
+                //  Actualiza los marcadores en Sesion
+                Sesion.todosLosMarcadores = rg.listarTodosLosMarcPorUsuario(usr1);
 
                 if (VistaUsuario.lblPl1.getText().length() == 0) {
                     valor = 1;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl1.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl2.getText().length() == 0) {
                     valor = 2;

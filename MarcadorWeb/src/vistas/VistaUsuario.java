@@ -20,12 +20,6 @@ import java.util.logging.Logger;
 import modelo.Marcador;
 import modelo.Usuario;
 
-// DESDE EL pl1 AL pl16
-//pl1.setBackground(new Color(255,255,204));
-//amarillo (255,255,204)
-//lila (204,204,255])
-//rosa (255,153,204)
-//verde (204,255,204)
 /**
  *
  * @author 56930
@@ -113,7 +107,7 @@ public class VistaUsuario extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         lblUsuarioIcon = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
-        btnSalir = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Marcadores de usuario");
@@ -871,16 +865,16 @@ public class VistaUsuario extends javax.swing.JFrame {
         lblUsuario.setForeground(new java.awt.Color(51, 0, 153));
         lblUsuario.setText("USUARIO");
 
-        btnSalir.setBackground(new java.awt.Color(255, 255, 255));
-        btnSalir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(51, 0, 153));
-        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-logout-32.png"))); // NOI18N
-        btnSalir.setText("Cerrar Sesion");
-        btnSalir.setToolTipText("Cerrar la sesion actual");
-        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(51, 0, 153));
+        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-logout-32.png"))); // NOI18N
+        btnCerrar.setText("Cerrar Sesion");
+        btnCerrar.setToolTipText("Cerrar la sesion actual");
+        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnCerrarActionPerformed(evt);
             }
         });
 
@@ -894,7 +888,7 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(lblUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(btnSalir)
+                .addComponent(btnCerrar)
                 .addGap(18, 18, 18))
         );
         jPanel8Layout.setVerticalGroup(
@@ -902,7 +896,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(0, 20, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUsuario))
                 .addGap(9, 9, 9))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
@@ -931,10 +925,10 @@ public class VistaUsuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         dispose();
         new InicioSesion().setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         new AgregarMarcador().setVisible(true);
@@ -1064,17 +1058,13 @@ public class VistaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarCarpeActionPerformed
 
     private void lblMasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMasMouseClicked
-        int contador = 0;
         int pagActual = Integer.parseInt(lblPagina.getText());
 
         limpiarPost();
 
-        Registro rg = new Registro();
-        Usuario usr1 = new Usuario();
-        usr1 = Sesion.usuarioActivo;
+        Usuario usr1 = Sesion.usuarioActivo;
 
-        Marcador marc = new Marcador();
-        List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(usr1);
+        List<Marcador> lista = Sesion.todosLosMarcadores;
 
         pagMas = (lista.size() / 16) + 1; //  Calculo cuantas páginas tiene el usuario
         if (pagActual < pagMas) {
@@ -1089,14 +1079,11 @@ public class VistaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_lblMasMouseClicked
 
     private void lblMenosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenosMouseClicked
-        int contador = 0;
         int pagActual = Integer.parseInt(lblPagina.getText());
 
         limpiarPost();
 
-        Registro rg = new Registro();
-        Usuario usr1 = new Usuario();
-        usr1 = Sesion.usuarioActivo;
+        Usuario usr1 = Sesion.usuarioActivo;
 
         if (pagActual > 1) {
             pagActual -= 1;
@@ -1339,9 +1326,9 @@ public class VistaUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAgregarCarpe;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnMostrar;
-    private javax.swing.JButton btnSalir;
     public static javax.swing.JCheckBox chk1;
     public static javax.swing.JCheckBox chk10;
     public static javax.swing.JCheckBox chk11;

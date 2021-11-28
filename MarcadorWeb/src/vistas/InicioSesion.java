@@ -15,7 +15,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Marcador;
 import modelo.Usuario;
-import static vistas.VistaUsuario.lblPl1;
 
 /**
  *
@@ -116,7 +115,6 @@ public class InicioSesion extends javax.swing.JFrame {
             }
         });
 
-        lblAlerta.setForeground(new java.awt.Color(235, 76, 76));
         lblAlerta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -201,7 +199,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addComponent(lblCorreo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(lblPass)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jpPass, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -299,6 +297,7 @@ public class InicioSesion extends javax.swing.JFrame {
         correoIngresado = txtCorreo.getText().toLowerCase();
         var passIngresada = new String(jpPass.getPassword());
 
+        //Validaciones de los campos
         if (correoIngresado.length() == 0) {
             txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));//rojo
         } else {
@@ -322,46 +321,39 @@ public class InicioSesion extends javax.swing.JFrame {
 
             //consultar usuario
             Usuario usr1 = new Usuario();
+            try {
+            usr1 = rg.activarSesionUsuario(correoIngresado);//obtengo los datos de la BD
 
-            //
-            if (rg.validarUsuarioExiste(correoIngresado)) {
-                JOptionPane.showMessageDialog(this, "Usuario no existe", "Error al encontrar usuario", JOptionPane.ERROR_MESSAGE);
-            } else {
-                //inicia sesion
-                usr1 = rg.activarSesionUsuario(correoIngresado);//obtengo los datos de la BD
-
-                //compara que sean los datos de la BD
+            //compara que sean los datos de la BD
                 if (usr1.getCorreo().equals(correoIngresado) && usr1.getClave().equals(passIngresada)) {
 
                     new VistaUsuario().setVisible(true);
                     VistaUsuario.lblUsuario.setText(usr1.getNombreUsuario());
-                    Sesion.usuarioActivo = usr1;
+                    Sesion.usuarioActivo = usr1; //  Dejo la sesion activa del usuario
                     
                     int pagina = Integer.parseInt(VistaUsuario.lblPagina.getText());
 
                     List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(usr1);
-                    Sesion.marcadoresSeleccionados1 = lista;
+                    Sesion.todosLosMarcadores = lista; // Guardo la lista de los marcadores creados anteriormente
                     
                     ConectorVista.pagina(usr1, pagina);
-
-                    //PONER LO DEL CURSOR AQUI TAMBIEN
                     
                     if (lista.size() > 16) {
                         VistaUsuario.lblMas.setForeground(Color.black);
                         VistaUsuario.lblMas.setCursor(new Cursor(Cursor.HAND_CURSOR));
                         }
                     dispose();
-
                 } else {
                     lblAlerta.setText("Contraseña invalida");
                 }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "Usuario no existe", "Error al encontrar usuario", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnAccederActionPerformed
 
     private void miCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCrearUsuarioActionPerformed
         dispose();
-        //IR A CREAR UN USUARIO
         new CreacionUsuario().setVisible(true);
     }//GEN-LAST:event_miCrearUsuarioActionPerformed
 
