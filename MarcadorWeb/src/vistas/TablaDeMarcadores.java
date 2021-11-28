@@ -283,7 +283,7 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         jLabel1.setText("Mostrar:");
 
         cboOrdenar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cboOrdenar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Orden Alfabetico", "Color" }));
+        cboOrdenar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Orden Alfabetico", "Ordenar por Color", "Por fecha ultimo uso", "Sin carpeta" }));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -363,7 +363,6 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
 
         Usuario usr1 = new Usuario();
         usr1 = Sesion.usuarioActivo;
-        //Todos, Orden Alfabetico, Item 3, Item 4
         switch (cboOrdenar.getSelectedItem().toString()) {
             case "Todos":
                 List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(usr1);
@@ -406,10 +405,50 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
                     modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
                 }
                 break;
-            case "Color":
+            case "Ordenar por Color":
                 List<Marcador> listaColor = rg.listarLosMarcPorColor(usr1);
 
                 for (Marcador tmp : listaColor) {
+                    nombreDelMarcador = tmp.getNombreMarcador();
+                    url = tmp.getUrl();
+                    descripcion = tmp.getDescMarcador();
+                    carpeta = tmp.getCarpeta().getNombreCarpeta();
+                    color = tmp.getColorMarcador();
+
+                    if (carpeta.equals("Default")) {
+                        carpeta = "Sin carpeta";
+                    }
+
+                    if (descripcion.isEmpty()) {
+                        descripcion = "Sin descripción";
+                    }
+                    modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
+                }
+                break;
+            case "Sin carpeta":
+                List<Marcador> listaSinCarpeta = rg.listarMarcadoresSinCarpeta(usr1);
+
+                for (Marcador tmp : listaSinCarpeta) {
+                    nombreDelMarcador = tmp.getNombreMarcador();
+                    url = tmp.getUrl();
+                    descripcion = tmp.getDescMarcador();
+                    carpeta = tmp.getCarpeta().getNombreCarpeta();
+                    color = tmp.getColorMarcador();
+
+                    if (carpeta.equals("Default")) {
+                        carpeta = "Sin carpeta";
+                    }
+
+                    if (descripcion.isEmpty()) {
+                        descripcion = "Sin descripción";
+                    }
+                    modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
+                }
+                break;
+            case "Por fecha ultimo uso":
+                List<Marcador> fechaUltimoUso = rg.listarLosMarcPorUltimaFecha(usr1);
+
+                for (Marcador tmp : fechaUltimoUso) {
                     nombreDelMarcador = tmp.getNombreMarcador();
                     url = tmp.getUrl();
                     descripcion = tmp.getDescMarcador();

@@ -110,7 +110,7 @@ public class VistaUsuario extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         btnCerrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Marcadores de usuario");
         setResizable(false);
 
@@ -950,52 +950,52 @@ public class VistaUsuario extends javax.swing.JFrame {
                 || chk13.isSelected() || chk14.isSelected() || chk15.isSelected() || chk16.isSelected()) {
             for (String tmp : marcadosParaEliminar) {
                 if (chk1.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(0)));
+                    rg.borrarMarcador(marcadosParaEliminar.get(0),Sesion.usuarioActivo);
                 }
                 if (chk2.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(1)));
+                    rg.borrarMarcador(marcadosParaEliminar.get(1),Sesion.usuarioActivo);
                 }
                 if (chk3.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(2)));
+                   rg.borrarMarcador(marcadosParaEliminar.get(2),Sesion.usuarioActivo);
                 }
                 if (chk4.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(3)));
+                   rg.borrarMarcador(marcadosParaEliminar.get(3),Sesion.usuarioActivo);
                 }
                 if (chk5.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(4)));
+                   rg.borrarMarcador(marcadosParaEliminar.get(4),Sesion.usuarioActivo);
                 }
                 if (chk6.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(5)));
+                   rg.borrarMarcador(marcadosParaEliminar.get(5),Sesion.usuarioActivo);
                 }
                 if (chk7.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(6)));
+                   rg.borrarMarcador(marcadosParaEliminar.get(6),Sesion.usuarioActivo);
                 }
                 if (chk8.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(7)));
+                   rg.borrarMarcador(marcadosParaEliminar.get(7),Sesion.usuarioActivo);
                 }
                 if (chk9.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(8)));
+                   rg.borrarMarcador(marcadosParaEliminar.get(8),Sesion.usuarioActivo);
                 }
                 if (chk10.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(9)));
+                   rg.borrarMarcador(marcadosParaEliminar.get(9),Sesion.usuarioActivo);
                 }
                 if (chk11.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(10)));
+                    rg.borrarMarcador(marcadosParaEliminar.get(10),Sesion.usuarioActivo);
                 }
                 if (chk12.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(11)));
+                    rg.borrarMarcador(marcadosParaEliminar.get(11),Sesion.usuarioActivo);
                 }
                 if (chk13.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(12)));
+                    rg.borrarMarcador(marcadosParaEliminar.get(12),Sesion.usuarioActivo);
                 }
                 if (chk14.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(13)));
+                    rg.borrarMarcador(marcadosParaEliminar.get(13),Sesion.usuarioActivo);
                 }
                 if (chk15.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(14)));
+                    rg.borrarMarcador(marcadosParaEliminar.get(14),Sesion.usuarioActivo);
                 }
                 if (chk16.isSelected()) {
-                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(15)));
+                    rg.borrarMarcador(marcadosParaEliminar.get(15),Sesion.usuarioActivo);
                 }
                 limpiarPost();
             }

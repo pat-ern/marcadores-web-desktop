@@ -340,7 +340,7 @@ public class Registro {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador, usuario, carpeta FROM marcador WHERE url = '"+url+"' AND usuario = '"+usr.getIdUsuario()+"'";
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador, usuario, carpeta FROM marcador WHERE url = '" + url + "' AND usuario = '" + usr.getIdUsuario() + "'";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery(); //select
@@ -376,32 +376,6 @@ public class Registro {
         }
     }
 
-    public boolean editarMarcador(int idMarcador, String nombreMarcador, String url, String descMarcador, String colorMarcador) {
-
-        List<Marcador> lista = new ArrayList<>();
-
-        try {
-            ConexionBD conexion1 = new ConexionBD();
-            Connection cnx = conexion1.obtenerConexion();
-
-            String query = "UPDATE marcador SET nombreMarcador = '" + nombreMarcador + "', url = '" + url + "', descMarcador = '" + descMarcador + "', colorMarcador = '" + colorMarcador + "' WHERE idMarcador = '" + idMarcador + "'";
-            PreparedStatement stmt = cnx.prepareStatement(query);
-
-            stmt.execute(); //update
-            stmt.close();
-            cnx.close();
-
-            return true;
-
-        } catch (SQLException e) {
-            System.out.println("Error SQL al editar marcador " + e.getMessage());
-            return false;
-        } catch (Exception e) {
-            System.out.println("Error al editar marcador " + e.getMessage());
-            return false;
-        }
-    }
-
     public boolean moverMarcadorACarpeta(Marcador mrc, int carpeta) { // METODO CAMBIADO
 
         try {
@@ -426,13 +400,13 @@ public class Registro {
         }
     }
 
-    public boolean borrarMarcador(Marcador mrc) {
+    public boolean borrarMarcador(String url, Usuario usr) {
 
         try {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "DELETE FROM marcador WHERE idMarcador = '" + mrc.getIdMarcador() + "'";
+            String query = "DELETE FROM marcador WHERE url = '" + url + "' AND usuario = '" + usr.getIdUsuario() + "'";
             PreparedStatement stmt = cnx.prepareStatement(query);
             stmt.execute(); //update
             stmt.close();
@@ -446,7 +420,7 @@ public class Registro {
             return false;
         }
     }
-
+    
     public List<Marcador> listarLosMarcPorOrdenAlfabetico(Usuario usr) {
 
         Registro rg = new Registro();
@@ -527,19 +501,99 @@ public class Registro {
         return lista;
     }
 
-  public boolean actualizarFechaUso(String url, Usuario usr) {
+    public List<Marcador> listarLosMarcPorUltimaFecha(Usuario usr) {
 
-        Date fecha = new Date();
-        
+        Registro rg = new Registro();
+
         List<Marcador> lista = new ArrayList<>();
 
         try {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "UPDATE marcador SET fechaUltimoUso = '"+new java.sql.Date(fecha.getTime())+"' WHERE url = '"+url+"' AND usuario = '"+usr.getIdUsuario()+"'";
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador, usuario, carpeta FROM marcador WHERE usuario = '" + usr.getIdUsuario() + "' order by fechaUltimoUso";
             PreparedStatement stmt = cnx.prepareStatement(query);
-            
+
+            ResultSet rs = stmt.executeQuery(); //select
+
+            while (rs.next()) {
+                Marcador mrc = new Marcador();
+                mrc.setIdMarcador(rs.getInt("idMarcador"));
+                mrc.setNombreMarcador(rs.getString("nombreMarcador"));
+                mrc.setUrl(rs.getString("url"));
+                mrc.setFechaCreacion(rs.getDate("fechaCreacion"));
+                mrc.setFechaUltimoUso(rs.getDate("fechaUltimoUso"));
+                mrc.setDescMarcador(rs.getString("descMarcador"));
+                mrc.setColorMarcador(rs.getString("colorMarcador"));
+                mrc.setUsuario(this.consultarUsuarioPorId(rs.getInt("usuario")));
+                mrc.setCarpeta(this.consultarCarpeta(rs.getInt("carpeta")));
+
+                lista.add(mrc);
+            }
+            rs.close();
+            stmt.close();
+            cnx.close();
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar marcadores " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error al listar marcadores " + e.getMessage());
+        }
+        return lista;
+    }
+  
+    public List<Marcador> listarLosMarcPor(Usuario usr) {
+
+        Registro rg = new Registro();
+
+        List<Marcador> lista = new ArrayList<>();
+
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador, usuario, carpeta FROM marcador WHERE usuario = '" + usr.getIdUsuario() + "' order by fechaUltimoUso";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+
+            ResultSet rs = stmt.executeQuery(); //select
+
+            while (rs.next()) {
+                Marcador mrc = new Marcador();
+                mrc.setIdMarcador(rs.getInt("idMarcador"));
+                mrc.setNombreMarcador(rs.getString("nombreMarcador"));
+                mrc.setUrl(rs.getString("url"));
+                mrc.setFechaCreacion(rs.getDate("fechaCreacion"));
+                mrc.setFechaUltimoUso(rs.getDate("fechaUltimoUso"));
+                mrc.setDescMarcador(rs.getString("descMarcador"));
+                mrc.setColorMarcador(rs.getString("colorMarcador"));
+                mrc.setUsuario(this.consultarUsuarioPorId(rs.getInt("usuario")));
+                mrc.setCarpeta(this.consultarCarpeta(rs.getInt("carpeta")));
+
+                lista.add(mrc);
+            }
+            rs.close();
+            stmt.close();
+            cnx.close();
+        } catch (SQLException e) {
+            System.out.println("Error SQL al listar marcadores " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error al listar marcadores " + e.getMessage());
+        }
+        return lista;
+    }
+  
+    public boolean actualizarFechaUso(String url, Usuario usr) {
+
+        Date fecha = new Date();
+
+        List<Marcador> lista = new ArrayList<>();
+
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "UPDATE marcador SET fechaUltimoUso = '" + new java.sql.Date(fecha.getTime()) + "' WHERE url = '" + url + "' AND usuario = '" + usr.getIdUsuario() + "'";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+
             stmt.execute(); //update
             stmt.close();
             cnx.close();

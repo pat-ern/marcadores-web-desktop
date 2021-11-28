@@ -21,7 +21,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
 
     String nombreMarcador, url, descripcion, color;
     int valor;
-    
+
     Registro rg = new Registro();
 
     /**
@@ -269,15 +269,13 @@ public class AgregarMarcador extends javax.swing.JFrame {
             } else {
                 txtUrl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));//gris               
             }
-        }else if(url.contains("www.")==false){
-            lblAlerta.setText("La URL tiene que iniciar con www.");
-        }else {
+        } else if (url.contains("www.")||url.contains("https")){
             Usuario usr1 = Sesion.usuarioActivo;
             Marcador marc1 = new Marcador(nombreMarcador, url, new Date(), new Date(), descripcion, color, usr1);
-            
-            if (rg.validarMarcadorNoExiste(Sesion.usuarioActivo,url)) {
-                rg.agregarMarcador(marc1,0);
-                
+
+            if (rg.validarMarcadorNoExiste(Sesion.usuarioActivo, url)) {
+                rg.agregarMarcador(marc1, 0);
+
                 //  Actualiza los marcadores en Sesion
                 Sesion.todosLosMarcadores = rg.listarTodosLosMarcPorUsuario(usr1);
 
@@ -345,14 +343,15 @@ public class AgregarMarcador extends javax.swing.JFrame {
                     valor = 16;
                     ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
-                }else{
+                } else {
                     ConectorVista.activarVisualMas(Integer.parseInt(VistaUsuario.lblPagina.getText()), 2);//activarVisualMas(int pagActual, int pagMas)
                 }
+                dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "El marcador ya se encuentra creado", "Marcador ya registrado", JOptionPane.ERROR_MESSAGE);
             }
-
-            dispose();
+        }else{
+            lblAlerta.setText("La URL debe contener www o https");
         }
 
     }//GEN-LAST:event_btnGuardarActionPerformed
