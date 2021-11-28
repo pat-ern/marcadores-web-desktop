@@ -111,6 +111,40 @@ public class Registro {
             return lista.get(0);
         }
     }
+    
+    public Usuario consultarUsuarioPorId(int idUsuario) {
+
+        List<Usuario> lista = new ArrayList<>();
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "SELECT idUsuario, nombreUsuario, clave, correo, genero FROM usuario WHERE idUsuario = '" + idUsuario + "' order by idUsuario";
+            PreparedStatement stmt2 = cnx.prepareStatement(query);
+
+            ResultSet rs = stmt2.executeQuery(); //select
+            if (rs.next()) {
+                Usuario usr1 = new Usuario();
+                usr1.setIdUsuario(rs.getInt("idUsuario"));
+                usr1.setNombreUsuario(rs.getString("nombreUsuario"));
+                usr1.setClave(rs.getString("clave"));
+                usr1.setCorreo(rs.getString("correo"));
+                usr1.setGenero(rs.getBoolean("genero"));
+
+                lista.add(usr1);
+            }
+            rs.close();
+            stmt2.close();
+            cnx.close();
+            return lista.get(0);
+        } catch (SQLException e) {
+            System.out.println("Error SQL al consultar usuario " + e.getMessage());
+            return lista.get(0);
+        } catch (Exception e) {
+            System.out.println("Error al consultar usuario " + e.getMessage());
+            return lista.get(0);
+        }
+    }
 
     public Usuario activarSesionUsuario(String correo) {
 
@@ -268,7 +302,7 @@ public class Registro {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador, usuario FROM marcador WHERE carpeta IS NULL AND usuario = '" + usr.getIdUsuario() + "' order by idMarcador";
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador FROM marcador WHERE carpeta = 0 AND usuario = '" + usr.getIdUsuario() + "' order by idMarcador";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery(); //select
@@ -409,80 +443,6 @@ public class Registro {
         }
     }
 
-    public boolean agregarCarpeta(Carpeta car) {
-
-        try {
-            ConexionBD conexion1 = new ConexionBD();
-            Connection cnx = conexion1.obtenerConexion();
-
-            String query = "INSERT INTO carpeta(nombreCarpeta, descCarpeta, usuario) VALUES (?,?,?)";
-            PreparedStatement stmt = cnx.prepareStatement(query);
-            stmt.setString(1, car.getNombreCarpeta());
-            stmt.setString(2, car.getDescCarpeta());
-            stmt.setInt(3, car.getUsuario().getIdUsuario());
-
-            stmt.executeUpdate();//insert
-            stmt.close();
-
-            return true;
-        } catch (SQLException e) {
-            System.out.println("Error SQL al agregar carpeta " + e.getMessage());
-            return false;
-        } catch (Exception e) {
-            System.out.println("Error al agregar carpeta " + e.getMessage());
-            return false;
-        }
-    }
-
-    public boolean borrarCarpeta(Carpeta car) {
-
-        try {
-            ConexionBD conexion1 = new ConexionBD();
-            Connection cnx = conexion1.obtenerConexion();
-
-            String query = "DELETE FROM carpeta WHERE idCarpeta = '" + car.getIdCarpeta() + "'";
-            PreparedStatement stmt = cnx.prepareStatement(query);
-
-            stmt.executeUpdate();//insert
-            stmt.close();
-            cnx.close();
-
-            return true;
-        } catch (SQLException e) {
-            System.out.println("Error SQL al borrar carpeta " + e.getMessage());
-            return false;
-        } catch (Exception e) {
-            System.out.println("Error al borrar carpeta " + e.getMessage());
-            return false;
-        }
-    }
-
-    public boolean editarCarpeta(int idCarpeta, String nombreCarpeta, String descCarpeta) {
-
-        List<Marcador> lista = new ArrayList<>();
-
-        try {
-            ConexionBD conexion1 = new ConexionBD();
-            Connection cnx = conexion1.obtenerConexion();
-
-            String query = "UPDATE carpeta SET nombreCarpeta = '" + nombreCarpeta + "', descCarpeta = '" + descCarpeta + "' WHERE idCarpeta = '" + idCarpeta + "'";
-            PreparedStatement stmt = cnx.prepareStatement(query);
-
-            stmt.execute(); //update
-            stmt.close();
-            cnx.close();
-
-            return true;
-
-        } catch (SQLException e) {
-            System.out.println("Error SQL al editar marcador " + e.getMessage());
-            return false;
-        } catch (Exception e) {
-            System.out.println("Error al editar marcador " + e.getMessage());
-            return false;
-        }
-    }
-
     public List<Marcador> listarLosMarcPorOrdenAlfabetico(Usuario usr) {
 
         List<Marcador> lista = new ArrayList<>();
@@ -545,40 +505,6 @@ public class Registro {
         }
     }
 
-    public Usuario consultarUsuarioPorId(int idUsuario) {
-
-        List<Usuario> lista = new ArrayList<>();
-        try {
-            ConexionBD conexion1 = new ConexionBD();
-            Connection cnx = conexion1.obtenerConexion();
-
-            String query = "SELECT idUsuario, nombreUsuario, clave, correo, genero FROM usuario WHERE idUsuario = '" + idUsuario + "' order by idUsuario";
-            PreparedStatement stmt2 = cnx.prepareStatement(query);
-
-            ResultSet rs = stmt2.executeQuery(); //select
-            if (rs.next()) {
-                Usuario usr1 = new Usuario();
-                usr1.setIdUsuario(rs.getInt("idUsuario"));
-                usr1.setNombreUsuario(rs.getString("nombreUsuario"));
-                usr1.setClave(rs.getString("clave"));
-                usr1.setCorreo(rs.getString("correo"));
-                usr1.setGenero(rs.getBoolean("genero"));
-
-                lista.add(usr1);
-            }
-            rs.close();
-            stmt2.close();
-            cnx.close();
-            return lista.get(0);
-        } catch (SQLException e) {
-            System.out.println("Error SQL al consultar usuario " + e.getMessage());
-            return lista.get(0);
-        } catch (Exception e) {
-            System.out.println("Error al consultar usuario " + e.getMessage());
-            return lista.get(0);
-        }
-    }
-
     public List<Marcador> listarTodosLosMarcPorUsuario(Usuario usr) {
 
         Registro rg = new Registro();
@@ -619,38 +545,6 @@ public class Registro {
         return lista;
     }
 
-    public Carpeta consultarCarpeta(int car) {
-
-        List<Carpeta> lista = new ArrayList<>();
-        try {
-            ConexionBD conexion1 = new ConexionBD();
-            Connection cnx = conexion1.obtenerConexion();
-
-            String query = "SELECT idCarpeta, nombreCarpeta, descCarpeta FROM carpeta WHERE idCarpeta = '" + car + "'";
-            PreparedStatement stmt2 = cnx.prepareStatement(query);
-
-            ResultSet rs = stmt2.executeQuery(); //select
-            if (rs.next()) {
-                Carpeta car1 = new Carpeta();
-                car1.setIdCarpeta(rs.getInt("idCarpeta"));
-                car1.setNombreCarpeta(rs.getString("nombreCarpeta"));
-                car1.setDescCarpeta(rs.getString("descCarpeta"));
-
-                lista.add(car1);
-            }
-            rs.close();
-            stmt2.close();
-            cnx.close();
-            return lista.get(0);
-        } catch (SQLException e) {
-            System.out.println("Error SQL al consultar carpeta " + e.getMessage());
-            return lista.get(0);
-        } catch (Exception e) {
-            System.out.println("Error al consultar carpeta " + e.getMessage());
-            return lista.get(0);
-        }
-    }
-
     public Marcador consultarMarcador(String url) {
 
         List<Marcador> lista = new ArrayList<>();
@@ -687,6 +581,39 @@ public class Registro {
             return lista.get(0);
         } catch (Exception e) {
             System.out.println("Error al consultar" + e.getMessage());
+            return lista.get(0);
+        }
+    }
+    
+    
+    public Carpeta consultarCarpeta(int car) {
+
+        List<Carpeta> lista = new ArrayList<>();
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "SELECT idCarpeta, nombreCarpeta, descCarpeta FROM carpeta WHERE idCarpeta = '" + car + "'";
+            PreparedStatement stmt2 = cnx.prepareStatement(query);
+
+            ResultSet rs = stmt2.executeQuery(); //select
+            if (rs.next()) {
+                Carpeta car1 = new Carpeta();
+                car1.setIdCarpeta(rs.getInt("idCarpeta"));
+                car1.setNombreCarpeta(rs.getString("nombreCarpeta"));
+                car1.setDescCarpeta(rs.getString("descCarpeta"));
+
+                lista.add(car1);
+            }
+            rs.close();
+            stmt2.close();
+            cnx.close();
+            return lista.get(0);
+        } catch (SQLException e) {
+            System.out.println("Error SQL al consultar carpeta " + e.getMessage());
+            return lista.get(0);
+        } catch (Exception e) {
+            System.out.println("Error al consultar carpeta " + e.getMessage());
             return lista.get(0);
         }
     }
