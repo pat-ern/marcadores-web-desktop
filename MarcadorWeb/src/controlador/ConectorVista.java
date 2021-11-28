@@ -440,16 +440,20 @@ public class ConectorVista {
     public static void activarVisualMas(int pagActual, int pagMas) {
         if (Integer.parseInt(VistaUsuario.lblPagina.getText()) >= 1 && pagActual < pagMas) {
             VistaUsuario.lblMas.setForeground(Color.black);
+            VistaUsuario.lblMas.setCursor(new Cursor(Cursor.HAND_CURSOR));
         } else {
             VistaUsuario.lblMas.setForeground(Color.WHITE);
+            VistaUsuario.lblMas.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         }
     }
 
     public static void activarVisualMenos(int pagActual) {
         if (Integer.parseInt(VistaUsuario.lblPagina.getText()) > 1) {
             VistaUsuario.lblMenos.setForeground(Color.black);
+            VistaUsuario.lblMenos.setCursor(new Cursor(Cursor.HAND_CURSOR));
         } else {
             VistaUsuario.lblMenos.setForeground(Color.WHITE);
+            VistaUsuario.lblMenos.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         }
     }
 

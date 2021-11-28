@@ -329,7 +329,6 @@ public class InicioSesion extends javax.swing.JFrame {
                     int pagina = Integer.parseInt(VistaUsuario.lblPagina.getText());
 
                     List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(usr1);
-                    Sesion.marcadoresSeleccionados1 = lista;
                     
                     ConectorVista.pagina(usr1, pagina);
 

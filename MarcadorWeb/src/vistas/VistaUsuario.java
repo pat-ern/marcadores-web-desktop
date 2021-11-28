@@ -736,7 +736,6 @@ public class VistaUsuario extends javax.swing.JFrame {
         lblMas.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblMas.setForeground(new java.awt.Color(255, 255, 255));
         lblMas.setText(">");
-        lblMas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblMas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblMasMouseClicked(evt);
@@ -746,7 +745,6 @@ public class VistaUsuario extends javax.swing.JFrame {
         lblMenos.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblMenos.setForeground(new java.awt.Color(255, 255, 255));
         lblMenos.setText("<");
-        lblMenos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblMenos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblMenosMouseClicked(evt);
