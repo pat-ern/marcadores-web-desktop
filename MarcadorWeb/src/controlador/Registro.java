@@ -527,16 +527,19 @@ public class Registro {
         return lista;
     }
 
-    public boolean actualizarFechaUso(String url, Usuario usr) {
+  public boolean actualizarFechaUso(String url, Usuario usr) {
+
+        Date fecha = new Date();
+        
+        List<Marcador> lista = new ArrayList<>();
 
         try {
-                        
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "UPDATE marcador SET fechaUltimoUso = '" + new Date() + "'WHERE url = '" +url+ "' AND usuario = '"+usr.getIdUsuario()+"'";
+            String query = "UPDATE marcador SET fechaUltimoUso = '"+new java.sql.Date(fecha.getTime())+"' WHERE url = '"+url+"' AND usuario = '"+usr.getIdUsuario()+"'";
             PreparedStatement stmt = cnx.prepareStatement(query);
-
+            
             stmt.execute(); //update
             stmt.close();
             cnx.close();

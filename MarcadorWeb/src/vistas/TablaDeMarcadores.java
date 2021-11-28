@@ -128,6 +128,11 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         lblCrearCarpeta2.setText("Compras");
         lblCrearCarpeta2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
         lblCrearCarpeta2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCrearCarpeta2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCrearCarpeta2MouseClicked(evt);
+            }
+        });
 
         lblCrearCarpeta3.setBackground(new java.awt.Color(184, 151, 249));
         lblCrearCarpeta3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -135,6 +140,11 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         lblCrearCarpeta3.setText("Cultura");
         lblCrearCarpeta3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
         lblCrearCarpeta3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCrearCarpeta3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCrearCarpeta3MouseClicked(evt);
+            }
+        });
 
         lblCrearCarpeta4.setBackground(new java.awt.Color(184, 151, 249));
         lblCrearCarpeta4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -142,6 +152,11 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         lblCrearCarpeta4.setText(" Ocio");
         lblCrearCarpeta4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
         lblCrearCarpeta4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCrearCarpeta4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCrearCarpeta4MouseClicked(evt);
+            }
+        });
 
         lblCrearCarpeta5.setBackground(new java.awt.Color(184, 151, 249));
         lblCrearCarpeta5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -149,6 +164,11 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         lblCrearCarpeta5.setText("Social");
         lblCrearCarpeta5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
         lblCrearCarpeta5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCrearCarpeta5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCrearCarpeta5MouseClicked(evt);
+            }
+        });
 
         lblCrearCarpeta6.setBackground(new java.awt.Color(184, 151, 249));
         lblCrearCarpeta6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -156,6 +176,11 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         lblCrearCarpeta6.setText("Estudio");
         lblCrearCarpeta6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
         lblCrearCarpeta6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCrearCarpeta6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCrearCarpeta6MouseClicked(evt);
+            }
+        });
 
         lblNoticias.setBackground(new java.awt.Color(184, 151, 249));
         lblNoticias.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -349,9 +374,9 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
                     descripcion = tmp.getDescMarcador();
                     carpeta = tmp.getCarpeta().getNombreCarpeta();
                     color = tmp.getColorMarcador();
-                    
-                    if(carpeta.equals("Default")){
-                        carpeta="Sin carpeta";
+
+                    if (carpeta.equals("Default")) {
+                        carpeta = "Sin carpeta";
                     }
 
                     if (descripcion.isEmpty()) {
@@ -370,9 +395,9 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
                     descripcion = tmp.getDescMarcador();
                     carpeta = tmp.getCarpeta().getNombreCarpeta();
                     color = tmp.getColorMarcador();
-                    
-                    if(carpeta.equals("Default")){
-                        carpeta="Sin carpeta";
+
+                    if (carpeta.equals("Default")) {
+                        carpeta = "Sin carpeta";
                     }
 
                     if (descripcion.isEmpty()) {
@@ -390,9 +415,9 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
                     descripcion = tmp.getDescMarcador();
                     carpeta = tmp.getCarpeta().getNombreCarpeta();
                     color = tmp.getColorMarcador();
-                    
-                    if(carpeta.equals("Default")){
-                        carpeta="Sin carpeta";
+
+                    if (carpeta.equals("Default")) {
+                        carpeta = "Sin carpeta";
                     }
 
                     if (descripcion.isEmpty()) {
@@ -418,22 +443,142 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         List<Marcador> listaNoticia = rg.listarMarcadoresDeCarpeta(1);
 
         for (Marcador tmp : listaNoticia) {
-                    nombreDelMarcador = tmp.getNombreMarcador();
-                    url = tmp.getUrl();
-                    descripcion = tmp.getDescMarcador();
-                    carpeta = tmp.getCarpeta().getNombreCarpeta();
-                    color = tmp.getColorMarcador();
-                    
-                    if(carpeta.equals("Default")){
-                        carpeta="Sin carpeta";
-                    }
+            nombreDelMarcador = tmp.getNombreMarcador();
+            url = tmp.getUrl();
+            descripcion = tmp.getDescMarcador();
+            carpeta = tmp.getCarpeta().getNombreCarpeta();
+            color = tmp.getColorMarcador();
 
-                    if (descripcion.isEmpty()) {
-                        descripcion = "Sin descripción";
-                    }
-                    modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
-                }
+            if (carpeta.equals("Default")) {
+                carpeta = "Sin carpeta";
+            }
+
+            if (descripcion.isEmpty()) {
+                descripcion = "Sin descripción";
+            }
+            modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
+        }
     }//GEN-LAST:event_lblNoticiasMouseClicked
+
+    private void lblCrearCarpeta6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearCarpeta6MouseClicked
+        DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
+        modelo.setRowCount(0);
+
+        List<Marcador> listaNoticia = rg.listarMarcadoresDeCarpeta(2);
+
+        for (Marcador tmp : listaNoticia) {
+            nombreDelMarcador = tmp.getNombreMarcador();
+            url = tmp.getUrl();
+            descripcion = tmp.getDescMarcador();
+            carpeta = tmp.getCarpeta().getNombreCarpeta();
+            color = tmp.getColorMarcador();
+
+            if (carpeta.equals("Default")) {
+                carpeta = "Sin carpeta";
+            }
+
+            if (descripcion.isEmpty()) {
+                descripcion = "Sin descripción";
+            }
+            modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
+        }
+    }//GEN-LAST:event_lblCrearCarpeta6MouseClicked
+
+    private void lblCrearCarpeta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearCarpeta2MouseClicked
+        DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
+        modelo.setRowCount(0);
+
+        List<Marcador> listaNoticia = rg.listarMarcadoresDeCarpeta(3);
+
+        for (Marcador tmp : listaNoticia) {
+            nombreDelMarcador = tmp.getNombreMarcador();
+            url = tmp.getUrl();
+            descripcion = tmp.getDescMarcador();
+            carpeta = tmp.getCarpeta().getNombreCarpeta();
+            color = tmp.getColorMarcador();
+
+            if (carpeta.equals("Default")) {
+                carpeta = "Sin carpeta";
+            }
+
+            if (descripcion.isEmpty()) {
+                descripcion = "Sin descripción";
+            }
+            modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
+        }
+    }//GEN-LAST:event_lblCrearCarpeta2MouseClicked
+
+    private void lblCrearCarpeta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearCarpeta3MouseClicked
+        DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
+        modelo.setRowCount(0);
+
+        List<Marcador> listaNoticia = rg.listarMarcadoresDeCarpeta(4);
+
+        for (Marcador tmp : listaNoticia) {
+            nombreDelMarcador = tmp.getNombreMarcador();
+            url = tmp.getUrl();
+            descripcion = tmp.getDescMarcador();
+            carpeta = tmp.getCarpeta().getNombreCarpeta();
+            color = tmp.getColorMarcador();
+
+            if (carpeta.equals("Default")) {
+                carpeta = "Sin carpeta";
+            }
+
+            if (descripcion.isEmpty()) {
+                descripcion = "Sin descripción";
+            }
+            modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
+        }
+    }//GEN-LAST:event_lblCrearCarpeta3MouseClicked
+
+    private void lblCrearCarpeta5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearCarpeta5MouseClicked
+        DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
+        modelo.setRowCount(0);
+
+        List<Marcador> listaNoticia = rg.listarMarcadoresDeCarpeta(5);
+
+        for (Marcador tmp : listaNoticia) {
+            nombreDelMarcador = tmp.getNombreMarcador();
+            url = tmp.getUrl();
+            descripcion = tmp.getDescMarcador();
+            carpeta = tmp.getCarpeta().getNombreCarpeta();
+            color = tmp.getColorMarcador();
+
+            if (carpeta.equals("Default")) {
+                carpeta = "Sin carpeta";
+            }
+
+            if (descripcion.isEmpty()) {
+                descripcion = "Sin descripción";
+            }
+            modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
+        }
+    }//GEN-LAST:event_lblCrearCarpeta5MouseClicked
+
+    private void lblCrearCarpeta4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCrearCarpeta4MouseClicked
+        DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
+        modelo.setRowCount(0);
+
+        List<Marcador> listaNoticia = rg.listarMarcadoresDeCarpeta(6);
+
+        for (Marcador tmp : listaNoticia) {
+            nombreDelMarcador = tmp.getNombreMarcador();
+            url = tmp.getUrl();
+            descripcion = tmp.getDescMarcador();
+            carpeta = tmp.getCarpeta().getNombreCarpeta();
+            color = tmp.getColorMarcador();
+
+            if (carpeta.equals("Default")) {
+                carpeta = "Sin carpeta";
+            }
+
+            if (descripcion.isEmpty()) {
+                descripcion = "Sin descripción";
+            }
+            modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion, carpeta, color});
+        }
+    }//GEN-LAST:event_lblCrearCarpeta4MouseClicked
 
     /**
      * @param args the command line arguments

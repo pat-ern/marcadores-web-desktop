@@ -1070,7 +1070,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             }
             Sesion.marcadoresSeleccionados = seleccionMarcadores;
             new VistaCarpetas().setVisible(true);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "No se seleccionó ningun elemento", "No hay elementos marcados", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnAgregarCarpeActionPerformed
@@ -1120,8 +1120,10 @@ public class VistaUsuario extends javax.swing.JFrame {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(0)));
                 rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(0), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1131,9 +1133,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl2.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(1)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(1), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1143,9 +1148,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl3.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(2)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(2), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1155,9 +1163,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl4.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(3)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(3), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1167,9 +1178,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl6.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(4)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(4), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1179,9 +1193,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl7.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(5)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(5), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1191,9 +1208,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl8.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(6)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(6), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1203,9 +1223,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl9.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(7)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(7), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1215,9 +1238,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl10.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(8)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(8), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1227,9 +1253,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl11.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(9)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(9), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1239,9 +1268,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl12.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(10)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(10), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1251,9 +1283,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl13.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(11)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(11), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1263,9 +1298,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl14.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(12)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(12), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1275,9 +1313,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl15.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(13)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(13), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1287,9 +1328,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl16.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(14)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(14), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
@@ -1299,9 +1343,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         if (lblPl17.getText().isEmpty() == false) {
             try {
                 Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(15)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(15), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
+                JOptionPane.showMessageDialog(this, "Error en la sintaxis ingresada", "Sintaxis invalida", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
+                JOptionPane.showMessageDialog(this, "En enlace ingresado no redirecciona", "Enlace invalido", JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
