@@ -296,44 +296,6 @@ public class Registro {
         return lista;
     }
 
-    public Marcador consultarMarcador(String url) {
-
-        List<Marcador> lista = new ArrayList<>();
-
-        try {
-            ConexionBD conexion1 = new ConexionBD();
-            Connection cnx = conexion1.obtenerConexion();
-
-            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador FROM marcador WHERE url = '" + url + "'";
-            PreparedStatement stmt = cnx.prepareStatement(query);
-            ResultSet rs = stmt.executeQuery(); //select
-
-            if (rs.next()) {
-                Marcador marc = new Marcador();
-                marc.setIdMarcador(rs.getInt("idMarcador"));
-                marc.setNombreMarcador(rs.getString("nombreMarcador"));
-                marc.setUrl(rs.getString("url"));
-                marc.setFechaCreacion(rs.getDate("fechaCreacion"));
-                marc.setFechaUltimoUso(rs.getDate("fechaUltimoUso"));
-                marc.setDescMarcador(rs.getString("descMarcador"));
-                marc.setColorMarcador(rs.getString("colorMarcador"));
-                lista.add(marc);
-            }
-
-            rs.close();
-            stmt.close();
-            cnx.close();
-            return lista.get(0);
-
-        } catch (SQLException e) {
-            System.out.println("Error SQL al consultar" + e.getMessage());
-            return lista.get(0);
-        } catch (Exception e) {
-            System.out.println("Error al consultar" + e.getMessage());
-            return lista.get(0);
-        }
-    }
-
     public boolean validarMarcadorExiste(Marcador mrc) {
 
         List<Marcador> lista = new ArrayList<>();
@@ -685,6 +647,46 @@ public class Registro {
             return lista.get(0);
         } catch (Exception e) {
             System.out.println("Error al consultar carpeta " + e.getMessage());
+            return lista.get(0);
+        }
+    }
+
+    public Marcador consultarMarcador(String url) {
+
+        List<Marcador> lista = new ArrayList<>();
+
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador, usuario, carpeta FROM marcador WHERE url = '" + url + "'";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery(); //select
+
+            if (rs.next()) {
+                Marcador marc = new Marcador();
+                marc.setIdMarcador(rs.getInt("idMarcador"));
+                marc.setNombreMarcador(rs.getString("nombreMarcador"));
+                marc.setUrl(rs.getString("url"));
+                marc.setFechaCreacion(rs.getDate("fechaCreacion"));
+                marc.setFechaUltimoUso(rs.getDate("fechaUltimoUso"));
+                marc.setDescMarcador(rs.getString("descMarcador"));
+                marc.setColorMarcador(rs.getString("colorMarcador"));
+                marc.setUsuario(this.consultarUsuarioPorId(rs.getInt("usuario")));
+                marc.setCarpeta(this.consultarCarpeta(rs.getInt("carpeta")));
+                lista.add(marc);
+            }
+
+            rs.close();
+            stmt.close();
+            cnx.close();
+            return lista.get(0);
+
+        } catch (SQLException e) {
+            System.out.println("Error SQL al consultar" + e.getMessage());
+            return lista.get(0);
+        } catch (Exception e) {
+            System.out.println("Error al consultar" + e.getMessage());
             return lista.get(0);
         }
     }
