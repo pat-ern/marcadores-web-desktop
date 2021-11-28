@@ -8,7 +8,6 @@ package vistas;
 import controlador.Registro;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import modelo.Carpeta;
 import modelo.Usuario;
 
 /**
