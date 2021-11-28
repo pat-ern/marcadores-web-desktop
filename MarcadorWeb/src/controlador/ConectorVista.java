@@ -5,14 +5,14 @@
  */
 package controlador;
 
-import controlador.Registro;
-import controlador.Sesion;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Marcador;
 import modelo.Usuario;
 import vistas.VistaUsuario;
+import static vistas.VistaUsuario.lblPl1;
 
 /**
  *
@@ -430,11 +430,11 @@ public class ConectorVista {
                 VistaUsuario.lblPl17.setText(nombreMarcador);
                 VistaUsuario.chk16.setEnabled(true);
                 colorearPanel(16, color);
-
                 break;
             default:
                 break;
         }
+        handCursor();
     }
 
     public static void activarVisualMas(int pagActual, int pagMas) {
@@ -452,7 +452,7 @@ public class ConectorVista {
             VistaUsuario.lblMenos.setForeground(Color.WHITE);
         }
     }
-    
+
     public static List<String> traerLinkDePag(Usuario usr1, String pagina) {
         int i = 0;
         int dieciseis = 0;
@@ -523,6 +523,91 @@ public class ConectorVista {
                 default:
                     break;
             }
-        }return urlPag;
+        }
+        return urlPag;
     }
+
+    public static void handCursor() {
+        if (VistaUsuario.lblPl1.getText().isEmpty()) {
+            VistaUsuario.lblPl1.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl1.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl2.getText().isEmpty()) {
+            VistaUsuario.lblPl2.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl2.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl3.getText().isEmpty()) {
+            VistaUsuario.lblPl3.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl3.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl4.getText().isEmpty()) {
+            VistaUsuario.lblPl4.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl4.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl6.getText().isEmpty()) {
+            VistaUsuario.lblPl6.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl6.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl7.getText().isEmpty()) {
+            VistaUsuario.lblPl7.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl7.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl8.getText().isEmpty()) {
+            VistaUsuario.lblPl8.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl8.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl9.getText().isEmpty()) {
+            VistaUsuario.lblPl9.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl9.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl10.getText().isEmpty()) {
+            VistaUsuario.lblPl10.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl10.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl11.getText().isEmpty()) {
+            VistaUsuario.lblPl11.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl11.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl12.getText().isEmpty()) {
+            VistaUsuario.lblPl12.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl12.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl13.getText().isEmpty()) {
+            VistaUsuario.lblPl13.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl13.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl14.getText().isEmpty()) {
+            VistaUsuario.lblPl14.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl14.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl15.getText().isEmpty()) {
+            VistaUsuario.lblPl15.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl15.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl16.getText().isEmpty()) {
+            VistaUsuario.lblPl16.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl16.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+        if (VistaUsuario.lblPl17.getText().isEmpty()) {
+            VistaUsuario.lblPl17.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        } else {
+            VistaUsuario.lblPl17.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        }
+    }
+
 }

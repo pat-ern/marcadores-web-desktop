@@ -5,6 +5,7 @@
  */
 package vistas;
 
+import controlador.ConectorVista;
 import controlador.Registro;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
@@ -275,68 +276,85 @@ public class AgregarMarcador extends javax.swing.JFrame {
                     valor = 1;
                     colorearPanel(valor);
                     VistaUsuario.lblPl1.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl2.getText().length() == 0) {
                     valor = 2;
                     colorearPanel(valor);
                     VistaUsuario.lblPl2.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl3.getText().length() == 0) {
                     valor = 3;
                     colorearPanel(valor);
                     VistaUsuario.lblPl3.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl4.getText().length() == 0) {
                     valor = 4;
                     colorearPanel(valor);
                     VistaUsuario.lblPl4.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl6.getText().length() == 0) {
                     valor = 5;
                     colorearPanel(valor);
                     VistaUsuario.lblPl6.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl7.getText().length() == 0) {
                     valor = 6;
                     colorearPanel(valor);
                     VistaUsuario.lblPl7.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl8.getText().length() == 0) {
                     valor = 7;
                     colorearPanel(valor);
                     VistaUsuario.lblPl8.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl9.getText().length() == 0) {
                     valor = 8;
                     colorearPanel(valor);
                     VistaUsuario.lblPl9.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl10.getText().length() == 0) {
                     valor = 9;
                     colorearPanel(valor);
                     VistaUsuario.lblPl10.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl11.getText().length() == 0) {
                     valor = 10;
                     colorearPanel(valor);
                     VistaUsuario.lblPl11.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl12.getText().length() == 0) {
                     valor = 11;
                     colorearPanel(valor);
                     VistaUsuario.lblPl12.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl13.getText().length() == 0) {
                     valor = 12;
                     colorearPanel(valor);
                     VistaUsuario.lblPl13.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl14.getText().length() == 0) {
                     valor = 13;
                     colorearPanel(valor);
                     VistaUsuario.lblPl14.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl15.getText().length() == 0) {
                     valor = 14;
                     colorearPanel(valor);
                     VistaUsuario.lblPl15.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl16.getText().length() == 0) {
                     valor = 15;
                     colorearPanel(valor);
                     VistaUsuario.lblPl16.setText(nombreMarcador);
+                    ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl17.getText().length() == 0) {
                     valor = 16;
                     colorearPanel(valor);
                     VistaUsuario.lblPl17.setText(nombreMarcador);
+                    ConectorVista.handCursor();
+                }else{
+                    ConectorVista.activarVisualMas(Integer.parseInt(VistaUsuario.lblPagina.getText()), 2);//activarVisualMas(int pagActual, int pagMas)
                 }
-
             } else {
                 JOptionPane.showMessageDialog(this, "El marcador ya se encuentra creado", "Marcador ya registrado", JOptionPane.ERROR_MESSAGE);
             }

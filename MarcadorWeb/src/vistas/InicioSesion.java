@@ -9,11 +9,13 @@ import controlador.ConectorVista;
 import controlador.Registro;
 import controlador.Sesion;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import modelo.Marcador;
 import modelo.Usuario;
+import static vistas.VistaUsuario.lblPl1;
 
 /**
  *
@@ -285,18 +287,18 @@ public class InicioSesion extends javax.swing.JFrame {
 
         correoIngresado = txtCorreo.getText().toLowerCase();
         var passIngresada = new String(jpPass.getPassword());
-        
+
         if (correoIngresado.length() == 0) {
-                txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));//rojo
-            } else {
-                txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));//gris               
-            }
-        
+            txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));//rojo
+        } else {
+            txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));//gris               
+        }
+
         if (passIngresada.length() == 0 || passIngresada.equals("JPasswordField")) {
-                jpPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
-            } else {
-                jpPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-            }
+            jpPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));
+        } else {
+            jpPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        }
 
         if (correoIngresado.length() == 0 || passIngresada.length() == 0 || passIngresada.equals("JPasswordField")) {
             lblAlerta.setText("Debe completar todos los campos!");
@@ -322,17 +324,21 @@ public class InicioSesion extends javax.swing.JFrame {
 
                     new VistaUsuario().setVisible(true);
                     VistaUsuario.lblUsuario.setText(usr1.getNombreUsuario());
-                    Sesion.usuarioActivo=usr1;
+                    Sesion.usuarioActivo = usr1;
                     
-                    //Sesion.usuarioActivo.getNombreUsuario();
-                    
-                    int pagina=Integer.parseInt(VistaUsuario.lblPagina.getText());
-                    
+                    int pagina = Integer.parseInt(VistaUsuario.lblPagina.getText());
+
                     List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(usr1);
+                    Sesion.marcadoresSeleccionados1 = lista;
+                    
                     ConectorVista.pagina(usr1, pagina);
-                    if(lista.size()>16){
+
+                    //PONER LO DEL CURSOR AQUI TAMBIEN
+                    
+                    if (lista.size() > 16) {
                         VistaUsuario.lblMas.setForeground(Color.black);
-                    }
+                        VistaUsuario.lblMas.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                        }
                     dispose();
 
                 } else {

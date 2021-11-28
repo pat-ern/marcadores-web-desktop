@@ -60,7 +60,7 @@
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="btnAgregarCarpe" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="btnCerrar" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnMostrar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -70,7 +70,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnCerrar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="btnMostrar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="btnAgregarCarpe" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="btnEliminar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="btnAgregar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
@@ -111,7 +111,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnCerrar">
+        <Component class="javax.swing.JButton" name="btnMostrar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/imagen/11_104884.png"/>
@@ -123,7 +123,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCerrarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnAgregarCarpe">
@@ -183,13 +183,15 @@
                               <Component id="pl11" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="pl15" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="pl12" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="pl12" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="lblMas" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="pl16" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="lblMas" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -312,6 +314,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl1MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -374,6 +379,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl2MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -437,6 +445,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl4MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -500,6 +511,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl9MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -563,6 +577,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl3MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -626,6 +643,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl7MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -689,6 +709,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl6MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -752,6 +775,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl13MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -815,6 +841,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl12MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -878,6 +907,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl11MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -941,6 +973,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl10MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -1004,6 +1039,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl17MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -1067,6 +1105,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl16MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -1130,6 +1171,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl15MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -1193,6 +1237,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl14MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
@@ -1256,6 +1303,9 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblPl8MouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>

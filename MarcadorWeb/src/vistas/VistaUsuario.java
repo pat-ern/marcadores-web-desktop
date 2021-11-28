@@ -9,9 +9,14 @@ import controlador.ConectorVista;
 import controlador.Registro;
 import controlador.Sesion;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Carpeta;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Marcador;
 import modelo.Usuario;
 
@@ -50,7 +55,7 @@ public class VistaUsuario extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         btnEliminar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
-        btnCerrar = new javax.swing.JButton();
+        btnMostrar = new javax.swing.JButton();
         btnAgregarCarpe = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         pl1 = new javax.swing.JPanel();
@@ -135,13 +140,13 @@ public class VistaUsuario extends javax.swing.JFrame {
             }
         });
 
-        btnCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/11_104884.png"))); // NOI18N
-        btnCerrar.setText("Mostrar Todo");
-        btnCerrar.setToolTipText("Cerrar");
-        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+        btnMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/11_104884.png"))); // NOI18N
+        btnMostrar.setText("Mostrar Todo");
+        btnMostrar.setToolTipText("Cerrar");
+        btnMostrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarActionPerformed(evt);
+                btnMostrarActionPerformed(evt);
             }
         });
 
@@ -167,7 +172,7 @@ public class VistaUsuario extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addComponent(btnAgregarCarpe)
                 .addGap(49, 49, 49)
-                .addComponent(btnCerrar)
+                .addComponent(btnMostrar)
                 .addGap(25, 25, 25))
         );
         jPanel3Layout.setVerticalGroup(
@@ -175,7 +180,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregarCarpe, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -189,6 +194,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl1.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl1MouseClicked(evt);
+            }
+        });
 
         chk1.setToolTipText("");
         chk1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -218,6 +228,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl2.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl2MouseClicked(evt);
+            }
+        });
 
         chk2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk2.setEnabled(false);
@@ -246,6 +261,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl4.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl4MouseClicked(evt);
+            }
+        });
 
         chk4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk4.setEnabled(false);
@@ -275,6 +295,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl8.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl9MouseClicked(evt);
+            }
+        });
 
         chk8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk8.setEnabled(false);
@@ -304,6 +329,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl3.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl3MouseClicked(evt);
+            }
+        });
 
         chk3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk3.setEnabled(false);
@@ -333,6 +363,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl6.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl7MouseClicked(evt);
+            }
+        });
 
         chk6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk6.setEnabled(false);
@@ -362,6 +397,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl5.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl6MouseClicked(evt);
+            }
+        });
 
         chk5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk5.setEnabled(false);
@@ -391,6 +431,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl12.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl13MouseClicked(evt);
+            }
+        });
 
         chk12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk12.setEnabled(false);
@@ -420,6 +465,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl11.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl12MouseClicked(evt);
+            }
+        });
 
         chk11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk11.setEnabled(false);
@@ -449,6 +499,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl10.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl11MouseClicked(evt);
+            }
+        });
 
         chk10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk10.setEnabled(false);
@@ -478,6 +533,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl9.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl10MouseClicked(evt);
+            }
+        });
 
         chk9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk9.setEnabled(false);
@@ -507,6 +567,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl16.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl17MouseClicked(evt);
+            }
+        });
 
         chk16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk16.setEnabled(false);
@@ -536,6 +601,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl15.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl16MouseClicked(evt);
+            }
+        });
 
         chk15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk15.setEnabled(false);
@@ -565,6 +635,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl14.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl15MouseClicked(evt);
+            }
+        });
 
         chk14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk14.setEnabled(false);
@@ -594,6 +669,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl13.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl14MouseClicked(evt);
+            }
+        });
 
         chk13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk13.setEnabled(false);
@@ -623,6 +703,11 @@ public class VistaUsuario extends javax.swing.JFrame {
         pl7.setPreferredSize(new java.awt.Dimension(90, 90));
 
         lblPl8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPl8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblPl8MouseClicked(evt);
+            }
+        });
 
         chk7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         chk7.setEnabled(false);
@@ -699,12 +784,13 @@ public class VistaUsuario extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(pl11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(pl15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(102, 102, 102)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(pl12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pl16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblMas))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(pl12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(lblMas))
+                            .addComponent(pl16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -836,12 +922,12 @@ public class VistaUsuario extends javax.swing.JFrame {
         new AgregarMarcador().setVisible(true);
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         new TablaDeMarcadores().setVisible(true);
         TablaDeMarcadores.lblUsuarioVista.setText(lblUsuario.getText());
         TablaDeMarcadores.lblCrearCarpeta.setOpaque(true); //para pintar la etiqueta
         TablaDeMarcadores.lblLimpiarBusqueda.setOpaque(true);
-    }//GEN-LAST:event_btnCerrarActionPerformed
+    }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         List<String> marcadosParaEliminar = new ArrayList<>();
@@ -852,10 +938,10 @@ public class VistaUsuario extends javax.swing.JFrame {
             }
             if (chk2.isSelected()) {
                 rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(1)));
-            } 
+            }
             if (chk3.isSelected()) {
                 rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(2)));
-            } 
+            }
             if (chk4.isSelected()) {
                 rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(3)));
             }
@@ -894,7 +980,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             }
             if (chk16.isSelected()) {
                 rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(15)));
-           
+
             }
             limpiarPost();
             ConectorVista.pagina(Sesion.usuarioActivo, Integer.parseInt(lblPagina.getText()));
@@ -912,10 +998,10 @@ public class VistaUsuario extends javax.swing.JFrame {
             }
             if (chk2.isSelected()) {
                 seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(1)));
-            } 
+            }
             if (chk3.isSelected()) {
                 seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(2)));
-            } 
+            }
             if (chk4.isSelected()) {
                 seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(3)));
             }
@@ -1007,6 +1093,198 @@ public class VistaUsuario extends javax.swing.JFrame {
         ConectorVista.pagina(usr1, pagActual);
     }//GEN-LAST:event_lblMenosMouseClicked
 
+    private void lblPl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl1MouseClicked
+        if (lblPl1.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(0)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl1MouseClicked
+
+    private void lblPl2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl2MouseClicked
+        if (lblPl2.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(1)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl2MouseClicked
+
+    private void lblPl3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl3MouseClicked
+        if (lblPl3.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(2)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl3MouseClicked
+
+    private void lblPl4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl4MouseClicked
+        if (lblPl4.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(3)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl4MouseClicked
+
+    private void lblPl6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl6MouseClicked
+        if (lblPl6.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(4)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl6MouseClicked
+
+    private void lblPl7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl7MouseClicked
+        if (lblPl7.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(5)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl7MouseClicked
+
+    private void lblPl8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl8MouseClicked
+        if (lblPl8.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(6)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl8MouseClicked
+
+    private void lblPl9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl9MouseClicked
+        if (lblPl9.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(7)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl9MouseClicked
+
+    private void lblPl10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl10MouseClicked
+        if (lblPl10.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(8)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl10MouseClicked
+
+    private void lblPl11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl11MouseClicked
+        if (lblPl11.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(9)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl11MouseClicked
+
+    private void lblPl12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl12MouseClicked
+        if (lblPl12.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(10)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl12MouseClicked
+
+    private void lblPl13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl13MouseClicked
+        if (lblPl13.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(11)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl13MouseClicked
+
+    private void lblPl14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl14MouseClicked
+        if (lblPl14.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(12)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl14MouseClicked
+
+    private void lblPl15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl15MouseClicked
+        if (lblPl15.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(13)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl15MouseClicked
+
+    private void lblPl16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl16MouseClicked
+        if (lblPl16.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(14)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl16MouseClicked
+
+    private void lblPl17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl17MouseClicked
+        if (lblPl17.getText().isEmpty() == false) {
+            try {
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(15)));
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_lblPl17MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1045,8 +1323,8 @@ public class VistaUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAgregarCarpe;
-    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnSalir;
     public static javax.swing.JCheckBox chk1;
     public static javax.swing.JCheckBox chk10;
