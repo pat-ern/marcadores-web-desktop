@@ -405,7 +405,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="chk2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblPl2" pref="58" max="32767" attributes="0"/>
+                      <Component id="lblPl2" pref="59" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -669,7 +669,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="chk6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblPl7" pref="58" max="32767" attributes="0"/>
+                      <Component id="lblPl7" pref="59" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -801,7 +801,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="chk12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblPl13" pref="58" max="32767" attributes="0"/>
+                      <Component id="lblPl13" pref="59" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -867,7 +867,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="chk11" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblPl12" pref="58" max="32767" attributes="0"/>
+                      <Component id="lblPl12" pref="59" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -933,7 +933,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="chk10" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblPl11" pref="58" max="32767" attributes="0"/>
+                      <Component id="lblPl11" pref="59" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -999,7 +999,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="chk9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblPl10" pref="58" max="32767" attributes="0"/>
+                      <Component id="lblPl10" pref="59" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1065,7 +1065,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="chk16" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblPl17" pref="58" max="32767" attributes="0"/>
+                      <Component id="lblPl17" pref="59" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1131,7 +1131,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="chk15" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblPl16" pref="58" max="32767" attributes="0"/>
+                      <Component id="lblPl16" pref="59" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1197,7 +1197,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="chk14" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblPl15" pref="58" max="32767" attributes="0"/>
+                      <Component id="lblPl15" pref="59" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1263,7 +1263,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="chk13" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblPl14" pref="58" max="32767" attributes="0"/>
+                      <Component id="lblPl14" pref="59" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1371,9 +1371,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&gt;"/>
-            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Hand Cursor"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblMasMouseClicked"/>
@@ -1391,9 +1388,6 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;"/>
-            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Hand Cursor"/>
-            </Property>
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblMenosMouseClicked"/>

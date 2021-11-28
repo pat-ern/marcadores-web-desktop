@@ -9,6 +9,7 @@ import controlador.Registro;
 import controlador.Sesion;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import modelo.Carpeta;
 import modelo.Marcador;
 import modelo.Usuario;
 
@@ -22,7 +23,7 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
     String url;
     String descripcion;
     boolean perteneceCarpeta;
-    
+    Registro rg = new Registro();
 
     /**
      * Creates new form TablaDeMarcadores
@@ -46,13 +47,20 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         lblUsuarioVista = new javax.swing.JLabel();
         lblImaUsua = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        lblCrearCarpeta = new javax.swing.JLabel();
-        lblLimpiarBusqueda = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
+        lblCar1 = new javax.swing.JLabel();
+        lblCrearCarpeta2 = new javax.swing.JLabel();
+        lblCrearCarpeta3 = new javax.swing.JLabel();
+        lblCrearCarpeta4 = new javax.swing.JLabel();
+        lblCrearCarpeta5 = new javax.swing.JLabel();
+        lblCrearCarpeta6 = new javax.swing.JLabel();
+        lblNoticias = new javax.swing.JLabel();
         jtLista = new javax.swing.JScrollPane();
         jtTabla = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         btnBuscar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        cboOrdenar = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tabla de marcadores");
@@ -77,8 +85,8 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(lblImaUsua)
                 .addGap(18, 18, 18)
-                .addComponent(lblUsuarioVista, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblUsuarioVista, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,18 +103,6 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblCrearCarpeta.setBackground(new java.awt.Color(167, 243, 214));
-        lblCrearCarpeta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblCrearCarpeta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCrearCarpeta.setText("CREAR CARPETA");
-        lblCrearCarpeta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        lblLimpiarBusqueda.setBackground(new java.awt.Color(167, 243, 214));
-        lblLimpiarBusqueda.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblLimpiarBusqueda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLimpiarBusqueda.setText("LIMPIAR BUSQUEDA");
-        lblLimpiarBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         btnVolver.setBackground(new java.awt.Color(255, 255, 255));
         btnVolver.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(51, 0, 153));
@@ -118,29 +114,100 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
             }
         });
 
+        lblCar1.setBackground(new java.awt.Color(184, 151, 249));
+        lblCar1.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        lblCar1.setForeground(new java.awt.Color(51, 0, 153));
+        lblCar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCar1.setText("CARPETAS");
+        lblCar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCar1.setPreferredSize(new java.awt.Dimension(142, 20));
+
+        lblCrearCarpeta2.setBackground(new java.awt.Color(184, 151, 249));
+        lblCrearCarpeta2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCrearCarpeta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCrearCarpeta2.setText("Compras");
+        lblCrearCarpeta2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
+        lblCrearCarpeta2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        lblCrearCarpeta3.setBackground(new java.awt.Color(184, 151, 249));
+        lblCrearCarpeta3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCrearCarpeta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCrearCarpeta3.setText("Cultura");
+        lblCrearCarpeta3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
+        lblCrearCarpeta3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        lblCrearCarpeta4.setBackground(new java.awt.Color(184, 151, 249));
+        lblCrearCarpeta4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCrearCarpeta4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCrearCarpeta4.setText(" Ocio");
+        lblCrearCarpeta4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
+        lblCrearCarpeta4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        lblCrearCarpeta5.setBackground(new java.awt.Color(184, 151, 249));
+        lblCrearCarpeta5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCrearCarpeta5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCrearCarpeta5.setText("Social");
+        lblCrearCarpeta5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
+        lblCrearCarpeta5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        lblCrearCarpeta6.setBackground(new java.awt.Color(184, 151, 249));
+        lblCrearCarpeta6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCrearCarpeta6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCrearCarpeta6.setText("Estudio");
+        lblCrearCarpeta6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
+        lblCrearCarpeta6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        lblNoticias.setBackground(new java.awt.Color(184, 151, 249));
+        lblNoticias.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblNoticias.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNoticias.setText("Noticia");
+        lblNoticias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
+        lblNoticias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblNoticias.setPreferredSize(new java.awt.Dimension(142, 20));
+        lblNoticias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblNoticiasMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblLimpiarBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
-                    .addComponent(lblCrearCarpeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCrearCarpeta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCrearCarpeta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCrearCarpeta4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCrearCarpeta6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCrearCarpeta5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNoticias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(lblLimpiarBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(lblCrearCarpeta, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(47, 47, 47)
+                .addComponent(lblCar1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblNoticias, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblCrearCarpeta6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblCrearCarpeta2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblCrearCarpeta3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblCrearCarpeta5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblCrearCarpeta4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
@@ -186,52 +253,64 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 153));
+        jLabel1.setText("Mostrar:");
+
+        cboOrdenar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cboOrdenar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Orden Alfabetico", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 384, Short.MAX_VALUE)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(cboOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(cboOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(jtLista)))
-                .addGap(18, 18, 18)
+                        .addComponent(jtLista, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jtLista, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(27, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtLista, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -249,15 +328,60 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        Registro rg = new Registro();
         DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
 
         modelo.setRowCount(0);
 
         Usuario usr1 = new Usuario();
-        usr1 = rg.activarSesionUsuario(InicioSesion.txtCorreo.getText());
-        List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(usr1);
+        usr1 = Sesion.usuarioActivo;
+        //Todos, Orden Alfabetico, Item 3, Item 4
+        switch (cboOrdenar.getSelectedItem().toString()) {
+            case "Todos":
+                List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(usr1);
 
+                for (Marcador tmp : lista) {
+                    nombreDelMarcador = tmp.getNombreMarcador();
+                    url = tmp.getUrl();
+                    descripcion = tmp.getDescMarcador();
+
+                    if (descripcion.isEmpty()) {
+                        descripcion = "Sin descripción";
+                    }
+                                    modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion});
+
+                }
+                    break;
+            case "Orden Alfabetico":
+                List<Marcador> listao = rg.listarLosMarcPorOrdenAlfabetico(usr1);
+
+                for (Marcador tmp : listao) {
+                    nombreDelMarcador = tmp.getNombreMarcador();
+                    url = tmp.getUrl();
+                    descripcion = tmp.getDescMarcador();
+
+                    if (descripcion.isEmpty()) {
+                        descripcion = "Sin descripción";
+                    }
+                modelo.addRow(new Object[]{nombreDelMarcador, url, descripcion});
+
+                }
+                
+
+
+        }
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void lblNoticiasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNoticiasMouseClicked
+        DefaultTableModel modelo = (DefaultTableModel) jtTabla.getModel();
+        modelo.setRowCount(0);
+        
+        List<Marcador> lista = rg.listarMarcadoresDeCarpeta(1);
+        
         for (Marcador tmp : lista) {
             nombreDelMarcador = tmp.getNombreMarcador();
             url = tmp.getUrl();
@@ -270,12 +394,7 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
             modelo.addRow(new Object[]{nombreDelMarcador,url,descripcion});
 
         }
-
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        dispose();
-    }//GEN-LAST:event_btnVolverActionPerformed
+    }//GEN-LAST:event_lblNoticiasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -315,15 +434,22 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JComboBox<String> cboOrdenar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jtLista;
     private javax.swing.JTable jtTabla;
-    public static javax.swing.JLabel lblCrearCarpeta;
+    public static javax.swing.JLabel lblCar1;
+    public static javax.swing.JLabel lblCrearCarpeta2;
+    public static javax.swing.JLabel lblCrearCarpeta3;
+    public static javax.swing.JLabel lblCrearCarpeta4;
+    public static javax.swing.JLabel lblCrearCarpeta5;
+    public static javax.swing.JLabel lblCrearCarpeta6;
     private javax.swing.JLabel lblImaUsua;
-    public static javax.swing.JLabel lblLimpiarBusqueda;
+    public static javax.swing.JLabel lblNoticias;
     public static javax.swing.JLabel lblUsuarioVista;
     // End of variables declaration//GEN-END:variables
 }

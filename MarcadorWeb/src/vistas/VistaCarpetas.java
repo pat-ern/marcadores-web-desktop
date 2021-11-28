@@ -7,25 +7,8 @@ package vistas;
 
 import controlador.Sesion;
 import modelo.Marcador;
-import modelo.Usuario;
 import controlador.Registro;
-import java.util.ArrayList;
-import static vistas.VistaUsuario.chk1;
-import static vistas.VistaUsuario.chk10;
-import static vistas.VistaUsuario.chk11;
-import static vistas.VistaUsuario.chk12;
-import static vistas.VistaUsuario.chk13;
-import static vistas.VistaUsuario.chk14;
-import static vistas.VistaUsuario.chk15;
-import static vistas.VistaUsuario.chk16;
-import static vistas.VistaUsuario.chk2;
-import static vistas.VistaUsuario.chk3;
-import static vistas.VistaUsuario.chk4;
-import static vistas.VistaUsuario.chk5;
-import static vistas.VistaUsuario.chk6;
-import static vistas.VistaUsuario.chk7;
-import static vistas.VistaUsuario.chk8;
-import static vistas.VistaUsuario.chk9;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -365,22 +348,25 @@ public class VistaCarpetas extends javax.swing.JFrame {
         for (Marcador tmp : Sesion.marcadoresSeleccionados) { //carpetaActiva se llena con los marcadores en VistaUsuario
             rg.moverMarcadorACarpeta(tmp, idCarpeta);
         }
-        chk1.setSelected(false);
-        chk2.setSelected(false);
-        chk3.setSelected(false);
-        chk4.setSelected(false);
-        chk5.setSelected(false);
-        chk6.setSelected(false);
-        chk7.setSelected(false);
-        chk8.setSelected(false);
-        chk9.setSelected(false);
-        chk10.setSelected(false);
-        chk11.setSelected(false);
-        chk12.setSelected(false);
-        chk13.setSelected(false);
-        chk14.setSelected(false);
-        chk15.setSelected(false);
-        chk16.setSelected(false);
+        
+        JOptionPane.showMessageDialog(this, "Se movieron los marcadores a la carpeta seleccionada", "Marcadores a carpeta", JOptionPane.INFORMATION_MESSAGE);
+        
+        VistaUsuario.chk1.setSelected(false);
+        VistaUsuario.chk2.setSelected(false);
+        VistaUsuario.chk3.setSelected(false);
+        VistaUsuario.chk4.setSelected(false);
+        VistaUsuario.chk5.setSelected(false);
+        VistaUsuario.chk6.setSelected(false);
+        VistaUsuario.chk7.setSelected(false);
+        VistaUsuario.chk8.setSelected(false);
+        VistaUsuario.chk9.setSelected(false);
+        VistaUsuario.chk10.setSelected(false);
+        VistaUsuario.chk11.setSelected(false);
+        VistaUsuario.chk12.setSelected(false);
+        VistaUsuario.chk13.setSelected(false);
+        VistaUsuario.chk14.setSelected(false);
+        VistaUsuario.chk15.setSelected(false);
+        VistaUsuario.chk16.setSelected(false);
         dispose();
 
     }//GEN-LAST:event_btConfirmarActionPerformed

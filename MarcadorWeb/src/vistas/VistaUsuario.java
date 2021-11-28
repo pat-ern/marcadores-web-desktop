@@ -266,7 +266,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             .addGroup(pl2Layout.createSequentialGroup()
                 .addComponent(chk2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPl2, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addComponent(lblPl2, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -402,7 +402,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             .addGroup(pl6Layout.createSequentialGroup()
                 .addComponent(chk6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPl7, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addComponent(lblPl7, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -470,7 +470,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             .addGroup(pl12Layout.createSequentialGroup()
                 .addComponent(chk12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPl13, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addComponent(lblPl13, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -504,7 +504,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             .addGroup(pl11Layout.createSequentialGroup()
                 .addComponent(chk11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPl12, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addComponent(lblPl12, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -538,7 +538,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             .addGroup(pl10Layout.createSequentialGroup()
                 .addComponent(chk10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPl11, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addComponent(lblPl11, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -572,7 +572,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             .addGroup(pl9Layout.createSequentialGroup()
                 .addComponent(chk9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPl10, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addComponent(lblPl10, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -606,7 +606,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             .addGroup(pl16Layout.createSequentialGroup()
                 .addComponent(chk16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPl17, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addComponent(lblPl17, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -640,7 +640,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             .addGroup(pl15Layout.createSequentialGroup()
                 .addComponent(chk15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPl16, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addComponent(lblPl16, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -674,7 +674,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             .addGroup(pl14Layout.createSequentialGroup()
                 .addComponent(chk14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPl15, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addComponent(lblPl15, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -708,7 +708,7 @@ public class VistaUsuario extends javax.swing.JFrame {
             .addGroup(pl13Layout.createSequentialGroup()
                 .addComponent(chk13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPl14, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addComponent(lblPl14, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -749,7 +749,6 @@ public class VistaUsuario extends javax.swing.JFrame {
         lblMas.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblMas.setForeground(new java.awt.Color(255, 255, 255));
         lblMas.setText(">");
-        lblMas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblMas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblMasMouseClicked(evt);
@@ -759,7 +758,6 @@ public class VistaUsuario extends javax.swing.JFrame {
         lblMenos.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         lblMenos.setForeground(new java.awt.Color(255, 255, 255));
         lblMenos.setText("<");
-        lblMenos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblMenos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblMenosMouseClicked(evt);
@@ -943,11 +941,8 @@ public class VistaUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-
         new TablaDeMarcadores().setVisible(true);
         TablaDeMarcadores.lblUsuarioVista.setText(lblUsuario.getText());
-        TablaDeMarcadores.lblCrearCarpeta.setOpaque(true); //para pintar la etiqueta
-        TablaDeMarcadores.lblLimpiarBusqueda.setOpaque(true);
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed

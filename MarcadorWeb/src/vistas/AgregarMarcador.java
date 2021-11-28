@@ -276,7 +276,9 @@ public class AgregarMarcador extends javax.swing.JFrame {
             } else {
                 txtUrl.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));//gris               
             }
-        } else {
+        }else if(url.contains("www.")==false){
+            lblAlerta.setText("La URL tiene que iniciar con www.");
+        }else {
 
             Registro rg = new Registro();
             
