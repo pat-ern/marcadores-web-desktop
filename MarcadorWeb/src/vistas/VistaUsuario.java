@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import modelo.Marcador;
 import modelo.Usuario;
 
@@ -941,59 +942,67 @@ public class VistaUsuario extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         List<String> marcadosParaEliminar = new ArrayList<>();
-        marcadosParaEliminar = ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText());
-        for (String tmp : marcadosParaEliminar) {
-            if (chk1.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(0)));
-            }
-            if (chk2.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(1)));
-            }
-            if (chk3.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(2)));
-            }
-            if (chk4.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(3)));
-            }
-            if (chk5.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(4)));
-            }
-            if (chk6.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(5)));
-            }
-            if (chk7.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(6)));
-            }
-            if (chk8.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(7)));
-            }
-            if (chk9.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(8)));
-            }
-            if (chk10.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(9)));
-            }
-            if (chk11.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(10)));
-            }
-            if (chk12.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(11)));
-            }
-            if (chk13.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(12)));
-            }
-            if (chk14.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(13)));
-            }
-            if (chk15.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(14)));
-            }
-            if (chk16.isSelected()) {
-                rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(15)));
+        marcadosParaEliminar = ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores);
 
+        //  Si alguna esta seleccionada que lo haga.
+        if (chk1.isSelected() || chk2.isSelected() || chk3.isSelected() || chk4.isSelected() || chk5.isSelected() || chk6.isSelected()
+                || chk7.isSelected() || chk8.isSelected() || chk9.isSelected() || chk10.isSelected() || chk11.isSelected() || chk12.isSelected()
+                || chk13.isSelected() || chk14.isSelected() || chk15.isSelected() || chk16.isSelected()) {
+            for (String tmp : marcadosParaEliminar) {
+                if (chk1.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(0)));
+                }
+                if (chk2.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(1)));
+                }
+                if (chk3.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(2)));
+                }
+                if (chk4.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(3)));
+                }
+                if (chk5.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(4)));
+                }
+                if (chk6.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(5)));
+                }
+                if (chk7.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(6)));
+                }
+                if (chk8.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(7)));
+                }
+                if (chk9.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(8)));
+                }
+                if (chk10.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(9)));
+                }
+                if (chk11.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(10)));
+                }
+                if (chk12.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(11)));
+                }
+                if (chk13.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(12)));
+                }
+                if (chk14.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(13)));
+                }
+                if (chk15.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(14)));
+                }
+                if (chk16.isSelected()) {
+                    rg.borrarMarcador(rg.consultarMarcador(marcadosParaEliminar.get(15)));
+                }
+                limpiarPost();
             }
-            limpiarPost();
-            ConectorVista.pagina(Sesion.usuarioActivo, Integer.parseInt(lblPagina.getText()));
+            Sesion.todosLosMarcadores = rg.listarTodosLosMarcPorUsuario(Sesion.usuarioActivo);
+            ConectorVista.pagina(Sesion.usuarioActivo, Integer.parseInt(lblPagina.getText()), Sesion.todosLosMarcadores);
+        } else {
+            JOptionPane.showMessageDialog(this, "No se seleccionó ningun elemento", "No hay elementos marcados", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -1001,60 +1010,69 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void btnAgregarCarpeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCarpeActionPerformed
         List<String> marcadosParaMover = new ArrayList<>();
         List<Marcador> seleccionMarcadores = new ArrayList<>();
-        marcadosParaMover = ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText());
-        for (String tmp : marcadosParaMover) {
-            if (chk1.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(0)));
+
+        if (chk1.isSelected() || chk2.isSelected() || chk3.isSelected() || chk4.isSelected() || chk5.isSelected() || chk6.isSelected()
+                || chk7.isSelected() || chk8.isSelected() || chk9.isSelected() || chk10.isSelected() || chk11.isSelected() || chk12.isSelected()
+                || chk13.isSelected() || chk14.isSelected() || chk15.isSelected() || chk16.isSelected()) {
+
+            List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(Sesion.usuarioActivo);
+            marcadosParaMover = ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), lista);
+            for (String tmp : marcadosParaMover) {
+                if (chk1.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(0)));
+                }
+                if (chk2.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(1)));
+                }
+                if (chk3.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(2)));
+                }
+                if (chk4.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(3)));
+                }
+                if (chk5.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(4)));
+                }
+                if (chk6.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(5)));
+                }
+                if (chk7.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(6)));
+                }
+                if (chk8.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(7)));
+                }
+                if (chk9.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(8)));
+                }
+                if (chk10.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(9)));
+                }
+                if (chk11.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(10)));
+                }
+                if (chk12.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(11)));
+                }
+                if (chk13.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(12)));
+                }
+                if (chk14.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(13)));
+                }
+                if (chk15.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(14)));
+                }
+                if (chk16.isSelected()) {
+                    seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(15)));
+                }
+                ConectorVista.pagina(Sesion.usuarioActivo, Integer.parseInt(lblPagina.getText()), Sesion.todosLosMarcadores);
             }
-            if (chk2.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(1)));
-            }
-            if (chk3.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(2)));
-            }
-            if (chk4.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(3)));
-            }
-            if (chk5.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(4)));
-            }
-            if (chk6.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(5)));
-            }
-            if (chk7.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(6)));
-            }
-            if (chk8.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(7)));
-            }
-            if (chk9.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(8)));
-            }
-            if (chk10.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(9)));
-            }
-            if (chk11.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(10)));
-            }
-            if (chk12.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(11)));
-            }
-            if (chk13.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(12)));
-            }
-            if (chk14.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(13)));
-            }
-            if (chk15.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(14)));
-            }
-            if (chk16.isSelected()) {
-                seleccionMarcadores.add(rg.consultarMarcador(marcadosParaMover.get(15)));
-            }
-            ConectorVista.pagina(Sesion.usuarioActivo, Integer.parseInt(lblPagina.getText()));
+            Sesion.marcadoresSeleccionados = seleccionMarcadores;
+            new VistaCarpetas().setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "No se seleccionó ningun elemento", "No hay elementos marcados", JOptionPane.ERROR_MESSAGE);
         }
-        Sesion.marcadoresSeleccionados = seleccionMarcadores;
-        new VistaCarpetas().setVisible(true);
     }//GEN-LAST:event_btnAgregarCarpeActionPerformed
 
     private void lblMasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMasMouseClicked
@@ -1075,7 +1093,7 @@ public class VistaUsuario extends javax.swing.JFrame {
         ConectorVista.activarVisualMas(pagActual, pagMas);
         ConectorVista.activarVisualMenos(pagActual);
 
-        ConectorVista.pagina(usr1, pagActual);
+        ConectorVista.pagina(usr1, pagActual, Sesion.todosLosMarcadores);
     }//GEN-LAST:event_lblMasMouseClicked
 
     private void lblMenosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMenosMouseClicked
@@ -1093,13 +1111,14 @@ public class VistaUsuario extends javax.swing.JFrame {
         ConectorVista.activarVisualMenos(pagActual);
         ConectorVista.activarVisualMas(pagActual, pagMas);
 
-        ConectorVista.pagina(usr1, pagActual);
+        ConectorVista.pagina(usr1, pagActual, Sesion.todosLosMarcadores);
     }//GEN-LAST:event_lblMenosMouseClicked
 
     private void lblPl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl1MouseClicked
         if (lblPl1.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(0)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(0)));
+                rg.actualizarFechaUso(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(0), Sesion.usuarioActivo);
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1111,7 +1130,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl2MouseClicked
         if (lblPl2.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(1)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(1)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1123,7 +1142,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl3MouseClicked
         if (lblPl3.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(2)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(2)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1135,7 +1154,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl4MouseClicked
         if (lblPl4.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(3)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(3)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1147,7 +1166,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl6MouseClicked
         if (lblPl6.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(4)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(4)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1159,7 +1178,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl7MouseClicked
         if (lblPl7.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(5)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(5)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1171,7 +1190,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl8MouseClicked
         if (lblPl8.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(6)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(6)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1183,7 +1202,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl9MouseClicked
         if (lblPl9.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(7)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(7)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1195,7 +1214,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl10MouseClicked
         if (lblPl10.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(8)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(8)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1207,7 +1226,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl11MouseClicked
         if (lblPl11.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(9)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(9)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1219,7 +1238,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl12MouseClicked
         if (lblPl12.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(10)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(10)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1231,7 +1250,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl13MouseClicked
         if (lblPl13.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(11)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(11)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1243,7 +1262,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl14MouseClicked
         if (lblPl14.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(12)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(12)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1255,7 +1274,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl15MouseClicked
         if (lblPl15.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(13)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(13)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1267,7 +1286,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl16MouseClicked
         if (lblPl16.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(14)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(14)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -1279,7 +1298,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     private void lblPl17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblPl17MouseClicked
         if (lblPl17.getText().isEmpty() == false) {
             try {
-                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText()).get(15)));
+                Desktop.getDesktop().browse(new URI(ConectorVista.traerLinkDePag(Sesion.usuarioActivo, lblPagina.getText(), Sesion.todosLosMarcadores).get(15)));
             } catch (URISyntaxException ex) {
                 Logger.getLogger(VistaUsuario.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {

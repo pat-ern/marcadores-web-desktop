@@ -19,13 +19,10 @@ import vistas.VistaUsuario;
  */
 public class ConectorVista {
 
-    public static void pagina(Usuario usr1, int pagina) {
+    public static void pagina(Usuario usr1, int pagina, List<Marcador> lista) {
         int i = 0;
         int dieciseis = 0;
-        Marcador marc = new Marcador();
-        Registro rg = new Registro();
-
-        List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(usr1);
+        
         for (Marcador tmp : lista) {
             i += 1;
             dieciseis += 1;
@@ -456,14 +453,12 @@ public class ConectorVista {
         }
     }
 
-    public static List<String> traerLinkDePag(Usuario usr1, String pagina) {
+    public static List<String> traerLinkDePag(Usuario usr1, String pagina, List<Marcador> lista) {
         int i = 0;
         int dieciseis = 0;
-        Marcador marc = new Marcador();
         Registro rg = new Registro();
         List<String> urlPag = new ArrayList<>();
 
-        List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(usr1);
         for (Marcador tmp : lista) {
             i += 1;
             dieciseis += 1;

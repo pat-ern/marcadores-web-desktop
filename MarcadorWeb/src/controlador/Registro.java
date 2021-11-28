@@ -332,7 +332,7 @@ public class Registro {
         return lista;
     }
 
-    public boolean validarMarcadorNoExiste(Marcador mrc) {
+    public boolean validarMarcadorNoExiste(Usuario usr, String url) {
 
         List<Marcador> lista = new ArrayList<>();
 
@@ -340,7 +340,7 @@ public class Registro {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador FROM marcador WHERE url = '" + mrc.getUrl() + "'";
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador, usuario, carpeta FROM marcador WHERE url = '"+url+"' AND usuario = '"+usr.getIdUsuario()+"'";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery(); //select
@@ -354,6 +354,8 @@ public class Registro {
                 marc.setFechaUltimoUso(rs.getDate("fechaUltimoUso"));
                 marc.setDescMarcador(rs.getString("descMarcador"));
                 marc.setColorMarcador(rs.getString("colorMarcador"));
+                marc.setUsuario(this.consultarUsuarioPorId(rs.getInt("usuario")));
+                marc.setCarpeta(this.consultarCarpeta(rs.getInt("carpeta")));
                 lista.add(marc);
             }
 
@@ -525,15 +527,14 @@ public class Registro {
         return lista;
     }
 
-    public boolean actualizarFechaUso(Marcador mrc) {
-
-        List<Marcador> lista = new ArrayList<>();
+    public boolean actualizarFechaUso(String url, Usuario usr) {
 
         try {
+                        
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "UPDATE marcador SET fechaUltimoUso = '" + new Date() + "'WHERE idMarcador = '" + mrc.getIdMarcador() + "'";
+            String query = "UPDATE marcador SET fechaUltimoUso = '" + new Date() + "'WHERE url = '" +url+ "' AND usuario = '"+usr.getIdUsuario()+"'";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             stmt.execute(); //update

@@ -296,7 +296,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
         correoIngresado = txtCorreo.getText().toLowerCase();
         var passIngresada = new String(jpPass.getPassword());
-
+        
         //Validaciones de los campos
         if (correoIngresado.length() == 0) {
             txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51)));//rojo
@@ -336,13 +336,16 @@ public class InicioSesion extends javax.swing.JFrame {
                     List<Marcador> lista = rg.listarTodosLosMarcPorUsuario(usr1);
                     Sesion.todosLosMarcadores = lista; // Guardo la lista de los marcadores creados anteriormente
                     
-                    ConectorVista.pagina(usr1, pagina);
+                    ConectorVista.pagina(usr1, pagina,Sesion.todosLosMarcadores);
                     
                     if (lista.size() > 16) {
                         VistaUsuario.lblMas.setForeground(Color.black);
                         VistaUsuario.lblMas.setCursor(new Cursor(Cursor.HAND_CURSOR));
                         }
                     dispose();
+                    
+//                            System.out.println(Sesion.todosLosMarcadores);
+//                    System.out.println(rg.listarTodosLosMarcPorUsuario(usr1));
                 } else {
                     lblAlerta.setText("Contraseña invalida");
                 }

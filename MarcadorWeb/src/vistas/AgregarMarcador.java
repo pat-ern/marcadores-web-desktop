@@ -8,11 +8,8 @@ package vistas;
 import controlador.ConectorVista;
 import controlador.Registro;
 import controlador.Sesion;
-import java.awt.Color;
 import java.util.Date;
-import java.util.List;
 import javax.swing.JOptionPane;
-import modelo.Carpeta;
 import modelo.Marcador;
 import modelo.Usuario;
 
@@ -259,9 +256,6 @@ public class AgregarMarcador extends javax.swing.JFrame {
         descripcion = txtDescripcion.getText();
         color = cboColor.getSelectedItem().toString();
 
-        //Correo del usuario
-        String correoDelUsuario = InicioSesion.txtCorreo.getText();
-
         //validar vacio
         if (nombreMarcador.length() == 0 || url.length() == 0) {
             lblAlerta.setText("Debe agregar al menos el campo nombre y URL");
@@ -281,7 +275,7 @@ public class AgregarMarcador extends javax.swing.JFrame {
             Usuario usr1 = Sesion.usuarioActivo;
             Marcador marc1 = new Marcador(nombreMarcador, url, new Date(), new Date(), descripcion, color, usr1);
             
-            if (rg.validarMarcadorNoExiste(marc1)) {
+            if (rg.validarMarcadorNoExiste(Sesion.usuarioActivo,url)) {
                 rg.agregarMarcador(marc1,0);
                 
                 //  Actualiza los marcadores en Sesion
@@ -293,78 +287,63 @@ public class AgregarMarcador extends javax.swing.JFrame {
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl2.getText().length() == 0) {
                     valor = 2;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl2.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl3.getText().length() == 0) {
                     valor = 3;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl3.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl4.getText().length() == 0) {
                     valor = 4;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl4.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl6.getText().length() == 0) {
                     valor = 5;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl6.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl7.getText().length() == 0) {
                     valor = 6;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl7.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl8.getText().length() == 0) {
                     valor = 7;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl8.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl9.getText().length() == 0) {
                     valor = 8;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl9.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl10.getText().length() == 0) {
                     valor = 9;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl10.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl11.getText().length() == 0) {
                     valor = 10;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl11.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl12.getText().length() == 0) {
                     valor = 11;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl12.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl13.getText().length() == 0) {
                     valor = 12;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl13.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl14.getText().length() == 0) {
                     valor = 13;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl14.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl15.getText().length() == 0) {
                     valor = 14;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl15.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl16.getText().length() == 0) {
                     valor = 15;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl16.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 } else if (VistaUsuario.lblPl17.getText().length() == 0) {
                     valor = 16;
-                    colorearPanel(valor);
-                    VistaUsuario.lblPl17.setText(nombreMarcador);
+                    ConectorVista.actualizarDatos(valor, color, nombreMarcador);
                     ConectorVista.handCursor();
                 }else{
                     ConectorVista.activarVisualMas(Integer.parseInt(VistaUsuario.lblPagina.getText()), 2);//activarVisualMas(int pagActual, int pagMas)
@@ -431,284 +410,5 @@ public class AgregarMarcador extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreMarcador;
     private javax.swing.JTextField txtUrl;
     // End of variables declaration//GEN-END:variables
-
-    void colorearPanel(int valor) {
-        switch (valor) {
-            case 1:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl1.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl1.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl1.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl1.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk1.setEnabled(true);
-                break;
-            case 2:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl2.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl2.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl2.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl2.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk2.setEnabled(true);
-                break;
-            case 3:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl3.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl3.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl3.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl3.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk3.setEnabled(true);
-                break;
-            case 4:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl4.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl4.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl4.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl4.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk4.setEnabled(true);
-                break;
-            case 5:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl5.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl5.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl5.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl5.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk5.setEnabled(true);
-                break;
-            case 6:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl6.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl6.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl6.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl6.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk6.setEnabled(true);
-                break;
-            case 7:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl7.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl7.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl7.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl7.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk7.setEnabled(true);
-                break;
-            case 8:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl8.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl8.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl8.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl8.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo
-                        break;
-                }
-                VistaUsuario.chk8.setEnabled(true);
-                break;
-            case 9:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl9.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl9.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl9.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl9.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk9.setEnabled(true);
-                break;
-            case 10:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl10.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl10.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl10.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl10.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk10.setEnabled(true);
-                break;
-            case 11:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl11.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl11.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl11.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl11.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk11.setEnabled(true);
-                break;
-            case 12:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl12.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl12.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl12.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl12.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk12.setEnabled(true);
-                break;
-            case 13:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl13.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl13.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl13.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl13.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk13.setEnabled(true);
-                break;
-            case 14:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl14.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl14.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl14.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl14.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk14.setEnabled(true);
-                break;
-            case 15:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl15.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl15.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl15.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl15.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk15.setEnabled(true);
-                break;
-            case 16:
-                switch (color) {
-                    case "Lila":
-                        VistaUsuario.pl16.setBackground(new Color(204, 204, 255));
-                        break;
-                    case "Rosa":
-                        VistaUsuario.pl16.setBackground(new Color(255, 153, 204));
-                        break;
-                    case "Verde":
-                        VistaUsuario.pl16.setBackground(new Color(204, 255, 204));
-                        break;
-                    default:
-                        VistaUsuario.pl16.setBackground(new Color(255, 255, 204)); //por defecto es Amarillo 
-                        break;
-                }
-                VistaUsuario.chk16.setEnabled(true);
-                break;
-            default:
-                System.out.println("Se terminó");
-        }
-    }
 
 }
