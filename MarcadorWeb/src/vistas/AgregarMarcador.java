@@ -285,12 +285,9 @@ public class AgregarMarcador extends javax.swing.JFrame {
             //Lo busco por el correo en la BD
             Usuario usr1 = rg.activarSesionUsuario(correoDelUsuario);
 
-            Carpeta car1 = new Carpeta(); //anadir
             
             Marcador marc1 = new Marcador(nombreMarcador, url, new Date(), new Date(), descripcion, color, usr1);
-            
-            if (rg.validarMarcadorExiste(marc1)) {
-                rg.agregarMarcador(marc1,0);
+            rg.agregarMarcador(marc1,0);
 
                 if (VistaUsuario.lblPl1.getText().length() == 0) {
                     valor = 1;
@@ -375,10 +372,6 @@ public class AgregarMarcador extends javax.swing.JFrame {
                 }else{
                     ConectorVista.activarVisualMas(Integer.parseInt(VistaUsuario.lblPagina.getText()), 2);//activarVisualMas(int pagActual, int pagMas)
                 }
-            } else {
-                JOptionPane.showMessageDialog(this, "El marcador ya se encuentra creado", "Marcador ya registrado", JOptionPane.ERROR_MESSAGE);
-            }
-
             dispose();
         }
 
