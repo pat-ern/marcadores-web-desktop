@@ -64,11 +64,11 @@ public class InicioSesion extends javax.swing.JFrame {
         lblRegistrate = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        mAcercaDe = new javax.swing.JMenu();
-        miAcercaDe = new javax.swing.JMenuItem();
         mOpcion = new javax.swing.JMenu();
         miCrearUsuario = new javax.swing.JMenuItem();
         miSalir = new javax.swing.JMenuItem();
+        mAcercaDe = new javax.swing.JMenu();
+        miAcercaDe = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inicio de sesion");
@@ -199,7 +199,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addComponent(lblCorreo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(lblPass)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jpPass, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -239,22 +239,10 @@ public class InicioSesion extends javax.swing.JFrame {
                 .addComponent(blbCredenciales)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        mAcercaDe.setText("Acerca de...");
-
-        miAcercaDe.setText("Acerca de la aplicacion");
-        miAcercaDe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miAcercaDeActionPerformed(evt);
-            }
-        });
-        mAcercaDe.add(miAcercaDe);
-
-        jMenuBar1.add(mAcercaDe);
-
-        mOpcion.setText("Opciones");
+        mOpcion.setText("Cuentas");
         mOpcion.setToolTipText("");
 
         miCrearUsuario.setText("Crear Nuevo Usuario");
@@ -276,6 +264,18 @@ public class InicioSesion extends javax.swing.JFrame {
 
         jMenuBar1.add(mOpcion);
 
+        mAcercaDe.setText("Acerca de...");
+
+        miAcercaDe.setText("Acerca de la aplicacion");
+        miAcercaDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAcercaDeActionPerformed(evt);
+            }
+        });
+        mAcercaDe.add(miAcercaDe);
+
+        jMenuBar1.add(mAcercaDe);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -286,7 +286,7 @@ public class InicioSesion extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
         );
 
         pack();
@@ -361,7 +361,7 @@ public class InicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_miCrearUsuarioActionPerformed
 
     private void miAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAcercaDeActionPerformed
-        JOptionPane.showMessageDialog(this, "Aquí podrás guardar y organizar los enlaces de las paginas que necesites. ", "Acerca de...", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "MarcadorWeb (2021) Noemi Merari - Patricio Villarroel. ", "Acerca de...", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_miAcercaDeActionPerformed
 
     private void miSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSalirActionPerformed
