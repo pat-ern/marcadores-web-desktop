@@ -927,7 +927,7 @@ public class VistaUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        System.exit(0);
+        dispose();
         new InicioSesion().setVisible(true);
     }//GEN-LAST:event_btnCerrarActionPerformed
 
@@ -1081,7 +1081,6 @@ public class VistaUsuario extends javax.swing.JFrame {
         limpiarPost();
 
         Usuario usr1 = Sesion.usuarioActivo;
-
         List<Marcador> lista = Sesion.todosLosMarcadores;
 
         pagMas = (lista.size() / 16) + 1; //  Calculo cuantas páginas tiene el usuario
