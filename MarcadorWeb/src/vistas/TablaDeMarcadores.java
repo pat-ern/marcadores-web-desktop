@@ -47,7 +47,6 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         lblUsuarioVista = new javax.swing.JLabel();
         lblImaUsua = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        btnVolver = new javax.swing.JButton();
         lblCar1 = new javax.swing.JLabel();
         lblCrearCarpeta2 = new javax.swing.JLabel();
         lblCrearCarpeta3 = new javax.swing.JLabel();
@@ -61,6 +60,7 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         cboOrdenar = new javax.swing.JComboBox<>();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tabla de marcadores");
@@ -103,28 +103,20 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
-        btnVolver.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnVolver.setForeground(new java.awt.Color(51, 0, 153));
-        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-return-32.png"))); // NOI18N
-        btnVolver.setText("Volver");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
-            }
-        });
-
         lblCar1.setBackground(new java.awt.Color(184, 151, 249));
-        lblCar1.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        lblCar1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblCar1.setForeground(new java.awt.Color(51, 0, 153));
         lblCar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-browse-folder-32.png"))); // NOI18N
         lblCar1.setText("CARPETAS");
         lblCar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblCar1.setPreferredSize(new java.awt.Dimension(142, 20));
 
         lblCrearCarpeta2.setBackground(new java.awt.Color(184, 151, 249));
-        lblCrearCarpeta2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCrearCarpeta2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblCrearCarpeta2.setForeground(new java.awt.Color(51, 0, 153));
         lblCrearCarpeta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCrearCarpeta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-sale-price-tag-32.png"))); // NOI18N
         lblCrearCarpeta2.setText("Compras");
         lblCrearCarpeta2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
         lblCrearCarpeta2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -135,8 +127,10 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         });
 
         lblCrearCarpeta3.setBackground(new java.awt.Color(184, 151, 249));
-        lblCrearCarpeta3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCrearCarpeta3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblCrearCarpeta3.setForeground(new java.awt.Color(51, 0, 153));
         lblCrearCarpeta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCrearCarpeta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-library-32.png"))); // NOI18N
         lblCrearCarpeta3.setText("Cultura");
         lblCrearCarpeta3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
         lblCrearCarpeta3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -147,9 +141,11 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         });
 
         lblCrearCarpeta4.setBackground(new java.awt.Color(184, 151, 249));
-        lblCrearCarpeta4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCrearCarpeta4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblCrearCarpeta4.setForeground(new java.awt.Color(51, 0, 153));
         lblCrearCarpeta4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCrearCarpeta4.setText(" Ocio");
+        lblCrearCarpeta4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-retro-tv-32.png"))); // NOI18N
+        lblCrearCarpeta4.setText("Ocio");
         lblCrearCarpeta4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
         lblCrearCarpeta4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblCrearCarpeta4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -159,8 +155,10 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         });
 
         lblCrearCarpeta5.setBackground(new java.awt.Color(184, 151, 249));
-        lblCrearCarpeta5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCrearCarpeta5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblCrearCarpeta5.setForeground(new java.awt.Color(51, 0, 153));
         lblCrearCarpeta5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCrearCarpeta5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-technical-support-32.png"))); // NOI18N
         lblCrearCarpeta5.setText("Social");
         lblCrearCarpeta5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
         lblCrearCarpeta5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -171,8 +169,10 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         });
 
         lblCrearCarpeta6.setBackground(new java.awt.Color(184, 151, 249));
-        lblCrearCarpeta6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCrearCarpeta6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblCrearCarpeta6.setForeground(new java.awt.Color(51, 0, 153));
         lblCrearCarpeta6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCrearCarpeta6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-student-male-32.png"))); // NOI18N
         lblCrearCarpeta6.setText("Estudio");
         lblCrearCarpeta6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
         lblCrearCarpeta6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -183,9 +183,11 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         });
 
         lblNoticias.setBackground(new java.awt.Color(184, 151, 249));
-        lblNoticias.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblNoticias.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblNoticias.setForeground(new java.awt.Color(51, 0, 153));
         lblNoticias.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNoticias.setText("Noticia");
+        lblNoticias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-news-32.png"))); // NOI18N
+        lblNoticias.setText("Noticias");
         lblNoticias.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(184, 151, 249)));
         lblNoticias.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblNoticias.setPreferredSize(new java.awt.Dimension(142, 20));
@@ -199,28 +201,23 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCrearCarpeta6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNoticias, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
                     .addComponent(lblCrearCarpeta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblCrearCarpeta3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCrearCarpeta4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCrearCarpeta6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblCrearCarpeta5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblNoticias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(lblCrearCarpeta4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(lblCar1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(77, Short.MAX_VALUE)
+                .addComponent(lblCar1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lblNoticias, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblCrearCarpeta6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,9 +229,7 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
                 .addComponent(lblCrearCarpeta5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblCrearCarpeta4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(44, 44, 44))
         );
 
         jtTabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -271,42 +266,58 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
         btnBuscar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(51, 0, 153));
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-search-more-32.png"))); // NOI18N
-        btnBuscar.setText("BUSCAR");
+        btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 153));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Mostrar:");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         cboOrdenar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cboOrdenar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Orden Alfabetico", "Ordenar por Color", "Por fecha ultimo uso", "Sin carpeta" }));
+
+        btnVolver.setBackground(new java.awt.Color(255, 255, 255));
+        btnVolver.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnVolver.setForeground(new java.awt.Color(51, 0, 153));
+        btnVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/icons8-return-32.png"))); // NOI18N
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cboOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cboOrdenar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -316,16 +327,16 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addContainerGap()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 45, Short.MAX_VALUE))
+                        .addGap(0, 20, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
+                                .addGap(25, 25, 25)
                                 .addComponent(jtLista))
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGap(18, 18, 18)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -335,7 +346,7 @@ public class TablaDeMarcadores extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jtLista, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtLista, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
