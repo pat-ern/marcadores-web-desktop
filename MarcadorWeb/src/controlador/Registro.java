@@ -304,7 +304,7 @@ public class Registro {
             ConexionBD conexion1 = new ConexionBD();
             Connection cnx = conexion1.obtenerConexion();
 
-            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador FROM marcador WHERE carpeta = 0 AND usuario = '" + usr.getIdUsuario() + "' order by idMarcador";
+            String query = "SELECT idMarcador, nombreMarcador, url, fechaCreacion, fechaUltimoUso, descMarcador, colorMarcador, usuario, carpeta FROM marcador WHERE carpeta = 0 AND usuario = '" + usr.getIdUsuario() + "' order by idMarcador";
             PreparedStatement stmt = cnx.prepareStatement(query);
 
             ResultSet rs = stmt.executeQuery(); //select
@@ -318,6 +318,8 @@ public class Registro {
                 marc.setFechaUltimoUso(rs.getDate("fechaUltimoUso"));
                 marc.setDescMarcador(rs.getString("descMarcador"));
                 marc.setColorMarcador(rs.getString("colorMarcador"));
+                marc.setUsuario(this.consultarUsuarioPorId(rs.getInt("usuario")));
+                marc.setCarpeta(this.consultarCarpeta(rs.getInt("carpeta")));
 
                 lista.add(marc);
             }

@@ -37,7 +37,7 @@ public class InicioSesion extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
 
         //PONER ICONO EN LA APLICACION ¿lo dejamos?
-        this.setIconImage(new ImageIcon(getClass().getResource("/imagen/postit.png")).getImage());
+        this.setIconImage(new ImageIcon(getClass().getResource("/imagen/iconoapp.jpg")).getImage());
 
     }
 
