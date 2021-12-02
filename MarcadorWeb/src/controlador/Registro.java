@@ -610,6 +610,30 @@ public class Registro {
             return false;
         }
     }
+    
+    public boolean editarMarcador(int id, String nombre, String desc, String color) {
+
+        try {
+            ConexionBD conexion1 = new ConexionBD();
+            Connection cnx = conexion1.obtenerConexion();
+
+            String query = "UPDATE marcador SET nombreMarcador = '" + nombre + "', descMarcador = '" + desc + "', colorMarcador = '" + color + "' WHERE idMarcador = '" + id + "'";
+            PreparedStatement stmt = cnx.prepareStatement(query);
+
+            stmt.execute(); //update
+            stmt.close();
+            cnx.close();
+
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println("Error SQL al editar marcador " + e.getMessage());
+            return false;
+        } catch (Exception e) {
+            System.out.println("Error al editar marcador " + e.getMessage());
+            return false;
+        }
+    }
 
     public List<Marcador> listarTodosLosMarcPorUsuario(Usuario usr) {
 

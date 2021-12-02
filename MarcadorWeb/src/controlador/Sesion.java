@@ -15,6 +15,7 @@ import modelo.Usuario;
  */
 public class Sesion {
      public static Usuario usuarioActivo;
+     public static Marcador marcadorSeleccionado;
      public static List<Marcador> marcadoresSeleccionados;
      public static List<Marcador> todosLosMarcadores;
 

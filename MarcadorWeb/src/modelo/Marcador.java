@@ -127,6 +127,8 @@ public class Marcador {
     public String toString() {
         return "Marcador{" + "idMarcador=" + idMarcador + ", nombreMarcador=" + nombreMarcador + ", url=" + url + ", fechaCreacion=" + fechaCreacion + ", fechaUltimoUso=" + fechaUltimoUso + ", descMarcador=" + descMarcador + ", colorMarcador=" + colorMarcador + ", usuario=" + usuario + ", carpeta=" + carpeta + '}';
     }
+
+    
     
     
 }

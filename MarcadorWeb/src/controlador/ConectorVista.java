@@ -12,6 +12,7 @@ import java.util.List;
 import modelo.Marcador;
 import modelo.Usuario;
 import vistas.VistaUsuario;
+import static vistas.VistaUsuario.lblPagina;
 
 /**
  *
@@ -36,42 +37,42 @@ public class ConectorVista {
             switch (pagina) {
                 case 1:
                     if (i <= 16) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                     }
                     break;
                 case 2:
                     if (i > 16 && i <= 32) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                     }
                     break;
                 case 3:
                     if (i > 32 && i <= 48) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                     }
                     break;
                 case 4:
                     if (i > 48 && i <= 64) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                     }
                     break;
                 case 5:
                     if (i > 64 && i <= 80) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                     }
                     break;
                 case 6:
                     if (i > 80 && i <= 96) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                     }
                     break;
                 case 7:
                     if (i > 96 && i <= 112) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                     }
                     break;
                 case 8:
                     if (i > 112 && i <= 128) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                     }
                     break;
                 default:
@@ -345,7 +346,7 @@ public class ConectorVista {
         }
     }
 
-    public static void actualizarDatos(int contador, String color, String nombreMarcador) {
+    public static void actualizarCuadros(int contador, String color, String nombreMarcador) {
         switch (contador) {
             case 1:
                 VistaUsuario.lblPl1.setText(nombreMarcador);
@@ -453,10 +454,9 @@ public class ConectorVista {
         }
     }
 
-    public static List<String> traerLinkDePag(Usuario usr1, String pagina, List<Marcador> lista) {
+    public static List<String> getUrlsPagina(Usuario usr1, String pagina, List<Marcador> lista) {
         int i = 0;
         int dieciseis = 0;
-        Registro rg = new Registro();
         List<String> urlPag = new ArrayList<>();
 
         for (Marcador tmp : lista) {
@@ -472,49 +472,49 @@ public class ConectorVista {
             switch (pagina) {
                 case "1":
                     if (i <= 16) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                         urlPag.add(tmp.getUrl());
                     }
                     break;
                 case "2":
                     if (i > 16 && i <= 32) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                         urlPag.add(tmp.getUrl());
                     }
                     break;
                 case "3":
                     if (i > 32 && i <= 48) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                         urlPag.add(tmp.getUrl());
                     }
                     break;
                 case "4":
                     if (i > 48 && i <= 64) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                         urlPag.add(tmp.getUrl());
                     }
                     break;
                 case "5":
                     if (i > 64 && i <= 80) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                         urlPag.add(tmp.getUrl());
                     }
                     break;
                 case "6":
                     if (i > 80 && i <= 96) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                         urlPag.add(tmp.getUrl());
                     }
                     break;
                 case "7":
                     if (i > 96 && i <= 112) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                         urlPag.add(tmp.getUrl());
                     }
                     break;
                 case "8":
                     if (i > 112 && i <= 128) {
-                        actualizarDatos(dieciseis, color, nombreMarcador);
+                        actualizarCuadros(dieciseis, color, nombreMarcador);
                         urlPag.add(tmp.getUrl());
                     }
                     break;
@@ -606,6 +606,15 @@ public class ConectorVista {
         } else {
             VistaUsuario.lblPl17.setCursor(new Cursor(Cursor.HAND_CURSOR));
         }
+    }
+    
+    public static void actualizarMarcSesion(){
+        Registro rg = new Registro();
+        Sesion.todosLosMarcadores = rg.listarTodosLosMarcPorUsuario(Sesion.usuarioActivo);
+    }
+    
+    public static void actualizarVistaUsuario() {
+        ConectorVista.pagina(Sesion.usuarioActivo, Integer.parseInt(lblPagina.getText()), Sesion.todosLosMarcadores);
     }
 
 }
