@@ -18,7 +18,7 @@ public class ConexionBD {
         Connection cnx = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/marcadorweb", "root", "root");
+            cnx = DriverManager.getConnection("jdbc:mysql://localhost:3306/marcadorweb", "root", "admin");
             System.out.println("Conexión exitosa");
         } catch (SQLException e) {
             System.out.println("Error de conexión" + e.getMessage());
